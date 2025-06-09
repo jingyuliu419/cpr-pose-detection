@@ -1,0 +1,6 @@
+/home/ljy/project/poseDetection/build/CMakeFiles/uninstall.dir
+/home/ljy/project/poseDetection/build/CMakeFiles/multi_camera_ros_sync_uninstall.dir
+/home/ljy/project/poseDetection/build/CMakeFiles/multi_cam_node.dir
+/home/ljy/project/poseDetection/build/CMakeFiles/test.dir
+/home/ljy/project/poseDetection/build/CMakeFiles/edit_cache.dir
+/home/ljy/project/poseDetection/build/CMakeFiles/rebuild_cache.dir
