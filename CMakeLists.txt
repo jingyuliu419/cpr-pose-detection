@@ -10,6 +10,16 @@ add_compile_options(-Wno-deprecated-declarations)
 set(OpenCV_DIR "/usr/local/lib/cmake/opencv4")
 find_package(OpenCV REQUIRED)
 
+# Add required OpenCV CUDA modules manually (关键)
+set(OpenCV_LIB_COMPONENTS
+    ${OpenCV_LIBS}
+    opencv_core
+    opencv_highgui
+    opencv_imgproc
+    opencv_cudaimgproc
+    opencv_cudawarping
+)
+
 # --- CUDA ---
 find_package(CUDA REQUIRED)
 
@@ -57,7 +67,7 @@ add_executable(multi_cam_node
 # --- Link Libraries ---
 target_link_libraries(multi_cam_node
   rclcpp::rclcpp
-  ${OpenCV_LIBS}
+  ${OpenCV_LIB_COMPONENTS}
   ${CUDA_LIBRARIES}
   ${TENSORRT_LIBS}
   PkgConfig::FFMPEG

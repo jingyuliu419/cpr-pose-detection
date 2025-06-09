@@ -42,7 +42,7 @@ void TimeSyncNode::loop() {
     while (running_) {
         rclcpp::Time now = node_->now();
         std::cout << "ROS2 Time: " << now.seconds() << "s\n";
-        std::this_thread::sleep_for(std::chrono::seconds(5));
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 }
 
