@@ -1,0 +1,3061 @@
+GNU gdb (Ubuntu 10.2-0ubuntu1~20.04~1) 10.2
+Copyright (C) 2021 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./multi_cam_node...
+(No debugging symbols found in ./multi_cam_node)
+(gdb) r
+Starting program: /home/ljy/project/poseDetection/build/multi_cam_node 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7fffaae41000 (LWP 223723)]
+[New Thread 0x7fffa99c3000 (LWP 223724)]
+[DEBUG] Loading classes from: /home/ljy/project/poseDetection/config/clean_classes.yaml
+[DEBUG] Loading keypoints from: /home/ljy/project/poseDetection/config/coco_keypoints.yaml
+[New Thread 0x7fffa8f21000 (LWP 223728)]
+[New Thread 0x7fff9cffe000 (LWP 223729)]
+[New Thread 0x7fff95fff000 (LWP 223730)]
+Output dims: 17 x 64 x 48
+[New Thread 0x7fffa3fff000 (LWP 223743)]
+[New Thread 0x7fff94fd2000 (LWP 223744)]
+[New Thread 0x7fff6ffd2000 (LWP 223745)]
+[New Thread 0x7fff6f7d1000 (LWP 223746)]
+[New Thread 0x7fff6efd0000 (LWP 223747)]
+[New Thread 0x7fff33db4000 (LWP 223748)]
+[New Thread 0x7fff335b3000 (LWP 223749)]
+[New Thread 0x7fff32db2000 (LWP 223750)]
+[New Thread 0x7fff325b1000 (LWP 223751)]
+[New Thread 0x7fff31db0000 (LWP 223752)]
+[New Thread 0x7fff315af000 (LWP 223753)]
+[New Thread 0x7fff30dae000 (LWP 223754)]
+[New Thread 0x7fff1bfff000 (LWP 223755)]
+[New Thread 0x7fff177fe000 (LWP 223776)]
+[New Thread 0x7fff16ffd000 (LWP 223777)]
+[New Thread 0x7fff167fc000 (LWP 223778)]
+[New Thread 0x7fff15ffb000 (LWP 223779)]
+[New Thread 0x7fff157fa000 (LWP 223780)]
+[New Thread 0x7fff14ff9000 (LWP 223781)]
+[New Thread 0x7ffef3fff000 (LWP 223782)]
+[New Thread 0x7ffef37fe000 (LWP 223783)]
+[New Thread 0x7ffef2ffd000 (LWP 223784)]
+[New Thread 0x7ffef27fc000 (LWP 223785)]
+[New Thread 0x7ffef1ffb000 (LWP 223786)]
+[New Thread 0x7ffef17fa000 (LWP 223787)]
+[New Thread 0x7ffef0ff9000 (LWP 223788)]
+[New Thread 0x7ffed3fff000 (LWP 223789)]
+[New Thread 0x7ffed37fe000 (LWP 223790)]
+[New Thread 0x7ffed2ffd000 (LWP 223791)]
+[New Thread 0x7ffed27fc000 (LWP 223792)]
+[New Thread 0x7ffed1ffb000 (LWP 223793)]
+[New Thread 0x7ffed17fa000 (LWP 223794)]
+[New Thread 0x7ffed0ff9000 (LWP 223795)]
+[New Thread 0x7ffeabfff000 (LWP 223796)]
+[New Thread 0x7ffeab7fe000 (LWP 223797)]
+[New Thread 0x7ffea3fff000 (LWP 223798)]
+[New Thread 0x7ffeaaffd000 (LWP 223799)]
+[New Thread 0x7ffeaa7fc000 (LWP 223800)]
+[New Thread 0x7ffea9ffb000 (LWP 223801)]
+[New Thread 0x7ffea97fa000 (LWP 223802)]
+[New Thread 0x7ffea8ff9000 (LWP 223803)]
+[New Thread 0x7ffea37fe000 (LWP 223804)]
+[New Thread 0x7ffea2ffd000 (LWP 223805)]
+[New Thread 0x7ffea27fc000 (LWP 223806)]
+[New Thread 0x7ffea1ffb000 (LWP 223807)]
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 955x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 953x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 952x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 950x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 948x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 946x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 946x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 946x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x807
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x807
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x808
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x808
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x808
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x807
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x808
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x807
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 936x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 946x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 947x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 949x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 950x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 949x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 947x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 964x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 964x816
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 967x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 939x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 939x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 946x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 945x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 943x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 940x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 940x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 939x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 939x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 939x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 940x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 936x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 936x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 941x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x797
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 944x798
+[DEBUG] keypoints detected: 4
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 941x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 940x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 942x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 936x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 937x800
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 940x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 236x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 885x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 943x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 235x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 885x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 235x223
+[DEBUG] Processed frame with ROI size: 943x799
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 886x716
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 943x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 237x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 893x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 948x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 236x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 889x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 946x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 236x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 891x716
+[DEBUG] Processed frame with ROI size: 946x800
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 234x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 891x717
+[DEBUG] Processed frame with ROI size: 943x800
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 234x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 890x716
+[DEBUG] Processed frame with ROI size: 945x799
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 233x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 888x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 945x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 233x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 881x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 942x800
+[DEBUG] Processed frame with ROI size: 230x227
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 885x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 945x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 888x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 943x798
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 230x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 889x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 942x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 235x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 889x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 234x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 891x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 941x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 231x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 895x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 948x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 896x717
+[DEBUG] Processed frame with ROI size: 937x800
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 899x717
+[DEBUG] Processed frame with ROI size: 935x803
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 896x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 933x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 901x718
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 931x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 901x718
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 932x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 227x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 900x718
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 932x799
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 222x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 904x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 932x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 223x220
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 902x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 931x800
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 223x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 902x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 931x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 222x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 896x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 928x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 223x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 895x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 927x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 898x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 929x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 890x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 228x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 932x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 231x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 893x718
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 930x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 230x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 894x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 931x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x227
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 881x717
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 933x802
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 225x227
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 898x718
+[DEBUG] Processed frame with ROI size: 933x804
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 232x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 899x718
+[DEBUG] Processed frame with ROI size: 930x805
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 234x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 891x714
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 900x715
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 224x227
+[DEBUG] Processed frame with ROI size: 931x805
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 227x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 900x715
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 226x228
+[DEBUG] Processed frame with ROI size: 932x806
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 894x715
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 929x805
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 900x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 45x434
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 900x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 88x3
+[DEBUG] Processed frame with ROI size: 172x3
+[DEBUG] Processed frame with ROI size: 90x496
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x238
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 108x695
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 107x520
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 212x799
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 102x502
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 107x775
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x517
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 560x361
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 88x591
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 116x503
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 360x508
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 135x813
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 2x69
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 49x50
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 108x519
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 934x8
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x10
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 971x7
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x8
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x11
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 7x10
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 3x136
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x7
+[DEBUG] Processed frame with ROI size: 21x100
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 108x506
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 133x560
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 5x509
+[DEBUG] Processed frame with ROI size: 106x541
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 432x846
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 180x43
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 41x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 70x124
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 432x524
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 145x272
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 416x509
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 4x174
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 6x142
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x11
+[DEBUG] Processed frame with ROI size: 83x33
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 104x482
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 432x3
+[DEBUG] Processed frame with ROI size: 106x10
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x493
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x527
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 250x634
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x540
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 107x500
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 432x506
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x692
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 431x639
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 108x504
+[DEBUG] Processed frame with ROI size: 239x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x505
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 885x716
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 110x508
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 432x517
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 148x506
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 106x550
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 102x502
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x470
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 108x507
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 83x505
+[DEBUG] Processed frame with ROI size: 229x227
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 221x385
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 893x717
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 889x2
+[DEBUG] Processed frame with ROI size: 223x374
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 222x389
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 648x391
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 892x399
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 596x392
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 516x390
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 1x562
+[DEBUG] Processed frame with ROI size: 892x392
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x393
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x396
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x408
+[DEBUG] Processed frame with ROI size: 218x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x395
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 902x717
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x396
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 223x397
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 223x400
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 198x437
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 23x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 631x17
+[DEBUG] Processed frame with ROI size: 167x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 675x67
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 202x113
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 582x547
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 508x869
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 242x89
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 154x114
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 166x115
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 766x489
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 854x421
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 851x379
+[DEBUG] Processed frame with ROI size: 907x716
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 94x310
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 216x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 125x169
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 162x3
+[DEBUG] Processed frame with ROI size: 206x53
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 429x248
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 428x134
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 256x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 224x56
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 99x136
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 198x9
+[DEBUG] Processed frame with ROI size: 178x81
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 334x95
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 377x26
+[DEBUG] Processed frame with ROI size: 297x10
+[DEBUG] Processed frame with ROI size: 904x959
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 270x5
+[DEBUG] Processed frame with ROI size: 87x341
+[DEBUG] Processed frame with ROI size: 908x716
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 259x129
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 216x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 358x14
+[DEBUG] Processed frame with ROI size: 174x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 288x175
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 117x54
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 256x175
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 178x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 1251x210
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 212x909
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 412x87
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 116x112
+[DEBUG] Processed frame with ROI size: 903x715
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 241x132
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 211x222
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 146x252
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 216x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 431x566
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 339x15
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 769x463
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 331x321
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 934x8
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x10
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 971x7
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x8
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x11
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 7x10
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 432x508
+[DEBUG] Processed frame with ROI size: 902x715
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x7
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 7x9
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 330x460
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 212x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 462x690
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 28x493
+[DEBUG] Processed frame with ROI size: 7x11
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 135x844
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 97x555
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 43x505
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 930x804
+[DEBUG] Processed frame with ROI size: 896x715
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 214x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 927x804
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 903x715
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 213x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 926x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 903x715
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 212x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 900x715
+[DEBUG] Processed frame with ROI size: 926x802
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 209x221
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 925x801
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 899x715
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 212x221
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 923x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 899x714
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 206x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 927x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 895x715
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x220
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 921x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 899x714
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 208x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 919x803
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 903x715
+[DEBUG] Processed frame with ROI size: 916x804
+[DEBUG] keypoints detected: 5
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 902x716
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 209x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 909x807
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 252x187
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 897x715
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 210x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 916x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 896x714
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 213x224
+[DEBUG] Processed frame with ROI size: 907x807
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 895x714
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 214x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 893x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 213x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 896x714
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 211x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 214x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 898x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 210x220
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 895x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 213x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 892x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 216x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 892x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 216x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 893x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 212x224
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 886x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 212x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 892x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 211x226
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 894x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 211x223
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 891x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 210x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 893x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 211x222
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 892x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 208x223
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 890x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 208x223
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 886x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 206x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 887x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 206x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 890x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x219
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 884x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 885x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 886x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 882x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 882x711
+[DEBUG] keypoints detected: 5
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 883x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 203x221
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 881x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 205x222
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 886x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x222
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 883x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 205x222
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 207x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 878x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 878x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 207x224
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 208x218
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 874x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 874x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 209x224
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 208x219
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 875x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 875x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 208x223
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 880x714
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 210x221
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 888x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 211x217
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 884x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 212x222
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 879x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 213x223
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 219x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 870x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 872x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 215x220
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 871x711
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 215x218
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 865x710
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 215x217
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 874x710
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 210x220
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 867x710
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 214x221
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 869x710
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 214x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 861x709
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 213x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 862x709
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 213x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 868x709
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 211x221
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 872x708
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 213x222
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 878x709
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 212x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 880x710
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 877x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 214x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 879x708
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 214x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 877x708
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 220x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 874x708
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 225x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 877x709
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 223x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 884x710
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 223x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 881x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 222x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 872x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 225x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 877x710
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 227x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 880x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 227x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 873x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 229x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 879x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 222x232
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 871x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 223x232
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 866x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 220x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 868x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 219x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 856x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 222x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 856x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 279x236
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 863x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 220x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 856x712
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 220x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 229x234
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 869x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 217x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 871x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 228x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 868x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 876x713
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 208x208
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 238x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 869x724
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 236x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 872x724
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 234x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 868x725
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 237x231
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 866x724
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 217x207
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 860x722
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 240x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 860x723
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 244x236
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 734x719
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 245x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 853x722
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 245x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 859x721
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 247x236
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 845x720
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 245x236
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 838x721
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 248x237
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 724x718
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 252x238
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 722x717
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 252x237
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 722x722
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 247x222
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 726x719
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 253x237
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 730x717
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 251x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 731x715
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 251x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 713x714
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 252x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 722x715
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 251x239
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 727x715
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 269x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 713x714
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 270x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 708x715
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 286x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 706x712
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 349x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 713x698
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 275x233
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 718x701
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 719x704
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 279x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 364x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 721x709
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 286x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 722x709
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 278x235
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 717x707
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 279x234
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 727x704
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 282x236
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 733x706
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 272x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 714x705
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 269x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 732x703
+[DEBUG] keypoints detected: 3
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 261x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 729x702
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 257x235
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 733x701
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 259x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 716x697
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 713x690
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 257x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 711x692
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 258x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 712x697
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 254x234
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 709x700
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 250x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 712x697
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 254x232
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 713x697
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 258x232
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 713x695
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 257x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 262x232
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 720x694
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 225x213
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 723x694
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 245x231
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 725x704
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 246x232
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 723x703
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 239x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 726x693
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 236x232
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 729x688
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 234x233
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 730x687
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 221x213
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 733x693
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 742x697
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 240x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 235x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 745x693
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 228x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 748x695
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 233x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 738x697
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 220x207
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 729x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 225x204
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 738x693
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 244x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 754x692
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 259x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 753x680
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 238x226
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 759x683
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 215x385
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 243x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 786x685
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 251x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 734x678
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 211x218
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 742x671
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 187x214
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 746x670
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 377x224
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 760x678
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 429x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 774x681
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 469x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 794x682
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 310x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 778x681
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 476x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 767x681
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 1271x687
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1258x682
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1274x684
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1274x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 192x144
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 1260x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 846x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 800x673
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 832x675
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 822x674
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 777x675
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 781x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 764x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 785x674
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 777x669
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 778x672
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 801x681
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 819x687
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 822x688
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 812x687
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 805x688
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 776x685
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 765x684
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 753x682
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 749x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 749x684
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 734x684
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 734x684
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 739x685
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 741x684
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 741x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 735x682
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 728x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 719x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x171
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 722x676
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 232x169
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 719x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 714x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 216x165
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 713x678
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 718x683
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 738x689
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 727x692
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 715x693
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 734x687
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 733x692
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 723x703
+[DEBUG] keypoints detected: 4
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 975x702
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 963x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 938x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 910x707
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 904x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 883x710
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 897x710
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 911x708
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 886x712
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 829x720
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 903x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 755x715
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 973x719
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 995x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 983x706
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 991x697
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1021x692
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1048x695
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1065x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1076x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1087x685
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1090x681
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 801x682
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 1097x678
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1092x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1092x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1081x674
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1057x673
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1069x674
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1081x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 783x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 790x675
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1058x675
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1049x675
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1058x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1063x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1067x676
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1062x678
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1061x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1062x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1064x678
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1064x678
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1065x679
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1066x680
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1061x680
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1062x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1058x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1054x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1050x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1051x683
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1045x685
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1046x686
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1044x687
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1044x687
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1047x688
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1046x686
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1044x689
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1036x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1036x689
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1041x688
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1035x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1031x687
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 1050x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1047x687
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1044x690
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1050x691
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1058x699
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1066x700
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1071x697
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1065x697
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 851x698
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x706
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 873x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1077x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 886x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 871x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x708
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 868x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 880x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 871x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 855x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 853x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 859x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 859x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 850x707
+[DEBUG] keypoints detected: 4
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 856x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 866x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 861x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x708
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x707
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 868x706
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 855x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 861x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x706
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x704
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 873x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 892x705
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 889x705
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 866x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 853x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 892x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 895x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 903x702
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 899x702
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 907x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 911x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 918x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 898x703
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 903x702
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 900x702
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 917x704
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 932x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 928x705
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 919x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 908x702
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 915x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 902x703
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 907x703
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 903x704
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 903x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 907x703
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 933x706
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 894x704
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 899x706
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 919x706
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 894x704
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 878x703
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 852x702
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 870x700
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 192x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 857x701
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 846x702
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 868x700
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 219x194
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 836x701
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 851x702
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 214x204
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 888x710
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 211x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 950x716
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 897x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 209x241
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 909x711
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 209x241
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 940x713
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 955x721
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 1023x719
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 1002x722
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 987x732
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 985x731
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 974x730
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 943x729
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 216x229
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 227x228
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 957x730
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 288x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 897x732
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 340x223
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 897x733
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 347x221
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 888x737
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 366x209
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 830x744
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 228x193
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 814x743
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 869x747
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 222x183
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 770x751
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 223x181
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 775x758
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 209x171
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 192x167
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 779x760
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 778x765
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 191x169
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 192x172
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 776x776
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 190x171
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 779x774
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 795x774
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 177x163
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 175x161
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 797x779
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 806x778
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 173x158
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 173x155
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 802x779
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 793x780
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 172x150
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 793x784
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 166x154
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 805x782
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 162x152
+[DEBUG] keypoints detected: 0
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 166x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 795x783
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 794x779
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 165x150
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 798x778
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 165x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 794x777
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 162x150
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 802x776
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 162x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 802x774
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 164x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 798x774
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 164x150
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 800x773
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 166x151
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 798x774
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 163x154
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 805x774
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 163x154
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 162x153
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 877x779
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 875x780
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 161x152
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 902x780
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 158x151
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 887x779
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 159x151
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 805x778
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 158x150
+[DEBUG] Processed frame with ROI size: 33x38
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 36x46
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 33x107
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 165x117
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 125x175
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 102x87
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 118x186
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 104x84
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 452x85
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 115x202
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 102x79
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 122x180
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 36x35
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 199x266
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 199x204
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 466x180
+[DEBUG] Processed frame with ROI size: 881x781
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 794x400
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 157x148
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 169x266
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 483x349
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 440x83
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 248x77
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 614x360
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 384x192
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 157x103
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 266x142
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 267x104
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 166x102
+[DEBUG] keypoints detected: 9
+[DEBUG] Processed frame with ROI size: 258x58
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 258x58
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 219x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 202x129
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 213x258
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 217x256
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 199x225
+[DEBUG] Processed frame with ROI size: 905x783
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 197x227
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 155x150
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 222x336
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 238x381
+[DEBUG] Processed frame with ROI size: 33x38
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 204x304
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 36x46
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 33x107
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 165x117
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 172x126
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 125x175
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 218x101
+[DEBUG] keypoints detected: 5
+[DEBUG] Processed frame with ROI size: 102x87
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 118x186
+[DEBUG] Processed frame with ROI size: 156x148
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 210x95
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 217x30
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 216x115
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 216x31
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 33x121
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 104x84
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 452x85
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 200x247
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 901x782
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 115x202
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 245x574
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 102x79
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 201x199
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 122x180
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 136x771
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 36x35
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 227x560
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 199x266
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 199x204
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 466x180
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 33x118
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 794x400
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 31x122
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 19x124
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 141x173
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 133x766
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 169x266
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 233x218
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 483x349
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 167x195
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 440x83
+[DEBUG] Processed frame with ROI size: 155x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 110x15
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 175x37
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 887x786
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 248x77
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 180x41
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 240x124
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 167x181
+[DEBUG] keypoints detected: 3
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 614x360
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 326x118
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 384x192
+[DEBUG] keypoints detected: 1
+[DEBUG] Processed frame with ROI size: 75x42
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 157x103
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 130x61
+[DEBUG] keypoints detected: 7
+[DEBUG] Processed frame with ROI size: 396x640
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 266x142
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 267x104
+[DEBUG] Processed frame with ROI size: 823x786
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 166x102
+[DEBUG] keypoints detected: 9
+[DEBUG] Processed frame with ROI size: 258x58
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 258x58
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 219x230
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 202x129
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 213x258
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 217x256
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 153x150
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 199x225
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 197x227
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 222x336
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 238x381
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 899x808
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 204x304
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 172x126
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 218x101
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 210x95
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 217x30
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 216x115
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 216x31
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 33x121
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 200x247
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 245x574
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 201x199
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 136x771
+[DEBUG] Processed frame with ROI size: 154x149
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 227x560
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 885x786
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 33x118
+[DEBUG] Processed frame with ROI size: 897x810
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 31x122
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 19x124
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 141x173
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 133x766
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 233x218
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 167x195
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 110x15
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 175x37
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 180x41
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 240x124
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 167x181
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 326x118
+[DEBUG] Processed frame with ROI size: 911x787
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 75x42
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 151x147
+[DEBUG] Processed frame with ROI size: 886x806
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 130x61
+[DEBUG] keypoints detected: 7
+[DEBUG] Processed frame with ROI size: 396x640
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 877x806
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 900x788
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 149x147
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 880x807
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 902x789
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 149x147
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 875x810
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 917x788
+[DEBUG] Processed frame with ROI size: 884x811
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 149x145
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 890x814
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 145x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 912x788
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 887x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 145x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 907x788
+[DEBUG] Processed frame with ROI size: 875x821
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 871x822
+[DEBUG] Processed frame with ROI size: 145x145
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 920x789
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 862x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 143x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 917x790
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x812
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 145x147
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 890x790
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x813
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 870x813
+[DEBUG] Processed frame with ROI size: 145x145
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 892x791
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 144x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 890x790
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 871x812
+[DEBUG] Processed frame with ROI size: 144x144
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 891x790
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 868x809
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 895x791
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 143x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 868x814
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 894x791
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 144x146
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 870x813
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x812
+[DEBUG] Processed frame with ROI size: 909x790
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 142x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 871x813
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 909x790
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 142x145
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 874x808
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 919x790
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 140x145
+[DEBUG] Processed frame with ROI size: 874x813
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 877x816
+[DEBUG] Processed frame with ROI size: 934x788
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 143x144
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 878x814
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 877x817
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 933x789
+[DEBUG] Processed frame with ROI size: 875x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 141x144
+[DEBUG] keypoints detected: 4
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 876x816
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 871x816
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 925x788
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 143x144
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 871x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 926x790
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 141x145
+[DEBUG] Processed frame with ROI size: 871x820
+[DEBUG] keypoints detected: 0
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 49x60
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 47x31
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 24x44
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 288x105
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 32x81
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 432x832
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 56x39
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 116x187
+[DEBUG] keypoints detected: 3
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 28x49
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 208x240
+[DEBUG] keypoints detected: 2
+[DEBUG] Processed frame with ROI size: 52x61
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 29x79
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 54x61
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 59x139
+[DEBUG] keypoints detected: 7
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 36x57
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 333x310
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 53x64
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 52x70
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 871x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 904x59
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 660x163
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 1098x795
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 163x1022
+[DEBUG] keypoints detected: 0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 0x0
+[DEBUG] Processed frame with ROI size: 872x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x817
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 866x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x822
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 866x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 866x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x821
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x818
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 869x814
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 870x814
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 868x815
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 866x816
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x817
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x818
+[DEBUG] keypoints detected: 4
+ROS2 Time: 1.74931e+09s
+[DEBUG] Processed frame with ROI size: 866x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x821
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 865x822
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 863x823
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 867x823
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 864x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 862x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 862x819
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 862x822
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 861x821
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 859x820
+[DEBUG] keypoints detected: 4
+[DEBUG] Processed frame with ROI size: 861x820
+[DEBUG] keypoints detected: 4
+
+Thread 1 "multi_cam_node" received signal SIGINT, Interrupt.
+0x00007fffd2c2123f in __GI___clock_nanosleep (
+    clock_id=clock_id@entry=0, flags=flags@entry=0, 
+    req=0x7fffffffce20, rem=0x7fffffffce20)
+    at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:78
+(gdb) info thread
+  Id   Target Id                                           Frame 
+* 1    Thread 0x7fffad386000 (LWP 223702) "multi_cam_node" 0x00007fffd2c2123f in __GI___clock_nanosleep (
+    clock_id=clock_id@entry=0, flags=flags@entry=0, 
+    req=0x7fffffffce20, rem=0x7fffffffce20)
+    at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:78
+  2    Thread 0x7fffaae41000 (LWP 223723) "multi_cam_node" 0x00007fffd2c2123f in __GI___clock_nanosleep (
+    clock_id=clock_id@entry=0, flags=flags@entry=0, 
+    req=0x7fffaae337c0, rem=0x7fffaae337d0)
+    at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:78
+  3    Thread 0x7fffa99c3000 (LWP 223724) "multi_cam_node" futex_abstimed_wait_cancelable (private=0, abstime=0x0, 
+    clockid=0, expected=0, 
+    futex_word=0x7ffff7fc60c0 <rclcpp::SignalHandler::signal_handler_sem_>) at ../sysdeps/nptl/futex-internal.h:320
+  4    Thread 0x7fffa8f21000 (LWP 223728) "cuda-EvtHandlr" 0x00007fffd2c56bbf in __GI___poll (fds=0x555555fa8150, nfds=2, 
+    timeout=-1) at ../sysdeps/unix/sysv/linux/poll.c:29
+  5    Thread 0x7fff9cffe000 (LWP 223729) "cuda-EvtHandlr" 0x00007fffd2c56bbf in __GI___poll (fds=0x7fff90000c10, nfds=10, 
+    timeout=100) at ../sysdeps/unix/sysv/linux/poll.c:29
+  6    Thread 0x7fff95fff000 (LWP 223730) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x5555561a3380)
+    at ../sysdeps/nptl/futex-internal.h:183
+  7    Thread 0x7fffa3fff000 (LWP 223743) "multi_cam_node" __strcmp_avx2 () at ../sysdeps/x86_64/multiarch/strcmp-avx2.S:118
+  8    Thread 0x7fff94fd2000 (LWP 223744) "multi_cam_node" 0x00007fffd67cdc4d in cv::FillConvexPoly(cv::Mat&, cv::Point_<long> const*, int, void const*, int, int) ()
+   from /usr/local/lib/libopencv_imgproc.so.4.5
+  9    Thread 0x7fff6ffd2000 (LWP 223745) "multi_cam_node" 0x00007fffd2c56bbf in __GI___poll (fds=0x7fff6ffbc990, nfds=1, 
+    timeout=100) at ../sysdeps/unix/sysv/linux/poll.c:29
+  10   Thread 0x7fff6f7d1000 (LWP 223746) "multi_cam_node" futex_abstimed_wait_cancelable (private=<optimized out>, 
+    abstime=0x7fff6f7c37c0, clockid=<optimized out>, 
+    expected=0, futex_word=0x55555b2ee2c0)
+    at ../sysdeps/nptl/futex-internal.h:320
+  11   Thread 0x7fff6efd0000 (LWP 223747) "multi_cam_node" futex_abstimed_wait_cancelable (private=<optimized out>, 
+    abstime=0x7fff6efc27c0, clockid=<optimized out>, 
+    expected=0, futex_word=0x55555b2ea918)
+    at ../sysdeps/nptl/futex-internal.h:320
+  12   Thread 0x7fff33db4000 (LWP 223748) "multi_cam_node" __libc_recvmsg (flags=0, msg=0x7fff33da6310, fd=42)
+    at ../sysdeps/unix/sysv/linux/recvmsg.c:28
+  13   Thread 0x7fff335b3000 (LWP 223749) "multi_cam_node" __libc_recvmsg (flags=0, msg=0x7fff335a5310, fd=43)
+    at ../sysdeps/unix/sysv/linux/recvmsg.c:28
+  14   Thread 0x7fff32db2000 (LWP 223750) "multi_cam_node" 0x00007fffda40d678 in futex_abstimed_wait_cancelable (
+    private=128, abstime=0x7fff32da4030, clockid=0, 
+    expected=0, futex_word=0x7fffa9d84110)
+    at ../sysdeps/nptl/futex-internal.h:320
+  15   Thread 0x7fff325b1000 (LWP 223751) "multi_cam_node" __libc_recvmsg (flags=0, msg=0x7fff325a3310, fd=45)
+    at ../sysdeps/unix/sysv/linux/recvmsg.c:28
+  16   Thread 0x7fff31db0000 (LWP 223752) "multi_cam_node" 0x00007fffda40d678 in futex_abstimed_wait_cancelable (
+    private=128, abstime=0x7fff31da2030, clockid=0, 
+    expected=0, futex_word=0x7fffa9d77110)
+    at ../sysdeps/nptl/futex-internal.h:320
+  17   Thread 0x7fff315af000 (LWP 223753) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x55555b2eaae4)
+    at ../sysdeps/nptl/futex-internal.h:183
+  18   Thread 0x7fff30dae000 (LWP 223754) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff20000ba8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  19   Thread 0x7fff1bfff000 (LWP 223755) "multi_cam_node" 0x00007fffd2c2123f in __GI___clock_nanosleep (
+    clock_id=clock_id@entry=0, flags=flags@entry=0, 
+    req=0x7fff1bff17c0, rem=0x7fff1bff17c0)
+    at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:78
+  20   Thread 0x7fff177fe000 (LWP 223776) "threaded-ml"    0x00007fffd2c56bbf in __GI___poll (fds=0x7fff10007170, nfds=3, 
+    timeout=-1) at ../sysdeps/unix/sysv/linux/poll.c:29
+  21   Thread 0x7fff16ffd000 (LWP 223777) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff2401fcac)
+    at ../sysdeps/nptl/futex-internal.h:183
+  22   Thread 0x7fff167fc000 (LWP 223778) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff240206e8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  23   Thread 0x7fff15ffb000 (LWP 223779) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff2401f26c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  24   Thread 0x7fff157fa000 (LWP 223780) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff2401f7a8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  25   Thread 0x7fff14ff9000 (LWP 223781) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff240201ec)
+    at ../sysdeps/nptl/futex-internal.h:183
+  26   Thread 0x7ffef3fff000 (LWP 223782) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24020c28)
+    at ../sysdeps/nptl/futex-internal.h:183
+  27   Thread 0x7ffef37fe000 (LWP 223783) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff240159a8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  28   Thread 0x7ffef2ffd000 (LWP 223784) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff2403fb6c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  29   Thread 0x7ffef27fc000 (LWP 223785) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248aed9c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  30   Thread 0x7ffef1ffb000 (LWP 223786) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248af0fc)
+    at ../sysdeps/nptl/futex-internal.h:183
+  31   Thread 0x7ffef17fa000 (LWP 223787) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248af45c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  32   Thread 0x7ffef0ff9000 (LWP 223788) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248af7b8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  33   Thread 0x7ffed3fff000 (LWP 223789) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248afb18)
+    at ../sysdeps/nptl/futex-internal.h:183
+  34   Thread 0x7ffed37fe000 (LWP 223790) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248afe78)
+    at ../sysdeps/nptl/futex-internal.h:183
+  35   Thread 0x7ffed2ffd000 (LWP 223791) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff248b01dc)
+    at ../sysdeps/nptl/futex-internal.h:183
+  36   Thread 0x7ffed27fc000 (LWP 223792) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff240406f8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  37   Thread 0x7ffed1ffb000 (LWP 223793) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e44868)
+    at ../sysdeps/nptl/futex-internal.h:183
+  38   Thread 0x7ffed17fa000 (LWP 223794) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e44bcc)
+    at ../sysdeps/nptl/futex-internal.h:183
+  39   Thread 0x7ffed0ff9000 (LWP 223795) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e44f2c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  40   Thread 0x7ffeabfff000 (LWP 223796) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e45288)
+    at ../sysdeps/nptl/futex-internal.h:183
+  41   Thread 0x7ffeab7fe000 (LWP 223797) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e455ec)
+    at ../sysdeps/nptl/futex-internal.h:183
+  42   Thread 0x7ffea3fff000 (LWP 223798) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e4594c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  43   Thread 0x7ffeaaffd000 (LWP 223799) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e45cac)
+    at ../sysdeps/nptl/futex-internal.h:183
+  44   Thread 0x7ffeaa7fc000 (LWP 223800) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e4600c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  45   Thread 0x7ffea9ffb000 (LWP 223801) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e46368)
+    at ../sysdeps/nptl/futex-internal.h:183
+  46   Thread 0x7ffea97fa000 (LWP 223802) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e466e8)
+    at ../sysdeps/nptl/futex-internal.h:183
+  47   Thread 0x7ffea8ff9000 (LWP 223803) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e46a68)
+    at ../sysdeps/nptl/futex-internal.h:183
+  48   Thread 0x7ffea37fe000 (LWP 223804) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e46dec)
+    at ../sysdeps/nptl/futex-internal.h:183
+  49   Thread 0x7ffea2ffd000 (LWP 223805) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e4716c)
+    at ../sysdeps/nptl/futex-internal.h:183
+  50   Thread 0x7ffea27fc000 (LWP 223806) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e474ec)
+    at ../sysdeps/nptl/futex-internal.h:183
+  51   Thread 0x7ffea1ffb000 (LWP 223807) "multi_cam_node" futex_wait_cancelable (private=<optimized out>, expected=0, 
+    futex_word=0x7fff24e4786c)
+    at ../sysdeps/nptl/futex-internal.h:183
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 223702] will be killed.
+
+Quit anyway? (y or n) y
