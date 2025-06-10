@@ -128,19 +128,19 @@ CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/camera_calibrator.cpp -o CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.s
 
-CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
-CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o: /home/ljy/project/poseDetection/src/yolov5_trt_demo.cpp
-CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o -c /home/ljy/project/poseDetection/src/yolov5_trt_demo.cpp
+CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
+CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/poseDetection/src/yolov5_trt_detector.cpp
+CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o -c /home/ljy/project/poseDetection/src/yolov5_trt_detector.cpp
 
-CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/yolov5_trt_demo.cpp > CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.i
+CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/yolov5_trt_detector.cpp > CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.i
 
-CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/yolov5_trt_demo.cpp -o CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.s
+CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/yolov5_trt_detector.cpp -o CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.s
 
 CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
 CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: /home/ljy/project/poseDetection/src/litehrnet_pose_trt.cpp
@@ -184,16 +184,31 @@ CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/config_loader.cpp -o CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.s
 
+CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
+CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: /home/ljy/project/poseDetection/src/ui_display_thread.cpp
+CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o -c /home/ljy/project/poseDetection/src/ui_display_thread.cpp
+
+CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/ui_display_thread.cpp > CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.i
+
+CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/ui_display_thread.cpp -o CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.s
+
 # Object files for target multi_cam_node
 multi_cam_node_OBJECTS = \
 "CMakeFiles/multi_cam_node.dir/src/main.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o" \
-"CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o" \
+"CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o" \
-"CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o"
+"CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o" \
+"CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o"
 
 # External object files for target multi_cam_node
 multi_cam_node_EXTERNAL_OBJECTS =
@@ -202,11 +217,13 @@ multi_cam_node: CMakeFiles/multi_cam_node.dir/src/main.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o
-multi_cam_node: CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o
+multi_cam_node: CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o
+multi_cam_node: CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/build.make
+multi_cam_node: libnv12_cuda.a
 multi_cam_node: /opt/ros/foxy/lib/librclcpp.so
 multi_cam_node: /usr/local/lib/libopencv_gapi.so.4.6.0
 multi_cam_node: /usr/local/lib/libopencv_stitching.so.4.6.0
@@ -334,7 +351,7 @@ multi_cam_node: /usr/lib/x86_64-linux-gnu/libavcodec.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libavutil.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libswscale.so
 multi_cam_node: CMakeFiles/multi_cam_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable multi_cam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable multi_cam_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multi_cam_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

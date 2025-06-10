@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnv12_cuda.a CMakeFiles/nv12_cuda.dir/src/nv12_cuda_generated_nv12_cuda.cu.o
+/usr/bin/ranlib libnv12_cuda.a

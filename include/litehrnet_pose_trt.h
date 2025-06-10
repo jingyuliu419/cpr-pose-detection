@@ -1,9 +1,15 @@
+/*****************************************************
+ * File: litehrnet_pose_trt.h
+ *****************************************************/
 #pragma once
-#include <vector>
-#include <string>
-#include <memory>
 #include <NvInfer.h>
+#include <cuda_fp16.h>
+#include <cuda_runtime.h>
 #include <opencv2/opencv.hpp>
+
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace pose {
 
@@ -14,34 +20,45 @@ struct Keypoint {
 
 class LiteHRNetTRT {
 public:
-    LiteHRNetTRT(const std::string& engine_file);
-    ~LiteHRNetTRT();
+    explicit LiteHRNetTRT(const std::string& engine_file);
+    ~LiteHRNetTRT();                                       // 仅销毁 engine/runtime
 
-    void infer(const cv::Mat& image, std::vector<Keypoint>& keypoints);
-    int input_width() const { return input_w_; }
+    /*—— 每路相机调用一次 ——*/
+    struct Context {
+        nvinfer1::IExecutionContext* ctx{nullptr};
+        cudaStream_t stream{nullptr};
+        void* input_buf{nullptr};
+        void* output_buf{nullptr};
+        std::vector<__half> output;                        // Host 侧缓存
+    };
+    std::shared_ptr<Context> createContext();              // 线程安全
+
+    /*—— 推理 ——*/
+    void infer(const cv::Mat& img, std::vector<Keypoint>& kps,
+               Context& ctx);
+
+    int input_width()  const { return input_w_; }
     int input_height() const { return input_h_; }
 
 private:
-    void preprocess(const cv::Mat& image, void* gpu_input); // <-- 修改为 void*
-    void postprocess(void* output_ptr, std::vector<Keypoint>& keypoints, const cv::Size& roi_size);
+    /* helper */
+    void preprocess(const cv::Mat& img, void* gpu_input,
+                    cudaStream_t stream) const;
+    void postprocess(void* output_ptr, std::vector<Keypoint>& kps,
+                     const cv::Size& roi_size) const;
 
+    /* shared between contexts */
+    nvinfer1::IRuntime*      runtime_{nullptr};
+    nvinfer1::ICudaEngine*   engine_{nullptr};
 
-    nvinfer1::IRuntime* runtime_{nullptr};
-    nvinfer1::ICudaEngine* engine_{nullptr};
-    nvinfer1::IExecutionContext* context_{nullptr};
-
-    void* buffers_[2]{nullptr, nullptr};
-    int input_index_{};
-    int output_index_{};
-
+    /* dims / index */
     int input_w_{};
     int input_h_{};
     int output_c_{};
     int output_h_{};
     int output_w_{};
-
-    cudaStream_t stream_{};
-    std::vector<float> output_;
+    int input_index_{};
+    int output_index_{};
 };
 
 } // namespace pose

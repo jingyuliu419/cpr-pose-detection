@@ -63,10 +63,12 @@ CMAKE_BINARY_DIR = /home/ljy/project/poseDetection/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/nv12_cuda.dir/all
 all: CMakeFiles/multi_cam_node.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
+codegen: CMakeFiles/nv12_cuda.dir/codegen
 codegen: CMakeFiles/multi_cam_node.dir/codegen
 .PHONY : codegen
 
@@ -77,6 +79,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/multi_camera_ros_sync_uninstall.dir/clean
+clean: CMakeFiles/nv12_cuda.dir/clean
 clean: CMakeFiles/multi_cam_node.dir/clean
 .PHONY : clean
 
@@ -143,18 +146,49 @@ CMakeFiles/multi_camera_ros_sync_uninstall.dir/clean:
 .PHONY : CMakeFiles/multi_camera_ros_sync_uninstall.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/nv12_cuda.dir
+
+# All Build rule for target.
+CMakeFiles/nv12_cuda.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=11,12 "Built target nv12_cuda"
+.PHONY : CMakeFiles/nv12_cuda.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/nv12_cuda.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/nv12_cuda.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 0
+.PHONY : CMakeFiles/nv12_cuda.dir/rule
+
+# Convenience name for target.
+nv12_cuda: CMakeFiles/nv12_cuda.dir/rule
+.PHONY : nv12_cuda
+
+# codegen rule for target.
+CMakeFiles/nv12_cuda.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/codegen
+.PHONY : CMakeFiles/nv12_cuda.dir/codegen
+
+# clean rule for target.
+CMakeFiles/nv12_cuda.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/clean
+.PHONY : CMakeFiles/nv12_cuda.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/multi_cam_node.dir
 
 # All Build rule for target.
-CMakeFiles/multi_cam_node.dir/all:
+CMakeFiles/multi_cam_node.dir/all: CMakeFiles/nv12_cuda.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target multi_cam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target multi_cam_node"
 .PHONY : CMakeFiles/multi_cam_node.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/multi_cam_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/multi_cam_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 0
 .PHONY : CMakeFiles/multi_cam_node.dir/rule

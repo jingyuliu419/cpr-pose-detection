@@ -10,7 +10,7 @@ add_compile_options(-Wno-deprecated-declarations)
 set(OpenCV_DIR "/usr/local/lib/cmake/opencv4")
 find_package(OpenCV REQUIRED)
 
-# Add required OpenCV CUDA modules manually (关键)
+# OpenCV CUDA modules
 set(OpenCV_LIB_COMPONENTS
     ${OpenCV_LIBS}
     opencv_core
@@ -27,22 +27,21 @@ find_package(CUDA REQUIRED)
 set(TENSORRT_ROOT "/usr/include/tensorrt")
 include_directories(${TENSORRT_ROOT})
 link_directories(/usr/lib/x86_64-linux-gnu)
-
 set(TENSORRT_LIBS
     nvinfer
     nvonnxparser
     cudart
 )
 
-# --- ROS2, FFmpeg, X11 ---
+# --- FFmpeg + ROS2 ---
 find_package(rclcpp REQUIRED)
 find_package(X11 REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(FFMPEG REQUIRED IMPORTED_TARGET
-  libavformat
-  libavcodec
-  libavutil
-  libswscale
+    libavformat
+    libavcodec
+    libavutil
+    libswscale
 )
 
 # --- Include Directories ---
@@ -52,20 +51,25 @@ include_directories(
   ${OpenCV_INCLUDE_DIRS}
 )
 
-# --- Source Files ---
+# --- CUDA Kernels ---
+cuda_add_library(nv12_cuda STATIC src/nv12_cuda.cu)
+
+# --- Executable Sources ---
 add_executable(multi_cam_node
   src/main.cpp
   src/video_stream.cpp
   src/ros2_time_sync.cpp
   src/camera_calibrator.cpp
-  src/yolov5_trt_demo.cpp
+  src/yolov5_trt_detector.cpp
   src/litehrnet_pose_trt.cpp
   src/trt_logger.cpp
   src/config_loader.cpp
+  src/ui_display_thread.cpp
 )
 
 # --- Link Libraries ---
 target_link_libraries(multi_cam_node
+  nv12_cuda
   rclcpp::rclcpp
   ${OpenCV_LIB_COMPONENTS}
   ${CUDA_LIBRARIES}

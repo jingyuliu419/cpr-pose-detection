@@ -153,6 +153,19 @@ multi_camera_ros_sync_uninstall/fast:
 .PHONY : multi_camera_ros_sync_uninstall/fast
 
 #=============================================================================
+# Target rules for targets named nv12_cuda
+
+# Build rule for target.
+nv12_cuda: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 nv12_cuda
+.PHONY : nv12_cuda
+
+# fast build rule for target.
+nv12_cuda/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/build
+.PHONY : nv12_cuda/fast
+
+#=============================================================================
 # Target rules for targets named multi_cam_node
 
 # Build rule for target.
@@ -309,6 +322,30 @@ src/trt_logger.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.s
 .PHONY : src/trt_logger.cpp.s
 
+src/ui_display_thread.o: src/ui_display_thread.cpp.o
+.PHONY : src/ui_display_thread.o
+
+# target to build an object file
+src/ui_display_thread.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o
+.PHONY : src/ui_display_thread.cpp.o
+
+src/ui_display_thread.i: src/ui_display_thread.cpp.i
+.PHONY : src/ui_display_thread.i
+
+# target to preprocess a source file
+src/ui_display_thread.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.i
+.PHONY : src/ui_display_thread.cpp.i
+
+src/ui_display_thread.s: src/ui_display_thread.cpp.s
+.PHONY : src/ui_display_thread.s
+
+# target to generate assembly for a file
+src/ui_display_thread.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.s
+.PHONY : src/ui_display_thread.cpp.s
+
 src/video_stream.o: src/video_stream.cpp.o
 .PHONY : src/video_stream.o
 
@@ -333,29 +370,29 @@ src/video_stream.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.s
 .PHONY : src/video_stream.cpp.s
 
-src/yolov5_trt_demo.o: src/yolov5_trt_demo.cpp.o
-.PHONY : src/yolov5_trt_demo.o
+src/yolov5_trt_detector.o: src/yolov5_trt_detector.cpp.o
+.PHONY : src/yolov5_trt_detector.o
 
 # target to build an object file
-src/yolov5_trt_demo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.o
-.PHONY : src/yolov5_trt_demo.cpp.o
+src/yolov5_trt_detector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o
+.PHONY : src/yolov5_trt_detector.cpp.o
 
-src/yolov5_trt_demo.i: src/yolov5_trt_demo.cpp.i
-.PHONY : src/yolov5_trt_demo.i
+src/yolov5_trt_detector.i: src/yolov5_trt_detector.cpp.i
+.PHONY : src/yolov5_trt_detector.i
 
 # target to preprocess a source file
-src/yolov5_trt_demo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.i
-.PHONY : src/yolov5_trt_demo.cpp.i
+src/yolov5_trt_detector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.i
+.PHONY : src/yolov5_trt_detector.cpp.i
 
-src/yolov5_trt_demo.s: src/yolov5_trt_demo.cpp.s
-.PHONY : src/yolov5_trt_demo.s
+src/yolov5_trt_detector.s: src/yolov5_trt_detector.cpp.s
+.PHONY : src/yolov5_trt_detector.s
 
 # target to generate assembly for a file
-src/yolov5_trt_demo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/yolov5_trt_demo.cpp.s
-.PHONY : src/yolov5_trt_demo.cpp.s
+src/yolov5_trt_detector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.s
+.PHONY : src/yolov5_trt_detector.cpp.s
 
 # Help Target
 help:
@@ -369,6 +406,7 @@ help:
 	@echo "... multi_camera_ros_sync_uninstall"
 	@echo "... uninstall"
 	@echo "... multi_cam_node"
+	@echo "... nv12_cuda"
 	@echo "... src/camera_calibrator.o"
 	@echo "... src/camera_calibrator.i"
 	@echo "... src/camera_calibrator.s"
@@ -387,12 +425,15 @@ help:
 	@echo "... src/trt_logger.o"
 	@echo "... src/trt_logger.i"
 	@echo "... src/trt_logger.s"
+	@echo "... src/ui_display_thread.o"
+	@echo "... src/ui_display_thread.i"
+	@echo "... src/ui_display_thread.s"
 	@echo "... src/video_stream.o"
 	@echo "... src/video_stream.i"
 	@echo "... src/video_stream.s"
-	@echo "... src/yolov5_trt_demo.o"
-	@echo "... src/yolov5_trt_demo.i"
-	@echo "... src/yolov5_trt_demo.s"
+	@echo "... src/yolov5_trt_detector.o"
+	@echo "... src/yolov5_trt_detector.i"
+	@echo "... src/yolov5_trt_detector.s"
 .PHONY : help
 
 

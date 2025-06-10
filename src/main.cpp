@@ -3,11 +3,13 @@
 #undef Status
 
 #include "video_stream.h"
+#include "ui_display_thread.h" 
 #include "ros2_time_sync.h"
 #include "config_loader.h"
-#include "yolov5_trt_demo.h"
+#include "yolov5_trt_detector.h"
 #include "litehrnet_pose_trt.h"
-
+#include <opencv2/core.hpp>
+#include <opencv2/opencv.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <chrono>
 #include <thread>
@@ -30,30 +32,30 @@ int main(int argc, char** argv) {
         "/home/ljy/project/poseDetection/models/litehrnet18/litehrnet18.engine"
     );
     auto ros_node = std::make_shared<rclcpp::Node>("video_node");
-    video::VideoStream cam1("rtsp://admin:123456@192.168.31.160:554/Streaming/Channels/101", "Cam 1",
-                            "/home/ljy/project/poseDetection/config/camera_gp150-160.yaml",
-                            detector, pose_estimator, config.getSkeleton(),ros_node);
 
-    video::VideoStream cam2("rtsp://admin:123456@192.168.31.161:554/Streaming/Channels/101", "Cam 2",
-                            "/home/ljy/project/poseDetection/config/camera_gp150-161.yaml",
-                            detector, pose_estimator, config.getSkeleton(),ros_node);
+    std::vector<std::shared_ptr<video::VideoStream>> video_streams;
+    video_streams.emplace_back(std::make_shared<video::VideoStream>("rtsp://admin:123456@192.168.31.160:554/Streaming/Channels/101", "Cam 1",
+        "/home/ljy/project/poseDetection/config/camera_gp150-160.yaml", detector, pose_estimator, config.getSkeleton(), ros_node));
+    video_streams.emplace_back(std::make_shared<video::VideoStream>("rtsp://admin:123456@192.168.31.161:554/Streaming/Channels/101", "Cam 2",
+        "/home/ljy/project/poseDetection/config/camera_gp150-161.yaml", detector, pose_estimator, config.getSkeleton(), ros_node));
+    video_streams.emplace_back(std::make_shared<video::VideoStream>("rtsp://admin:123456@192.168.31.162:554/Streaming/Channels/101", "Cam 3",
+        "/home/ljy/project/poseDetection/config/camera_gp150-162.yaml", detector, pose_estimator, config.getSkeleton(), ros_node));
 
-    video::VideoStream cam3("rtsp://admin:123456@192.168.31.162:554/Streaming/Channels/101", "Cam 3",
-                            "/home/ljy/project/poseDetection/config/camera_gp150-162.yaml",
-                            detector, pose_estimator, config.getSkeleton(),ros_node);
+    // 启动所有流
+    for (auto& stream : video_streams) stream->start();
 
-    cam1.start();
-    cam2.start();
-    cam3.start();
+    // 启动集中式 UI 渲染线程
+    std::thread ui_thread(UiThreadFunc, video_streams);
 
+    // 启动时间同步
     sync::TimeSyncNode sync;
     sync.start();
 
+    // 主线程等待
     while (rclcpp::ok()) std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    cam1.stop();
-    cam2.stop();
-    cam3.stop();
+    // 停止所有流
+    for (auto& stream : video_streams) stream->stop();
     sync.stop();
     rclcpp::shutdown();
     return 0;
