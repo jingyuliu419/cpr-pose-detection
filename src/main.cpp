@@ -1,7 +1,7 @@
 #define Status XStatus
 #include <X11/Xlib.h>
 #undef Status
-
+//用宏重定义避免命名冲突
 #include "video_stream.h"
 #include "ui_display_thread.h" 
 #include "ros2_time_sync.h"
@@ -16,9 +16,9 @@
 #include <memory>
 
 int main(int argc, char** argv) {
-    XInitThreads();
+    XInitThreads();//初始化 X11 多线程支持，保证图形界面线程安全
     cv::startWindowThread(); 
-    rclcpp::init(argc, argv);
+    rclcpp::init(argc, argv);//初始化 ROS2 客户端库
 
     config::PoseConfig config(
         "/home/ljy/project/poseDetection/config/clean_classes.yaml",
@@ -45,7 +45,9 @@ int main(int argc, char** argv) {
     for (auto& stream : video_streams) stream->start();
 
     // 启动集中式 UI 渲染线程
-    std::thread ui_thread(UiThreadFunc, video_streams);
+    cv::Size frame_size(640, 480);  // 举个例子
+    std::thread ui_thread(ui::UiThreadFunc, std::ref(video_streams), frame_size);
+
 
     // 启动时间同步
     sync::TimeSyncNode sync;

@@ -2,7 +2,7 @@
 #include "nv12_cuda.cuh"          // 自定义 CUDA kernel
 #include <libswscale/swscale.h>
 #include <opencv2/cudaarithm.hpp>
-
+#include "ui_display_thread.h" 
 using namespace video;
 
 /* ---------- ctor / dtor ---------- */
@@ -181,66 +181,73 @@ void VideoStream::captureLoop() {
         avformat_network_deinit();
 }
 
-// LiteHRNet / COCO 的 17-keypoints 连线对
-static const std::vector<std::pair<int,int>> kEdges = {
-    {0,1},{1,2},{2,3},{3,4},        // 头 → 右臂
-    {0,5},{5,6},{6,7},              // 头 → 左臂
-    {0,8},{8,9},{9,10},             // 头 → 右腿
-    {0,11},{11,12},{12,13},         // 头 → 左腿
-    {8,11},                         // 髋部横连
-    {5,8}, {6,11}                   // 跨体两条辅助线（可选）
-};
 
-/* ---------- inference loop ---------- */
+// LiteHRNet / COCO 的 17-keypoints 连线对
+/* ---------- inference loop (优化版) ---------- */
 void VideoStream::inferenceLoop() {
+    /* coco17 常用骨架 (依需求可外移到 header) */
+    static constexpr std::array<std::pair<int,int>, 19> kEdges {{
+        {0,1},{0,2},{1,3},{2,4},{0,5},{0,6},{5,7},{7,9},
+        {6,8},{8,10},{5,6},{5,11},{6,12},{11,12},
+        {11,13},{13,15},{12,14},{14,16},{15,16}
+    }};
+
     while (running_) {
+        /* ① 取最新帧 ------------------------------------- */
         std::unique_lock<std::mutex> lk(cap_mutex_);
         cap_cv_.wait(lk, [this]{ return !capture_queue_.empty() || !running_; });
         if (!running_) break;
-        cv::Mat frame = capture_queue_.front(); capture_queue_.pop();
+        cv::Mat frame = std::move(capture_queue_.front());
+        capture_queue_.pop();
         lk.unlock();
 
-        auto undist = calibrator_->undistort(frame);
+        /* ② 畸变校正 + 检测 ------------------------------ */
+        cv::Mat undist = calibrator_->undistort(frame);
 
         std::vector<detectPerson::DetectResult> dets;
         detector_->detect(undist, dets, *detector_ctx_);
 
-        for (auto& d : dets) {
-            cv::Rect box = d.box & cv::Rect(0,0,undist.cols,undist.rows);
+        /* ③ 逐人姿态推理 ------------------------------ */
+        for (const auto& d : dets) {
+            if (d.classId != 0) continue;        // 只保留 person
+            cv::Rect box = d.box & cv::Rect(0, 0, undist.cols, undist.rows);
             if (box.empty()) continue;
 
-            cv::rectangle(undist, box, {0,255,0}, 2);       // 1️⃣ 画框
+            cv::rectangle(undist, box, {0,255,0}, 2);
 
-            cv::Mat roi = undist(box).clone();
+            cv::Mat roi = undist(box).clone();   // 推理用局部
             if (roi.empty()) continue;
 
             std::vector<pose::Keypoint> kps;
             pose_model_->infer(roi, kps, *pose_ctx_);
 
-            // 17 关键点坐标初始化为无效
-            std::vector<cv::Point2f> pts17(17, {-1,-1});    
+            /* 全局坐标关键点容器，-1 表示该点无效 */
+            std::array<cv::Point2f,17> pts{};
+            pts.fill({-1.f, -1.f});
 
-            for (auto& kp : kps) {
+            for (size_t i = 0; i < kps.size() && i < 17; ++i) {
+                const auto& kp = kps[i];
                 cv::Point2f pt = kp.pt + cv::Point2f(box.x, box.y);
-                cv::circle(undist, pt, 3, {0,0,255}, -1);   // 2️⃣ 画点
-                int idx = &kp - &kps[0];                    // kps 内部顺序 == id
-                if (idx < 17) pts17[idx] = pt;              // 保存全图坐标
+                cv::circle(undist, pt, 3, {0,0,255}, -1);
+                pts[i] = pt;
             }
 
-            // 3️⃣ 画骨架连线
-            for (auto&& e : kEdges) {
-                const cv::Point2f& p = pts17[e.first];
-                const cv::Point2f& q = pts17[e.second];
-                if (p.x>=0 && q.x>=0)
+            for (auto [u,v] : kEdges) {
+                const cv::Point2f& p = pts[u];
+                const cv::Point2f& q = pts[v];
+                if (p.x >= 0 && q.x >= 0)
                     cv::line(undist, p, q, {255,0,0}, 2);
             }
         }
 
-
+        /* ④ 将最新结果交给 UI -------------------------- */
         {
             std::lock_guard<std::mutex> g(disp_mutex_);
-            display_queue_.push(undist);
+            while (display_queue_.size() > 0)    // 仅保留 1 帧
+                display_queue_.pop();
+            display_queue_.push(std::move(undist));
         }
-        disp_cv_.notify_one();
+        ui::notifyUI();                          // 唤醒 UI 线程
     }
 }
+

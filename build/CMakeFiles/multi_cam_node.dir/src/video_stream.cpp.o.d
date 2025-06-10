@@ -739,4 +739,5 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /usr/include/x86_64-linux-gnu/libswscale/swscale.h \
  /usr/include/x86_64-linux-gnu/libswscale/version.h \
  /home/ljy/project/poseDetection/include/nv12_cuda.cuh \
- /usr/local/include/opencv4/opencv2/cudaarithm.hpp
+ /usr/local/include/opencv4/opencv2/cudaarithm.hpp \
+ /home/ljy/project/poseDetection/include/ui_display_thread.h
