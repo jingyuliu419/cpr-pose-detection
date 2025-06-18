@@ -226,30 +226,6 @@ src/config_loader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.s
 .PHONY : src/config_loader.cpp.s
 
-src/litehrnet_pose_trt.o: src/litehrnet_pose_trt.cpp.o
-.PHONY : src/litehrnet_pose_trt.o
-
-# target to build an object file
-src/litehrnet_pose_trt.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o
-.PHONY : src/litehrnet_pose_trt.cpp.o
-
-src/litehrnet_pose_trt.i: src/litehrnet_pose_trt.cpp.i
-.PHONY : src/litehrnet_pose_trt.i
-
-# target to preprocess a source file
-src/litehrnet_pose_trt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.i
-.PHONY : src/litehrnet_pose_trt.cpp.i
-
-src/litehrnet_pose_trt.s: src/litehrnet_pose_trt.cpp.s
-.PHONY : src/litehrnet_pose_trt.s
-
-# target to generate assembly for a file
-src/litehrnet_pose_trt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.s
-.PHONY : src/litehrnet_pose_trt.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -297,6 +273,30 @@ src/ros2_time_sync.s: src/ros2_time_sync.cpp.s
 src/ros2_time_sync.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.s
 .PHONY : src/ros2_time_sync.cpp.s
+
+src/rtmpose_trt.o: src/rtmpose_trt.cpp.o
+.PHONY : src/rtmpose_trt.o
+
+# target to build an object file
+src/rtmpose_trt.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o
+.PHONY : src/rtmpose_trt.cpp.o
+
+src/rtmpose_trt.i: src/rtmpose_trt.cpp.i
+.PHONY : src/rtmpose_trt.i
+
+# target to preprocess a source file
+src/rtmpose_trt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.i
+.PHONY : src/rtmpose_trt.cpp.i
+
+src/rtmpose_trt.s: src/rtmpose_trt.cpp.s
+.PHONY : src/rtmpose_trt.s
+
+# target to generate assembly for a file
+src/rtmpose_trt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.s
+.PHONY : src/rtmpose_trt.cpp.s
 
 src/trt_logger.o: src/trt_logger.cpp.o
 .PHONY : src/trt_logger.o
@@ -413,15 +413,15 @@ help:
 	@echo "... src/config_loader.o"
 	@echo "... src/config_loader.i"
 	@echo "... src/config_loader.s"
-	@echo "... src/litehrnet_pose_trt.o"
-	@echo "... src/litehrnet_pose_trt.i"
-	@echo "... src/litehrnet_pose_trt.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/ros2_time_sync.o"
 	@echo "... src/ros2_time_sync.i"
 	@echo "... src/ros2_time_sync.s"
+	@echo "... src/rtmpose_trt.o"
+	@echo "... src/rtmpose_trt.i"
+	@echo "... src/rtmpose_trt.s"
 	@echo "... src/trt_logger.o"
 	@echo "... src/trt_logger.i"
 	@echo "... src/trt_logger.s"

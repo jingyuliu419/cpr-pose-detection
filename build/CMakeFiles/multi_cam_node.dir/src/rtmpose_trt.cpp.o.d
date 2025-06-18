@@ -1,7 +1,7 @@
-CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: \
- /home/ljy/project/poseDetection/src/litehrnet_pose_trt.cpp \
+CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o: \
+ /home/ljy/project/poseDetection/src/rtmpose_trt.cpp \
  /usr/include/stdc-predef.h \
- /home/ljy/project/poseDetection/include/litehrnet_pose_trt.h \
+ /home/ljy/project/poseDetection/include/rtmpose_trt.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInfer.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInferLegacyDims.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInferRuntimeCommon.h \
@@ -46,25 +46,6 @@ CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: \
  /usr/local/cuda/include/cuda_device_runtime_api.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInferRuntime.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInferImpl.h \
- /usr/local/cuda/include/cuda_fp16.h \
- /usr/local/cuda/include/cuda_fp16.hpp /usr/include/c++/9/utility \
- /usr/include/c++/9/bits/stl_relops.h /usr/include/c++/9/bits/stl_pair.h \
- /usr/include/c++/9/bits/move.h /usr/include/c++/9/bits/concept_check.h \
- /usr/include/c++/9/type_traits /usr/include/c++/9/initializer_list \
- /usr/include/c++/9/cstring /usr/include/string.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h \
- /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
- /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
- /usr/local/cuda/include/cuda_runtime.h \
- /usr/local/cuda/include/crt/host_config.h \
- /usr/local/cuda/include/library_types.h \
- /usr/local/cuda/include/channel_descriptor.h \
- /usr/local/cuda/include/cuda_runtime_api.h \
- /usr/local/cuda/include/driver_functions.h \
- /usr/local/cuda/include/vector_functions.h \
- /usr/local/cuda/include/vector_functions.hpp \
  /usr/local/include/opencv4/opencv2/opencv.hpp \
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/local/include/opencv4/opencv2/core.hpp \
@@ -82,6 +63,8 @@ CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
@@ -107,8 +90,11 @@ CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /usr/include/c++/9/bits/std_abs.h /usr/include/c++/9/array \
- /usr/include/c++/9/stdexcept /usr/include/c++/9/exception \
- /usr/include/c++/9/bits/exception.h \
+ /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
+ /usr/include/c++/9/bits/stl_pair.h /usr/include/c++/9/bits/move.h \
+ /usr/include/c++/9/bits/concept_check.h /usr/include/c++/9/type_traits \
+ /usr/include/c++/9/initializer_list /usr/include/c++/9/stdexcept \
+ /usr/include/c++/9/exception /usr/include/c++/9/bits/exception.h \
  /usr/include/c++/9/bits/exception_ptr.h \
  /usr/include/c++/9/bits/exception_defines.h \
  /usr/include/c++/9/bits/cxxabi_init_exception.h \
@@ -205,6 +191,9 @@ CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
  /usr/include/c++/9/pstl/execution_defs.h \
  /usr/local/include/opencv4/opencv2/core/cvstd.hpp \
+ /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/c++/9/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -379,7 +368,7 @@ CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o: \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
  /home/ljy/project/poseDetection/include/trt_logger.h \
- /usr/include/c++/9/cassert /usr/include/c++/9/fstream \
+ /usr/include/c++/9/fstream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
  /usr/include/c++/9/bits/fstream.tcc

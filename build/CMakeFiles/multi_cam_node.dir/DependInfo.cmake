@@ -10,9 +10,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ljy/project/poseDetection/src/camera_calibrator.cpp" "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o.d"
   "/home/ljy/project/poseDetection/src/config_loader.cpp" "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o.d"
-  "/home/ljy/project/poseDetection/src/litehrnet_pose_trt.cpp" "CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/litehrnet_pose_trt.cpp.o.d"
   "/home/ljy/project/poseDetection/src/main.cpp" "CMakeFiles/multi_cam_node.dir/src/main.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/main.cpp.o.d"
   "/home/ljy/project/poseDetection/src/ros2_time_sync.cpp" "CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o.d"
+  "/home/ljy/project/poseDetection/src/rtmpose_trt.cpp" "CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o.d"
   "/home/ljy/project/poseDetection/src/trt_logger.cpp" "CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o.d"
   "/home/ljy/project/poseDetection/src/ui_display_thread.cpp" "CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o.d"
   "/home/ljy/project/poseDetection/src/video_stream.cpp" "CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o.d"

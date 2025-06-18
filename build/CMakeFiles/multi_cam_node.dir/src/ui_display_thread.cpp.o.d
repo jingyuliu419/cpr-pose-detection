@@ -701,6 +701,7 @@ CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: \
  /usr/local/cuda/include/vector_functions.hpp \
  /home/ljy/project/poseDetection/include/yolov5_trt_detector.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInferRuntime.h \
+ /home/ljy/project/poseDetection/include/rtmpose_trt.h \
  /usr/include/x86_64-linux-gnu/libavformat/avformat.h \
  /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h \
  /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
