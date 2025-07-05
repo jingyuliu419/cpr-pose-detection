@@ -202,6 +202,30 @@ src/camera_calibrator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.s
 .PHONY : src/camera_calibrator.cpp.s
 
+src/charuco_camera_manager.o: src/charuco_camera_manager.cpp.o
+.PHONY : src/charuco_camera_manager.o
+
+# target to build an object file
+src/charuco_camera_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o
+.PHONY : src/charuco_camera_manager.cpp.o
+
+src/charuco_camera_manager.i: src/charuco_camera_manager.cpp.i
+.PHONY : src/charuco_camera_manager.i
+
+# target to preprocess a source file
+src/charuco_camera_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.i
+.PHONY : src/charuco_camera_manager.cpp.i
+
+src/charuco_camera_manager.s: src/charuco_camera_manager.cpp.s
+.PHONY : src/charuco_camera_manager.s
+
+# target to generate assembly for a file
+src/charuco_camera_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.s
+.PHONY : src/charuco_camera_manager.cpp.s
+
 src/config_loader.o: src/config_loader.cpp.o
 .PHONY : src/config_loader.o
 
@@ -249,6 +273,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/multi_cam_calibrator.o: src/multi_cam_calibrator.cpp.o
+.PHONY : src/multi_cam_calibrator.o
+
+# target to build an object file
+src/multi_cam_calibrator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o
+.PHONY : src/multi_cam_calibrator.cpp.o
+
+src/multi_cam_calibrator.i: src/multi_cam_calibrator.cpp.i
+.PHONY : src/multi_cam_calibrator.i
+
+# target to preprocess a source file
+src/multi_cam_calibrator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.i
+.PHONY : src/multi_cam_calibrator.cpp.i
+
+src/multi_cam_calibrator.s: src/multi_cam_calibrator.cpp.s
+.PHONY : src/multi_cam_calibrator.s
+
+# target to generate assembly for a file
+src/multi_cam_calibrator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.s
+.PHONY : src/multi_cam_calibrator.cpp.s
 
 src/ros2_time_sync.o: src/ros2_time_sync.cpp.o
 .PHONY : src/ros2_time_sync.o
@@ -410,12 +458,18 @@ help:
 	@echo "... src/camera_calibrator.o"
 	@echo "... src/camera_calibrator.i"
 	@echo "... src/camera_calibrator.s"
+	@echo "... src/charuco_camera_manager.o"
+	@echo "... src/charuco_camera_manager.i"
+	@echo "... src/charuco_camera_manager.s"
 	@echo "... src/config_loader.o"
 	@echo "... src/config_loader.i"
 	@echo "... src/config_loader.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/multi_cam_calibrator.o"
+	@echo "... src/multi_cam_calibrator.i"
+	@echo "... src/multi_cam_calibrator.s"
 	@echo "... src/ros2_time_sync.o"
 	@echo "... src/ros2_time_sync.i"
 	@echo "... src/ros2_time_sync.s"

@@ -198,6 +198,34 @@ CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/rtmpose_trt.cpp -o CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.s
 
+CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
+CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o: /home/ljy/project/poseDetection/src/charuco_camera_manager.cpp
+CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o -c /home/ljy/project/poseDetection/src/charuco_camera_manager.cpp
+
+CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/charuco_camera_manager.cpp > CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.i
+
+CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/charuco_camera_manager.cpp -o CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.s
+
+CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
+CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o: /home/ljy/project/poseDetection/src/multi_cam_calibrator.cpp
+CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o -c /home/ljy/project/poseDetection/src/multi_cam_calibrator.cpp
+
+CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/multi_cam_calibrator.cpp > CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.i
+
+CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/multi_cam_calibrator.cpp -o CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.s
+
 # Object files for target multi_cam_node
 multi_cam_node_OBJECTS = \
 "CMakeFiles/multi_cam_node.dir/src/main.cpp.o" \
@@ -208,7 +236,9 @@ multi_cam_node_OBJECTS = \
 "CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o" \
-"CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o"
+"CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o" \
+"CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o" \
+"CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o"
 
 # External object files for target multi_cam_node
 multi_cam_node_EXTERNAL_OBJECTS =
@@ -222,6 +252,8 @@ multi_cam_node: CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o
+multi_cam_node: CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o
+multi_cam_node: CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/build.make
 multi_cam_node: libnv12_cuda.a
 multi_cam_node: /opt/ros/foxy/lib/librclcpp.so
@@ -351,7 +383,7 @@ multi_cam_node: /usr/lib/x86_64-linux-gnu/libavcodec.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libavutil.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libswscale.so
 multi_cam_node: CMakeFiles/multi_cam_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable multi_cam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable multi_cam_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multi_cam_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

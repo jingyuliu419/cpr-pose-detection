@@ -61,10 +61,12 @@ add_executable(multi_cam_node
   src/ros2_time_sync.cpp
   src/camera_calibrator.cpp
   src/yolov5_trt_detector.cpp
-  src/litehrnet_pose_trt.cpp
   src/trt_logger.cpp
   src/config_loader.cpp
   src/ui_display_thread.cpp
+  src/rtmpose_trt.cpp
+  src/charuco_camera_manager.cpp
+  src/multi_cam_calibrator.cpp
 )
 
 # --- Link Libraries ---

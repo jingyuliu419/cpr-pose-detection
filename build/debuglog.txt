@@ -1,0 +1,407 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7fffaa1ee000 (LWP 14834)]
+[New Thread 0x7fffa8d72000 (LWP 14844)]
+[New Thread 0x7fff9d06a000 (LWP 14848)]
+[New Thread 0x7fff9c869000 (LWP 14849)]
+[New Thread 0x7fff97d5e000 (LWP 14850)]
+=====================================================
+  Multi-Cam Pose / Depth Demo – 3 × RTSP + TensorRT  
+  OpenCV-4.6 | 单机 + Rig 外参                       
+=====================================================
+[RTMPose] Engine bindings:
+  [0] input (input)
+  [1] output (output)
+  [2] 506 (output)
+[RTMPose] simcc_x: 17 x 384, simcc_y: 17 x 512
+________________________
+K type: 6
+R type: 6
+T type: 6
+________________________
+K type: 6
+R type: 6
+T type: 6
+________________________
+K type: 6
+R type: 6
+T type: 6
+[New Thread 0x7fffa3fff000 (LWP 14851)]
+[New Thread 0x7fff5dfd2000 (LWP 14852)]
+[New Thread 0x7fff5d7d1000 (LWP 14853)]
+[New Thread 0x7fff5cfd0000 (LWP 14854)]
+[New Thread 0x7fff32b39000 (LWP 14855)]
+[New Thread 0x7fff32338000 (LWP 14856)]
+[New Thread 0x7fff31b37000 (LWP 14857)]
+[New Thread 0x7fff31336000 (LWP 14858)]
+[New Thread 0x7fff30b35000 (LWP 14859)]
+[RigCalib]  采集 40 组同步帧…
+>>> Using GPU mode <<<
+[New Thread 0x7fff29fff000 (LWP 14885)]
+[New Thread 0x7fff297fe000 (LWP 14886)]
+[New Thread 0x7fff28ffd000 (LWP 14887)]
+[New Thread 0x7fff19fff000 (LWP 14888)]
+[New Thread 0x7fff197fe000 (LWP 14889)]
+[New Thread 0x7fff18ffd000 (LWP 14890)]
+[New Thread 0x7fff0bfff000 (LWP 14891)]
+[New Thread 0x7fff0b7fe000 (LWP 14892)]
+[New Thread 0x7fff0affd000 (LWP 14893)]
+[New Thread 0x7fff0a7fc000 (LWP 14894)]
+[New Thread 0x7fff09ffb000 (LWP 14895)]
+[New Thread 0x7fff097fa000 (LWP 14896)]
+[New Thread 0x7fff08ff9000 (LWP 14897)]
+[New Thread 0x7fff03fff000 (LWP 14898)]
+[New Thread 0x7fff037fe000 (LWP 14899)]
+[New Thread 0x7fff02ffd000 (LWP 14900)]
+[New Thread 0x7fff027fc000 (LWP 14901)]
+[New Thread 0x7fff01ffb000 (LWP 14902)]
+[New Thread 0x7fff017fa000 (LWP 14903)]
+[New Thread 0x7fff00ff9000 (LWP 14904)]
+[New Thread 0x7fff007f8000 (LWP 14905)]
+[New Thread 0x7ffeffff7000 (LWP 14906)]
+[New Thread 0x7ffeff7f6000 (LWP 14907)]
+[New Thread 0x7ffefeff5000 (LWP 14908)]
+[New Thread 0x7ffefe7f4000 (LWP 14909)]
+[New Thread 0x7ffefdff3000 (LWP 14910)]
+[New Thread 0x7ffefd7f2000 (LWP 14911)]
+[New Thread 0x7ffefcff1000 (LWP 14912)]
+[New Thread 0x7ffefc7f0000 (LWP 14913)]
+[New Thread 0x7ffefbfef000 (LWP 14914)]
+[New Thread 0x7ffefb7ee000 (LWP 14915)]
+[New Thread 0x7ffefafed000 (LWP 14916)]
+[hevc @ 0x7fff24015a00] Could not find ref with POC 21
+[New Thread 0x7fff9448d000 (LWP 14917)]
+[New Thread 0x7fff5c7cf000 (LWP 14918)]
+[New Thread 0x7fff287fc000 (LWP 14919)]
+[New Thread 0x7fff187fc000 (LWP 14920)]
+[New Thread 0x7fff087f8000 (LWP 14921)]
+[New Thread 0x7ffefa3eb000 (LWP 14922)]
+[New Thread 0x7ffef9be9000 (LWP 14925)]
+[New Thread 0x7ffef9fea000 (LWP 14923)]
+[New Thread 0x7ffefa7ec000 (LWP 14924)]
+[New Thread 0x7ffef8fe6000 (LWP 14926)]
+[New Thread 0x7ffec3bfe000 (LWP 14930)]
+[New Thread 0x7ffec3fff000 (LWP 14931)]
+[New Thread 0x7ffef93e7000 (LWP 14927)]
+[New Thread 0x7ffef97e8000 (LWP 14932)]
+[New Thread 0x7ffef8be5000 (LWP 14928)]
+[New Thread 0x7ffef87e4000 (LWP 14929)]
+[New Thread 0x7ffec37fd000 (LWP 14933)]
+[New Thread 0x7ffec33fc000 (LWP 14935)]
+[New Thread 0x7ffec2bfa000 (LWP 14936)]
+[New Thread 0x7ffec2ffb000 (LWP 14934)]
+>>> Using GPU mode <<<
+[New Thread 0x7ffec23f8000 (LWP 14938)]
+[New Thread 0x7ffec1ff7000 (LWP 14940)]
+[New Thread 0x7ffec27f9000 (LWP 14937)]
+[New Thread 0x7ffec1bf6000 (LWP 14939)]
+[New Thread 0x7ffec0bf2000 (LWP 14942)]
+[New Thread 0x7ffec17f5000 (LWP 14941)]
+[New Thread 0x7ffec13f4000 (LWP 14943)]
+[New Thread 0x7ffec0ff3000 (LWP 14944)]
+[New Thread 0x7ffec07f1000 (LWP 14945)]
+[New Thread 0x7ffe93fff000 (LWP 14946)]
+>>> Using GPU mode <<<
+[New Thread 0x7ffe93bfe000 (LWP 14947)]
+[New Thread 0x7ffe937fd000 (LWP 14966)]
+[New Thread 0x7ffe92ffc000 (LWP 14967)]
+[New Thread 0x7ffe927fb000 (LWP 14968)]
+[New Thread 0x7ffe91ffa000 (LWP 14969)]
+[New Thread 0x7ffe917f9000 (LWP 14970)]
+[New Thread 0x7ffe90ff8000 (LWP 14971)]
+[New Thread 0x7ffe309b6000 (LWP 14972)]
+[New Thread 0x7ffe1ffff000 (LWP 14973)]
+[New Thread 0x7ffe1f7fe000 (LWP 14974)]
+[New Thread 0x7ffe1effd000 (LWP 14975)]
+[New Thread 0x7ffe1e7fc000 (LWP 14976)]
+[New Thread 0x7ffe1dffb000 (LWP 14977)]
+[New Thread 0x7ffe1d7fa000 (LWP 14978)]
+[New Thread 0x7ffe1cff9000 (LWP 14979)]
+[New Thread 0x7ffdfffff000 (LWP 14980)]
+[New Thread 0x7ffdff7fe000 (LWP 14981)]
+[New Thread 0x7ffdfeffd000 (LWP 14982)]
+[New Thread 0x7ffdfe7fc000 (LWP 14983)]
+[New Thread 0x7ffdfdffb000 (LWP 14984)]
+[New Thread 0x7ffdfd7fa000 (LWP 14985)]
+[New Thread 0x7ffdfcff9000 (LWP 14986)]
+[New Thread 0x7ffdf7fff000 (LWP 14987)]
+[New Thread 0x7ffdf77fe000 (LWP 14988)]
+[New Thread 0x7ffdf6ffd000 (LWP 14989)]
+[New Thread 0x7ffdf67fc000 (LWP 14990)]
+[New Thread 0x7ffdf5ffb000 (LWP 14991)]
+[New Thread 0x7ffdf57fa000 (LWP 14992)]
+[New Thread 0x7ffdf4ff9000 (LWP 14993)]
+[New Thread 0x7ffdebfff000 (LWP 14994)]
+[New Thread 0x7ffdeb7fe000 (LWP 14995)]
+[New Thread 0x7ffdeaffd000 (LWP 14996)]
+[New Thread 0x7ffdea7fc000 (LWP 14997)]
+[New Thread 0x7ffde9ffb000 (LWP 15002)]
+[New Thread 0x7ffde97fa000 (LWP 15003)]
+[New Thread 0x7ffde8ff9000 (LWP 15004)]
+[New Thread 0x7ffdd3fff000 (LWP 15005)]
+[New Thread 0x7ffdd37fe000 (LWP 15006)]
+[New Thread 0x7ffdd2ffd000 (LWP 15007)]
+[New Thread 0x7ffdd27fc000 (LWP 15008)]
+[New Thread 0x7ffdd1ffb000 (LWP 15009)]
+[New Thread 0x7ffdd17fa000 (LWP 15010)]
+[New Thread 0x7ffdd0ff9000 (LWP 15011)]
+[New Thread 0x7ffd8bfff000 (LWP 15012)]
+[New Thread 0x7ffd8b7fe000 (LWP 15013)]
+[New Thread 0x7ffd8affd000 (LWP 15014)]
+[New Thread 0x7ffd8a7fc000 (LWP 15015)]
+[New Thread 0x7ffd89ffb000 (LWP 15016)]
+[New Thread 0x7ffd897fa000 (LWP 15017)]
+[New Thread 0x7ffd88ff9000 (LWP 15018)]
+[New Thread 0x7ffd53fff000 (LWP 15019)]
+[New Thread 0x7ffd537fe000 (LWP 15020)]
+[New Thread 0x7ffd52ffd000 (LWP 15021)]
+[New Thread 0x7ffd527fc000 (LWP 15022)]
+[New Thread 0x7ffd51ffb000 (LWP 15023)]
+[New Thread 0x7ffd517fa000 (LWP 15024)]
+[New Thread 0x7ffd50ff9000 (LWP 15025)]
+[New Thread 0x7ffd47fff000 (LWP 15026)]
+[New Thread 0x7ffd477fe000 (LWP 15027)]
+[New Thread 0x7ffd46ffd000 (LWP 15028)]
+[New Thread 0x7ffd467fc000 (LWP 15029)]
+[New Thread 0x7ffd45ffb000 (LWP 15030)]
+[New Thread 0x7ffd457fa000 (LWP 15031)]
+[New Thread 0x7ffd44ff9000 (LWP 15032)]
+[New Thread 0x7ffd3ffff000 (LWP 15033)]
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #1
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #2
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #3
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #4
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #5
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #6
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #7
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #8
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #9
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #10
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #11
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #12
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #13
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #14
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #15
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #16
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #17
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #18
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[INFO] Camera #2 detected 1 corners
+[INFO] Captured sync group #19
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #20
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #21
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #22
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #23
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #24
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #25
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #26
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #27
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #28
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #29
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #30
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #31
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #32
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #33
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #34
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #35
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #36
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #37
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #38
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #39
+[WARN] Camera #0 failed to detect Charuco corners
+[WARN] detectMarkers() failed.
+[WARN] Camera #1 failed to detect Charuco corners
+[WARN] Camera #2 failed to detect Charuco corners
+[INFO] Captured sync group #40
+[DEBUG] Camera #0 collected 40 frames.
+[DEBUG] Camera #1 collected 40 frames.
+[DEBUG] Camera #2 collected 40 frames.
+[MultiCamCalib] Cam1 solvePnP failed
+[MultiCamCalib] Cam2 solvePnP failed
+[New Thread 0x7ffd507f8000 (LWP 15096)]
+[New Thread 0x7ffd4fff7000 (LWP 15097)]
+[New Thread 0x7ffd4f7f6000 (LWP 15098)]
+[New Thread 0x7ffd4eff5000 (LWP 15099)]
+[New Thread 0x7ffd4e7f4000 (LWP 15100)]
+[New Thread 0x7ffd4dff3000 (LWP 15101)]
+[New Thread 0x7ffd4d7f2000 (LWP 15102)]
+[New Thread 0x7ffd4cff1000 (LWP 15103)]
+[New Thread 0x7ffd3f7fe000 (LWP 15104)]
+[New Thread 0x7ffd3affd000 (LWP 15105)]
+[New Thread 0x7ffd3a7fc000 (LWP 15106)]
+[New Thread 0x7ffd39ffb000 (LWP 15107)]
+[New Thread 0x7ffd397fa000 (LWP 15108)]
+[New Thread 0x7ffd38ff9000 (LWP 15109)]
+[New Thread 0x7ffd35fff000 (LWP 15110)]
+[New Thread 0x7ffd357fe000 (LWP 15111)]
+[New Thread 0x7ffd34ffd000 (LWP 15112)]
+[New Thread 0x7ffd13fff000 (LWP 15113)]
+[New Thread 0x7ffd387f8000 (LWP 15114)]
+[New Thread 0x7ffd37ff7000 (LWP 15115)]
+[New Thread 0x7ffd377f6000 (LWP 15116)]
+[New Thread 0x7ffd36ff5000 (LWP 15117)]
+[New Thread 0x7ffd137fe000 (LWP 15118)]
+[New Thread 0x7ffd12ffd000 (LWP 15119)]
+[New Thread 0x7ffd127fc000 (LWP 15120)]
+[New Thread 0x7ffd11ffb000 (LWP 15121)]
+[New Thread 0x7ffd117fa000 (LWP 15122)]
+[New Thread 0x7ffd10ff9000 (LWP 15123)]
+[New Thread 0x7ffce7fff000 (LWP 15124)]
+[New Thread 0x7ffce77fe000 (LWP 15125)]
+[New Thread 0x7ffce6ffd000 (LWP 15126)]
+[New Thread 0x7ffce67fc000 (LWP 15127)]
+[New Thread 0x7ffce5ffb000 (LWP 15128)]
+[New Thread 0x7ffce57fa000 (LWP 15129)]
+[New Thread 0x7ffce4ff9000 (LWP 15130)]
+[New Thread 0x7ffcb3fff000 (LWP 15131)]
+[New Thread 0x7ffcb37fe000 (LWP 15132)]
+[New Thread 0x7ffcb2ffd000 (LWP 15133)]
+[New Thread 0x7ffcb27fc000 (LWP 15134)]
+[New Thread 0x7ffcb1ffb000 (LWP 15135)]
+[New Thread 0x7ffcb17fa000 (LWP 15136)]
+[New Thread 0x7ffcb0ff9000 (LWP 15137)]
+[New Thread 0x7ffcabfff000 (LWP 15138)]
+[New Thread 0x7ffcab7fe000 (LWP 15139)]
+
+Thread 1 "multi_cam_node" received signal SIGINT, Interrupt.
+0x00007fffd283423f in __GI___clock_nanosleep (clock_id=clock_id@entry=0, flags=flags@entry=0, req=0x7fffffffc690, rem=0x7fffffffc690) at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:78
+78	../sysdeps/unix/sysv/linux/clock_nanosleep.c: No such file or directory.
+#0  0x00007fffd283423f in __GI___clock_nanosleep (clock_id=clock_id@entry=0, flags=flags@entry=0, req=0x7fffffffc690, rem=0x7fffffffc690) at ../sysdeps/unix/sysv/linux/clock_nanosleep.c:78
+#1  0x00007fffd2839ec7 in __GI___nanosleep (requested_time=<optimized out>, remaining=<optimized out>) at nanosleep.c:27
+#2  0x0000555555568fcb in main ()

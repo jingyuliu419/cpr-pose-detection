@@ -1,4 +1,6 @@
 #pragma once
+
+// ---------- C++ 头文件 ----------
 #include <opencv2/opencv.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <atomic>
@@ -12,23 +14,32 @@
 #include "camera_calibrator.h"
 #include "litehrnet_pose_trt.h"
 #include "yolov5_trt_detector.h"
+#include "rtmpose_trt.h"
+#include "charuco_camera_manager.h"
+
+// ---------- 纯 C 头文件（FFmpeg）----------
 extern "C" {
 #include <libavformat/avformat.h>
 #include <libavcodec/avcodec.h>
 #include <libavutil/avutil.h>
 #include <libswscale/swscale.h>
-}
+}  // extern "C"
+
+
 namespace video {
 
 class VideoStream {
 public:
     VideoStream(const std::string& url,
-                const std::string& window,
+                const std::string& win,
                 const std::string& calib_yaml,
                 std::shared_ptr<detectPerson::YOLOv5TRTDetector> det,
-                std::shared_ptr<pose::LiteHRNetTRT> pose,
-                const std::vector<std::pair<int,int>>& skeleton,
-                std::shared_ptr<rclcpp::Node> ros_node);
+                std::shared_ptr<posetiny::RTMPoseTRT> pose,
+                std::shared_ptr<charuco::CameraManager> cam_mgr);
+
+    /* 若想保留旧接口，也可提供 setter */
+    void setCameraManager(std::shared_ptr<charuco::CameraManager> mgr) { camera_mgr_ = std::move(mgr); }
+    VideoStream() = default;
     ~VideoStream();
 
     void start();
@@ -38,26 +49,41 @@ public:
     /* 供 UI 线程访问 */
     std::mutex imshow_mutex_;
     std::queue<cv::Mat> display_queue_;
+    void run_video_inference(const std::string& engine_path);
+    void setPoseModel(const std::shared_ptr<posetiny::RTMPoseTRT>& model);
+
+    cv::Mat lastFrame() const {
+        std::lock_guard<std::mutex> lk(last_mtx_);
+        return last_frame_.clone();
+    }
+
 
 private:
     void captureLoop();
+    void decodeWithCudaLoophard();
     void inferenceLoop();
+
+    /* ---       --- */
+    std::shared_ptr<charuco::CameraManager> camera_mgr_;
 
     /* --- const / shared --- */
     const std::string url_, window_name_;
     std::unique_ptr<calib::CameraCalibrator> calibrator_;
     std::shared_ptr<detectPerson::YOLOv5TRTDetector> detector_;
-    std::shared_ptr<pose::LiteHRNetTRT>             pose_model_;
+    std::shared_ptr<posetiny::RTMPoseTRT>             pose_model_;
     std::shared_ptr<rclcpp::Node> ros_node_;
     const std::vector<std::pair<int,int>> skeleton_;
 
     /* --- per-stream context --- */
     std::shared_ptr<detectPerson::YOLOv5TRTDetector::Context> detector_ctx_;
-    std::shared_ptr<pose::LiteHRNetTRT::Context>              pose_ctx_;
+    std::shared_ptr<posetiny::RTMPoseTRT::Context>              pose_ctx_;
 
     /* --- thread resources --- */
     std::thread capture_thread_, infer_thread_;
     std::atomic<bool> running_{false};
+
+    mutable std::mutex last_mtx_;
+    cv::Mat            last_frame_;
 
     /* --- queue: capture → infer → UI --- */
     std::mutex cap_mutex_, disp_mutex_;

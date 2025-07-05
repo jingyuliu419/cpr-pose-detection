@@ -1,63 +1,137 @@
 #define Status XStatus
 #include <X11/Xlib.h>
 #undef Status
-//用宏重定义避免命名冲突
+
 #include "video_stream.h"
-#include "ui_display_thread.h" 
+#include "ui_display_thread.h"
 #include "ros2_time_sync.h"
-#include "config_loader.h"
 #include "yolov5_trt_detector.h"
 #include "litehrnet_pose_trt.h"
-#include <opencv2/core.hpp>
+#include "rtmpose_trt.h"
+#include "charuco_camera_manager.h"
+#include "multi_cam_calibrator.h"
+#include "camera_calibrator.h"  // 
+
 #include <opencv2/opencv.hpp>
 #include <rclcpp/rclcpp.hpp>
-#include <chrono>
+
 #include <thread>
 #include <memory>
+#include <vector>
+#include <string>
+#include <cstdlib>
+#include <chrono>
+#include <algorithm>
+
+struct CamInfo {
+    std::string rtsp, calib_yaml, window;
+};
+
+static void printBanner() {
+    std::cout <<
+    "=====================================================\n"
+    "  Multi-Cam Pose / Depth Demo – 3 × RTSP + TensorRT  \n"
+    "  OpenCV-4.6 | 单机 + Rig 外参                       \n"
+    "=====================================================\n";
+}
 
 int main(int argc, char** argv) {
-    XInitThreads();//初始化 X11 多线程支持，保证图形界面线程安全
-    cv::startWindowThread(); 
-    rclcpp::init(argc, argv);//初始化 ROS2 客户端库
+    setenv("OPENCV_FFMPEG_CAPTURE_OPTIONS", "rtsp_transport;tcp", 1);
+    XInitThreads();  cv::startWindowThread();
+    rclcpp::init(argc, argv);      printBanner();
 
-    config::PoseConfig config(
-        "/home/ljy/project/poseDetection/config/clean_classes.yaml",
-        "/home/ljy/project/poseDetection/config/coco_keypoints.yaml"
-    );
+    std::vector<CamInfo> cams = {
+        {"rtsp://admin:123456@192.168.31.160:554/Streaming/Channels/101?tcp",
+         "/home/ljy/project/poseDetection/config/camera_gp150-160.yaml", "Cam-1"},
+        {"rtsp://admin:123456@192.168.31.161:554/Streaming/Channels/101?tcp",
+         "/home/ljy/project/poseDetection/config/camera_gp150-161.yaml", "Cam-2"},
+        {"rtsp://admin:123456@192.168.31.162:554/Streaming/Channels/101?tcp",
+         "/home/ljy/project/poseDetection/config/camera_gp150-162.yaml", "Cam-3"}
+    };
 
     auto detector = std::make_shared<detectPerson::YOLOv5TRTDetector>();
     detector->initConfig("/home/ljy/project/poseDetection/models/engine/yolov5s.engine", 0.5f, 0.5f);
+    auto pose_estimator = std::make_shared<posetiny::RTMPoseTRT>(
+        "/home/ljy/project/poseDetection/models/rtmpose_model/rtmpose.engine");
 
-    auto pose_estimator = std::make_shared<pose::LiteHRNetTRT>(
-        "/home/ljy/project/poseDetection/models/litehrnet18/litehrnet18.engine"
-    );
-    auto ros_node = std::make_shared<rclcpp::Node>("video_node");
+    std::vector<std::shared_ptr<charuco::CameraManager>> cam_mgrs;
+    
+    for (auto const& c : cams) {
+        auto mgr = std::make_shared<charuco::CameraManager>(std::vector<std::string>{c.rtsp});
 
-    std::vector<std::shared_ptr<video::VideoStream>> video_streams;
-    video_streams.emplace_back(std::make_shared<video::VideoStream>("rtsp://admin:123456@192.168.31.160:554/Streaming/Channels/101", "Cam 1",
-        "/home/ljy/project/poseDetection/config/camera_gp150-160.yaml", detector, pose_estimator, config.getSkeleton(), ros_node));
-    video_streams.emplace_back(std::make_shared<video::VideoStream>("rtsp://admin:123456@192.168.31.161:554/Streaming/Channels/101", "Cam 2",
-        "/home/ljy/project/poseDetection/config/camera_gp150-161.yaml", detector, pose_estimator, config.getSkeleton(), ros_node));
-    video_streams.emplace_back(std::make_shared<video::VideoStream>("rtsp://admin:123456@192.168.31.162:554/Streaming/Channels/101", "Cam 3",
-        "/home/ljy/project/poseDetection/config/camera_gp150-162.yaml", detector, pose_estimator, config.getSkeleton(), ros_node));
+        // ✅ 使用张正友标定好的 YAML 加载内参
+        auto calibrator = calib::CameraCalibrator(c.calib_yaml);
+        
+        mgr->setCameraMatrix(calibrator.cameraMatrix());
+        std::cout<<"________________________"<<std::endl;
+        mgr->setDistCoeffs(calibrator.distCoeffs());
+        mgr->setExtrinsics(calibrator.rotationMatrix(), calibrator.translationVector());
 
-    // 启动所有流
-    for (auto& stream : video_streams) stream->start();
+        cam_mgrs.push_back(mgr);
+        
+        std::cout << "K type: " << calibrator.cameraMatrix().type() << std::endl;
+        std::cout << "R type: " << calibrator.rotationMatrix().type() << std::endl;
+        std::cout << "T type: " << calibrator.translationVector().type() << std::endl;
 
-    // 启动集中式 UI 渲染线程
-    cv::Size frame_size(640, 480);  // 举个例子
-    std::thread ui_thread(ui::UiThreadFunc, std::ref(video_streams), frame_size);
+    }
+    
+    std::vector<std::shared_ptr<video::VideoStream>> streams;
+    for (size_t i = 0; i < cams.size(); ++i) {
+        streams.emplace_back(std::make_shared<video::VideoStream>(
+            cams[i].rtsp, cams[i].window, cams[i].calib_yaml,
+            detector, pose_estimator, cam_mgrs[i]));
+        streams.back()->start();
+    }
 
+    const std::string rig_yaml = "/home/ljy/project/poseDetection/config/rig_extrinsics.yaml";
+    bool need_rig = std::any_of(cam_mgrs.begin(), cam_mgrs.end(),
+                                [](auto& m) { return !m->hasRigExtrinsics(); });
 
-    // 启动时间同步
-    sync::TimeSyncNode sync;
-    sync.start();
+    if (need_rig) {
+        auto board = cv::aruco::CharucoBoard::create(
+            6, 6, 0.03f, 0.022f,
+            cv::aruco::getPredefinedDictionary(cv::aruco::DICT_5X5_100));
 
-    // 主线程等待
+        charuco::MultiCamCalibrator calib(cam_mgrs, board);
+        std::cout << "[RigCalib]  采集 40 组同步帧…\n";
+
+        for (int k = 0; k < 40;) {
+            std::vector<cv::Mat> sync;
+            bool got_all = true;
+            for (auto& s : streams) {
+                cv::Mat f = s->lastFrame().clone();
+                if (f.empty()) { got_all = false; break; }
+                sync.emplace_back(std::move(f));
+            }
+            if (!got_all) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(50));
+                continue;
+            }
+            calib.pushSyncFrames(sync);
+            ++k;
+            std::this_thread::sleep_for(std::chrono::milliseconds(120));
+        }
+        std::cout << "[RigCalib]  start标定，可能需要几分钟…\n";
+        auto exts = calib.solveAndSave(rig_yaml);
+        std::cout << "[RigCalib]  end…\n";
+        for (size_t i = 0; i < cam_mgrs.size(); ++i)
+            cam_mgrs[i]->setRigExtrinsics(exts[i].R, exts[i].t);
+    } else {
+        cv::FileStorage fs(rig_yaml, cv::FileStorage::READ);
+        for (size_t i = 0; i < cam_mgrs.size(); ++i) {
+            cv::Mat R, t; fs["R" + std::to_string(i)] >> R;
+                        fs["t" + std::to_string(i)] >> t;
+            cam_mgrs[i]->setRigExtrinsics(R, t);
+        }
+    }
+
+    cv::Size frame_size(640, 480);
+    std::thread ui_thread(ui::UiThreadFunc, std::ref(streams), frame_size);
+    sync::TimeSyncNode sync; sync.start();
+
     while (rclcpp::ok()) std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    // 停止所有流
-    for (auto& stream : video_streams) stream->stop();
+    for (auto& s : streams) s->stop();
     sync.stop();
     rclcpp::shutdown();
     return 0;
