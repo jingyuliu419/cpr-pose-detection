@@ -28,6 +28,10 @@ void UiThreadFunc(std::vector<std::shared_ptr<video::VideoStream>> streams,
 
         /* ② 一次性批量刷新所有流 */
         for (auto& s : streams) {
+            if (!s) {
+                std::cerr << "[UI] Warning: Null VideoStream pointer!" << std::endl;
+                continue;  // 忽略空指针
+            }
             cv::Mat img;
             {
                 std::lock_guard<std::mutex> g(s->imshow_mutex_);

@@ -745,4 +745,15 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /usr/local/include/opencv4/opencv2/cudaarithm.hpp \
  /home/ljy/project/poseDetection/include/ui_display_thread.h \
  /home/ljy/project/poseDetection/include/rtmpose_trt.h \
- /home/ljy/project/poseDetection/include/charuco_camera_manager.h
+ /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/x86_64-linux-gnu/sys/syscall.h \
+ /usr/include/x86_64-linux-gnu/asm/unistd.h \
+ /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+ /usr/include/x86_64-linux-gnu/bits/syscall.h

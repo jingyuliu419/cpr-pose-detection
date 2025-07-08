@@ -98,27 +98,41 @@ void RTMPoseTRT::infer(const cv::Mat& img,
                        std::vector<float>& confs,
                        Context& ctx)
 {
-    preprocess(img, ctx.input, ctx.stream);
+    if (img.empty()) {
+        throw std::runtime_error("[RTMPoseTRT] Input image is empty.");
+    }
 
-    // void* bindings[3] = { ctx.input, ctx.output_x, ctx.output_y };
-    void* bindings[3];
-    bindings[input_index_]   = ctx.input;
-    bindings[output_x_index_] = ctx.output_x;
-    bindings[output_y_index_] = ctx.output_y;
+    try {
+        preprocess(img, ctx.input, ctx.stream);
 
+        void* bindings[3] = {nullptr, nullptr, nullptr};
+        if (input_index_ >= 3 || output_x_index_ >= 3 || output_y_index_ >= 3) {
+            throw std::runtime_error("Binding index exceeds bindings array size.");
+        }
 
-    ctx.context->enqueueV2(bindings, ctx.stream, nullptr);
+        bindings[input_index_]    = ctx.input;
+        bindings[output_x_index_] = ctx.output_x;
+        bindings[output_y_index_] = ctx.output_y;
 
-    cudaMemcpyAsync(ctx.simcc_x.data(), ctx.output_x,
-                    ctx.simcc_x.size()*sizeof(float),
-                    cudaMemcpyDeviceToHost, ctx.stream);
-    cudaMemcpyAsync(ctx.simcc_y.data(), ctx.output_y,
-                    ctx.simcc_y.size()*sizeof(float),
-                    cudaMemcpyDeviceToHost, ctx.stream);
-    cudaStreamSynchronize(ctx.stream);
+        ctx.context->enqueueV2(bindings, ctx.stream, nullptr);
 
-    postprocess(ctx.simcc_x, ctx.simcc_y, kpts, confs, img.size());
+        cudaMemcpyAsync(ctx.simcc_x.data(), ctx.output_x,
+                        ctx.simcc_x.size() * sizeof(float),
+                        cudaMemcpyDeviceToHost, ctx.stream);
+        cudaMemcpyAsync(ctx.simcc_y.data(), ctx.output_y,
+                        ctx.simcc_y.size() * sizeof(float),
+                        cudaMemcpyDeviceToHost, ctx.stream);
+        cudaStreamSynchronize(ctx.stream);
+
+        postprocess(ctx.simcc_x, ctx.simcc_y, kpts, confs, img.size());
+    } catch (const std::exception& e) {
+        std::cerr << "[Error:RTMPoseTRT] Exception in infer(): " << e.what() << std::endl;
+        kpts.clear();
+        confs.clear();
+        return;
+    }
 }
+
 
 
 void RTMPoseTRT::preprocess(const cv::Mat& img, void* gpu_input, cudaStream_t stream) const {

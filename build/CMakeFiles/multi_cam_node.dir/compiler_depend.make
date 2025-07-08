@@ -4774,19 +4774,26 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: /home/ljy/project/poseDete
   /usr/include/string.h \
   /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -4800,6 +4807,7 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: /home/ljy/project/poseDete
   /usr/include/x86_64-linux-gnu/bits/mathinline.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/sched.h \
@@ -4831,6 +4839,7 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: /home/ljy/project/poseDete
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -4870,6 +4879,8 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: /home/ljy/project/poseDete
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -4921,6 +4932,7 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: /home/ljy/project/poseDete
   /usr/include/x86_64-linux-gnu/libswscale/version.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/x86_64-linux-gnu/sys/ucontext.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/emmintrin.h \
@@ -5500,6 +5512,16 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 
 /usr/local/include/opencv4/opencv2/cudaarithm.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
 /home/ljy/project/poseDetection/src/video_stream.cpp:
 
 /usr/include/c++/9/fstream:
@@ -5538,6 +5560,8 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 
 /usr/include/x86_64-linux-gnu/libavformat/version.h:
 
+/usr/include/unistd.h:
+
 /usr/include/x86_64-linux-gnu/libavcodec/version.h:
 
 /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h:
@@ -5547,6 +5571,8 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
+
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
 
 /usr/include/x86_64-linux-gnu/bits/ss_flags.h:
 
@@ -5650,7 +5676,11 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 
 /opt/ros/foxy/include/rcutils/logging.h:
 
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
 /opt/ros/foxy/include/rcutils/error_handling.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd.h:
 
 /opt/ros/foxy/include/rcpputils/pointer_traits.hpp:
 
@@ -5872,6 +5902,8 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdlib.h:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
@@ -5879,6 +5911,8 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 /usr/include/c++/9/bits/istream.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio.h:
 
@@ -6057,6 +6091,8 @@ CMakeFiles/multi_cam_node.dir/src/yolov5_trt_detector.cpp.o: /home/ljy/project/p
 /usr/include/c++/9/ext/numeric_traits.h:
 
 /usr/include/c++/9/bits/unordered_map.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
 
 /usr/local/include/opencv4/opencv2/core/cuda.hpp:
 

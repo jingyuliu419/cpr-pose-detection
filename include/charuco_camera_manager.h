@@ -54,22 +54,26 @@ public:
     const cv::Mat& rvec() const { return rvec_list_[default_cam_]; }
     const cv::Mat& tvec() const { return tvec_list_[default_cam_]; }
 
-    void setCameraMatrix(const cv::Mat& K) {
-        camera_matrix_list_.clear();
-        camera_matrix_list_.push_back(K.clone());
-        default_cam_ = 0;
-    }
+    // void setCameraMatrix(const cv::Mat& K) {
+    //     camera_matrix_list_.clear();
+    //     camera_matrix_list_.push_back(K.clone());
+    //     default_cam_ = 0;
+    // }
 
-    void setDistCoeffs(const cv::Mat& D) {
-        dist_coeffs_list_.clear();
-        dist_coeffs_list_.push_back(D.clone());
-    }
+    // void setDistCoeffs(const cv::Mat& D) {
+    //     dist_coeffs_list_.clear();
+    //     dist_coeffs_list_.push_back(D.clone());
+    // }
 
 
-    void setExtrinsics(const cv::Mat& R, const cv::Mat& t);
+    // void setExtrinsics(const cv::Mat& R, const cv::Mat& t);
     bool hasExtrinsics() const { return has_extrinsics_; }
     const cv::Mat& getRotation() const { return rotation_; }
     const cv::Mat& getTranslation() const { return translation_; }
+
+    void setCameraMatrix(const cv::Mat& K, int idx = -1);
+    void setDistCoeffs (const cv::Mat& D, int idx = -1);
+    void setExtrinsics(const cv::Mat& R_or_rvec, const cv::Mat& tvec, int idx = -1);
 
 
 

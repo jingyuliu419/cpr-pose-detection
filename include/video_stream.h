@@ -45,6 +45,7 @@ public:
     void start();
     void stop();
     const std::string& name() const { return window_name_; }
+    void enableWorldCoord(bool enable) { use_world_coord_ = enable; }
 
     /* 供 UI 线程访问 */
     std::mutex imshow_mutex_;
@@ -89,6 +90,10 @@ private:
     std::mutex cap_mutex_, disp_mutex_;
     std::condition_variable cap_cv_, disp_cv_;
     std::queue<cv::Mat> capture_queue_;
+
+    //world
+    bool use_world_coord_ = true;
+
 
     /* --- FFmpeg --- */
     AVFormatContext* fmt_ctx_{nullptr};

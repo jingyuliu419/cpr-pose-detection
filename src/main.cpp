@@ -125,7 +125,7 @@ int main(int argc, char** argv) {
         }
     }
 
-    cv::Size frame_size(640, 480);
+    cv::Size frame_size(1280, 720);
     std::thread ui_thread(ui::UiThreadFunc, std::ref(streams), frame_size);
     sync::TimeSyncNode sync; sync.start();
 

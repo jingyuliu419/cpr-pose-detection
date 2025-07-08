@@ -8,7 +8,7 @@
 #include <mutex>
 
 namespace charuco {
-
+// void ensure_size(std::vector<cv::Mat>& v, size_t n){ if (v.size()<n) v.resize(n); }
 CameraManager::CameraManager(const std::vector<std::string>& sources)
     : sources_(sources) {
         cb_ = [](const cv::Mat&,int){};     // 空安全回调
@@ -96,39 +96,39 @@ cv::Mat CameraManager::undistort(const cv::Mat& frame) const {
     return undistorted;
 }
 
-cv::Point3f CameraManager::pixel2world(const cv::Point2f& px, float z) const
-{
-    if (default_cam_ < 0 || default_cam_ >= camera_matrix_list_.size())
-        return {};
+// cv::Point3f CameraManager::pixel2world(const cv::Point2f& px, float z) const
+// {
+//     if (default_cam_ < 0 || default_cam_ >= camera_matrix_list_.size())
+//         return {};
 
-    /* -------- 像素 → 相机坐标 -------- */
-    const cv::Mat& K   = camera_matrix_list_[default_cam_];
-    const cv::Mat& rv  = rvec_list_[default_cam_];
-    const cv::Mat& tv  = tvec_list_[default_cam_];
-    if (rv.empty() || tv.empty()) {
-        std::cerr << "[CameraManager] Empty r/t for cam " << default_cam_ << '\n';
-        return {};
-    }
+//     /* -------- 像素 → 相机坐标 -------- */
+//     const cv::Mat& K   = camera_matrix_list_[default_cam_];
+//     const cv::Mat& rv  = rvec_list_[default_cam_];
+//     const cv::Mat& tv  = tvec_list_[default_cam_];
+//     if (rv.empty() || tv.empty()) {
+//         std::cerr << "[CameraManager] Empty r/t for cam " << default_cam_ << '\n';
+//         return {};
+//     }
 
-    cv::Mat R_cam;
-    cv::Rodrigues(rv, R_cam);
+//     cv::Mat R_cam;
+//     cv::Rodrigues(rv, R_cam);
 
-    double fx = K.at<double>(0,0), fy = K.at<double>(1,1);
-    double cx = K.at<double>(0,2), cy = K.at<double>(1,2);
-    double x_cam = (px.x - cx) * z / fx;
-    double y_cam = (px.y - cy) * z / fy;
-    cv::Mat p_cam = (cv::Mat_<double>(3,1) << x_cam, y_cam, z);
+//     double fx = K.at<double>(0,0), fy = K.at<double>(1,1);
+//     double cx = K.at<double>(0,2), cy = K.at<double>(1,2);
+//     double x_cam = (px.x - cx) * z / fx;
+//     double y_cam = (px.y - cy) * z / fy;
+//     cv::Mat p_cam = (cv::Mat_<double>(3,1) << x_cam, y_cam, z);
 
-    cv::Mat p_world = R_cam * p_cam + tv;                // 相机自身 world
+//     cv::Mat p_world = R_cam * p_cam + tv;                // 相机自身 world
 
-    /* -------- 若有 Rig 外参，再转换 -------- */
-    if (!rig_R_.empty() && !rig_t_.empty())
-        p_world = rig_R_ * p_world + rig_t_;
+//     /* -------- 若有 Rig 外参，再转换 -------- */
+//     if (!rig_R_.empty() && !rig_t_.empty())
+//         p_world = rig_R_ * p_world + rig_t_;
 
-    return { (float)p_world.at<double>(0),
-             (float)p_world.at<double>(1),
-             (float)p_world.at<double>(2) };
-}
+//     return { (float)p_world.at<double>(0),
+//              (float)p_world.at<double>(1),
+//              (float)p_world.at<double>(2) };
+// }
 
 
 void CameraManager::calibrateFromLive(int cam_idx,
@@ -299,10 +299,60 @@ bool CameraManager::hasValidExtrinsics(int idx) const
     return !rvec_list_[i].empty() && !tvec_list_[i].empty();
 }
 
-void CameraManager::setExtrinsics(const cv::Mat& R, const cv::Mat& t) {
-    rotation_ = R.clone();
-    translation_ = t.clone();
-    has_extrinsics_ = true;
+// void CameraManager::setExtrinsics(const cv::Mat& R, const cv::Mat& t) {
+//     rotation_ = R.clone();
+//     translation_ = t.clone();
+//     has_extrinsics_ = true;
+// }
+static void ensure_size(std::vector<cv::Mat>& v, size_t n)
+{
+    if (v.size() < n) v.resize(n);
+}
+
+void CameraManager::setCameraMatrix(const cv::Mat& K, int idx)
+{
+    if (idx < 0) idx = default_cam_ < 0 ? 0 : default_cam_;
+    ensure_size(camera_matrix_list_, idx + 1);
+    camera_matrix_list_[idx] = K.clone();
+    if (default_cam_ < 0) default_cam_ = idx;
+}
+
+void CameraManager::setDistCoeffs(const cv::Mat& D, int idx)
+{
+    if (idx < 0) idx = default_cam_ < 0 ? 0 : default_cam_;
+    ensure_size(dist_coeffs_list_, idx + 1);
+    dist_coeffs_list_[idx] = D.clone();
+    if (default_cam_ < 0) default_cam_ = idx;
+}
+
+void CameraManager::setExtrinsics(const cv::Mat& R_or_rvec, const cv::Mat& tvec, int idx)
+{
+    if (idx < 0) idx = default_cam_ < 0 ? 0 : default_cam_;
+    ensure_size(rvec_list_, idx + 1);
+    ensure_size(tvec_list_, idx + 1);
+
+    cv::Mat rvec;
+    if (R_or_rvec.rows == 3 && R_or_rvec.cols == 3) {
+        cv::Rodrigues(R_or_rvec, rvec);
+    } else {
+        rvec = R_or_rvec.clone();
+    }
+
+    rvec_list_[idx] = rvec;
+    tvec_list_[idx] = tvec.clone();
+    if (default_cam_ < 0) default_cam_ = idx;
+}
+
+cv::Point3f CameraManager::pixel2world(const cv::Point2f& px, float z) const
+{
+    cv::Mat Kd;
+    camera_matrix_list_[default_cam_].convertTo(Kd, CV_64F);
+    double fx = Kd.at<double>(0, 0), fy = Kd.at<double>(1, 1);
+    double cx = Kd.at<double>(0, 2), cy = Kd.at<double>(1, 2);
+
+    float x = (px.x - cx) * z / fx;
+    float y = (px.y - cy) * z / fy;
+    return cv::Point3f(x, y, z);
 }
 
 
