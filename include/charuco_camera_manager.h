@@ -53,6 +53,10 @@ public:
     const cv::Mat& K()    const { return camera_matrix_list_[default_cam_]; }
     const cv::Mat& rvec() const { return rvec_list_[default_cam_]; }
     const cv::Mat& tvec() const { return tvec_list_[default_cam_]; }
+    // 在 public 区域添加
+    const cv::Mat& rotationMatrix() const { return rotation_; }
+    const cv::Mat& translationVector() const { return translation_; }
+
 
     // void setCameraMatrix(const cv::Mat& K) {
     //     camera_matrix_list_.clear();

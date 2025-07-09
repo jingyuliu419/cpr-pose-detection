@@ -16,7 +16,9 @@
 #include "yolov5_trt_detector.h"
 #include "rtmpose_trt.h"
 #include "charuco_camera_manager.h"
-
+#include "Triangulator.h"
+#include "ui_display_thread.h"
+#include "ros2_time_sync.h"
 // ---------- 纯 C 头文件（FFmpeg）----------
 extern "C" {
 #include <libavformat/avformat.h>
@@ -30,12 +32,14 @@ namespace video {
 
 class VideoStream {
 public:
-    VideoStream(const std::string& url,
+    VideoStream(int cam_id,
+                const std::string& url,
                 const std::string& win,
                 const std::string& calib_yaml,
                 std::shared_ptr<detectPerson::YOLOv5TRTDetector> det,
                 std::shared_ptr<posetiny::RTMPoseTRT> pose,
-                std::shared_ptr<charuco::CameraManager> cam_mgr);
+                std::shared_ptr<charuco::CameraManager> cam_mgr,
+                std::shared_ptr<Triangulator> triangulator);
 
     /* 若想保留旧接口，也可提供 setter */
     void setCameraManager(std::shared_ptr<charuco::CameraManager> mgr) { camera_mgr_ = std::move(mgr); }
@@ -56,6 +60,9 @@ public:
     cv::Mat lastFrame() const {
         std::lock_guard<std::mutex> lk(last_mtx_);
         return last_frame_.clone();
+    }
+    void setNode(std::shared_ptr<rclcpp::Node> node) {
+        ros_node_ = std::move(node);
     }
 
 
@@ -89,10 +96,15 @@ private:
     /* --- queue: capture → infer → UI --- */
     std::mutex cap_mutex_, disp_mutex_;
     std::condition_variable cap_cv_, disp_cv_;
-    std::queue<cv::Mat> capture_queue_;
+    // std::queue<cv::Mat> capture_queue_;
 
     //world
     bool use_world_coord_ = true;
+    std::shared_ptr<Triangulator> triangulator_;
+    int cam_id_;
+    using FrameStamp = std::pair<cv::Mat, rclcpp::Time>;
+    std::queue<FrameStamp> capture_queue_;
+
 
 
     /* --- FFmpeg --- */

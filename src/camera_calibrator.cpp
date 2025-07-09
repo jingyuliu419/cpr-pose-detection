@@ -30,6 +30,7 @@ CameraCalibrator::CameraCalibrator(const std::string& config_path) {
     } else {
         fs["rotation_matrix"] >> rotation_matrix_;
         fs["translation_vector"] >> translation_vector_;
+        translation_vector_ /= 1000.0;  
     }
 
     // 检查类型

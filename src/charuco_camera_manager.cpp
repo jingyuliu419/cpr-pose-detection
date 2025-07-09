@@ -334,26 +334,49 @@ void CameraManager::setExtrinsics(const cv::Mat& R_or_rvec, const cv::Mat& tvec,
     cv::Mat rvec;
     if (R_or_rvec.rows == 3 && R_or_rvec.cols == 3) {
         cv::Rodrigues(R_or_rvec, rvec);
+        rotation_ = R_or_rvec.clone();  // ✅ 显式设置
     } else {
         rvec = R_or_rvec.clone();
+        cv::Mat R;
+        cv::Rodrigues(rvec, R);
+        rotation_ = R.clone();          // ✅ 显式设置
     }
 
     rvec_list_[idx] = rvec;
     tvec_list_[idx] = tvec.clone();
+
+    translation_ = tvec.clone();        // ✅ 显式设置
     if (default_cam_ < 0) default_cam_ = idx;
 }
 
+
+// 完整函数：增强 pixel2world 支持世界坐标变换（包含 Rig 外参）
 cv::Point3f CameraManager::pixel2world(const cv::Point2f& px, float z) const
 {
+    if (default_cam_ < 0 || default_cam_ >= static_cast<int>(camera_matrix_list_.size()))
+        return {};
+
+    // -------- 取内参矩阵 --------
     cv::Mat Kd;
     camera_matrix_list_[default_cam_].convertTo(Kd, CV_64F);
     double fx = Kd.at<double>(0, 0), fy = Kd.at<double>(1, 1);
     double cx = Kd.at<double>(0, 2), cy = Kd.at<double>(1, 2);
 
-    float x = (px.x - cx) * z / fx;
-    float y = (px.y - cy) * z / fy;
-    return cv::Point3f(x, y, z);
-}
+    // -------- 像素 → 相机坐标系 --------
+    double x = (px.x - cx) * z / fx;
+    double y = (px.y - cy) * z / fy;
+    cv::Mat pt_cam = (cv::Mat_<double>(3, 1) << x, y, z);
 
+    // -------- 相机坐标 → 世界坐标（如果设置了 rig 外参） --------
+    if (!rig_R_.empty() && !rig_t_.empty()) {
+        cv::Mat pt_world = rig_R_ * pt_cam + rig_t_;
+        return cv::Point3f(
+            static_cast<float>(pt_world.at<double>(0)),
+            static_cast<float>(pt_world.at<double>(1)),
+            static_cast<float>(pt_world.at<double>(2)));
+    } else {
+        return cv::Point3f(static_cast<float>(x), static_cast<float>(y), z);  // fallback
+    }
+}
 
 } // namespace charuco

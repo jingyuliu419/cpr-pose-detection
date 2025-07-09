@@ -33,7 +33,6 @@ CMakeFiles/multi_cam_node.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/X11/X.h \
  /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
- /home/ljy/project/poseDetection/include/video_stream.h \
  /usr/local/include/opencv4/opencv2/opencv.hpp \
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/local/include/opencv4/opencv2/core.hpp \
@@ -669,6 +668,7 @@ CMakeFiles/multi_cam_node.dir/src/main.cpp.o: \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/foxy/include/rclcpp/wait_set_template.hpp \
+ /home/ljy/project/poseDetection/include/video_stream.h \
  /home/ljy/project/poseDetection/include/camera_calibrator.h \
  /home/ljy/project/poseDetection/include/litehrnet_pose_trt.h \
  /home/ljy/software/TensorRT-8.5.2.2/include/NvInfer.h \
@@ -703,6 +703,9 @@ CMakeFiles/multi_cam_node.dir/src/main.cpp.o: \
  /usr/local/include/opencv4/opencv2/aruco/charuco.hpp \
  /usr/local/include/opencv4/opencv2/aruco.hpp \
  /usr/local/include/opencv4/opencv2/aruco/dictionary.hpp \
+ /home/ljy/project/poseDetection/include/Triangulator.h \
+ /home/ljy/project/poseDetection/include/ui_display_thread.h \
+ /home/ljy/project/poseDetection/include/ros2_time_sync.h \
  /usr/include/x86_64-linux-gnu/libavformat/avformat.h \
  /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h \
  /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
@@ -741,8 +744,7 @@ CMakeFiles/multi_cam_node.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/libavformat/version.h \
  /usr/include/x86_64-linux-gnu/libswscale/swscale.h \
  /usr/include/x86_64-linux-gnu/libswscale/version.h \
- /home/ljy/project/poseDetection/include/ui_display_thread.h \
- /home/ljy/project/poseDetection/include/ros2_time_sync.h \
  /home/ljy/project/poseDetection/include/rtmpose_trt.h \
  /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
- /home/ljy/project/poseDetection/include/multi_cam_calibrator.h
+ /home/ljy/project/poseDetection/include/multi_cam_calibrator.h \
+ /home/ljy/project/poseDetection/include/Triangulator.h

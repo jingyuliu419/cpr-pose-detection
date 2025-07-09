@@ -1,9 +1,7 @@
-CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
- /home/ljy/project/poseDetection/src/video_stream.cpp \
+CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o: \
+ /home/ljy/project/poseDetection/src/Triangulator.cpp \
  /usr/include/stdc-predef.h \
- /home/ljy/project/poseDetection/include/video_stream.h \
- /usr/local/include/opencv4/opencv2/opencv.hpp \
- /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
+ /home/ljy/project/poseDetection/include/Triangulator.h \
  /usr/local/include/opencv4/opencv2/core.hpp \
  /usr/local/include/opencv4/opencv2/core/cvdef.h \
  /usr/local/include/opencv4/opencv2/core/version.hpp \
@@ -145,6 +143,7 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/9/bits/basic_string.tcc \
  /usr/local/include/opencv4/opencv2/core/base.hpp \
+ /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/include/c++/9/climits \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/syslimits.h \
@@ -257,101 +256,6 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /usr/local/include/opencv4/opencv2/core/optim.hpp \
  /usr/local/include/opencv4/opencv2/core/ovx.hpp \
  /usr/local/include/opencv4/opencv2/core/cvdef.h \
- /usr/local/include/opencv4/opencv2/calib3d.hpp \
- /usr/local/include/opencv4/opencv2/features2d.hpp \
- /usr/local/include/opencv4/opencv2/flann/miniflann.hpp \
- /usr/local/include/opencv4/opencv2/flann/defines.h \
- /usr/local/include/opencv4/opencv2/flann/config.h \
- /usr/local/include/opencv4/opencv2/core/affine.hpp \
- /usr/local/include/opencv4/opencv2/dnn.hpp \
- /usr/local/include/opencv4/opencv2/dnn/dnn.hpp \
- /usr/local/include/opencv4/opencv2/core/async.hpp \
- /usr/local/include/opencv4/opencv2/dnn/version.hpp \
- /usr/local/include/opencv4/opencv2/dnn/dict.hpp /usr/include/c++/9/map \
- /usr/include/c++/9/bits/stl_tree.h /usr/include/c++/9/bits/stl_map.h \
- /usr/include/c++/9/bits/stl_multimap.h \
- /usr/local/include/opencv4/opencv2/dnn/layer.hpp \
- /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp \
- /usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp \
- /usr/local/include/opencv4/opencv2/dnn/dnn.hpp \
- /usr/local/include/opencv4/opencv2/flann.hpp \
- /usr/local/include/opencv4/opencv2/flann/flann_base.hpp \
- /usr/local/include/opencv4/opencv2/flann/general.h \
- /usr/local/include/opencv4/opencv2/flann/matrix.h \
- /usr/local/include/opencv4/opencv2/flann/params.h \
- /usr/local/include/opencv4/opencv2/flann/any.h \
- /usr/local/include/opencv4/opencv2/flann/defines.h \
- /usr/include/c++/9/iostream \
- /usr/local/include/opencv4/opencv2/flann/saving.h \
- /usr/local/include/opencv4/opencv2/flann/nn_index.h \
- /usr/local/include/opencv4/opencv2/flann/result_set.h \
- /usr/include/c++/9/set /usr/include/c++/9/bits/stl_set.h \
- /usr/include/c++/9/bits/stl_multiset.h \
- /usr/local/include/opencv4/opencv2/flann/all_indices.h \
- /usr/local/include/opencv4/opencv2/flann/kdtree_index.h \
- /usr/local/include/opencv4/opencv2/flann/dynamic_bitset.h \
- /usr/local/include/opencv4/opencv2/flann/dist.h \
- /usr/local/include/opencv4/opencv2/flann/heap.h \
- /usr/local/include/opencv4/opencv2/flann/allocator.h \
- /usr/local/include/opencv4/opencv2/flann/random.h \
- /usr/local/include/opencv4/opencv2/flann/kdtree_single_index.h \
- /usr/local/include/opencv4/opencv2/flann/kmeans_index.h \
- /usr/local/include/opencv4/opencv2/flann/logger.h \
- /usr/local/include/opencv4/opencv2/flann/composite_index.h \
- /usr/local/include/opencv4/opencv2/flann/linear_index.h \
- /usr/local/include/opencv4/opencv2/flann/hierarchical_clustering_index.h \
- /usr/local/include/opencv4/opencv2/flann/lsh_index.h \
- /usr/local/include/opencv4/opencv2/flann/lsh_table.h \
- /usr/include/c++/9/iomanip /usr/include/c++/9/locale \
- /usr/include/c++/9/bits/locale_facets_nonio.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/9/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/9/bits/codecvt.h \
- /usr/include/c++/9/bits/locale_facets_nonio.tcc \
- /usr/include/c++/9/bits/locale_conv.h \
- /usr/include/c++/9/bits/quoted_string.h /usr/include/c++/9/math.h \
- /usr/local/include/opencv4/opencv2/flann/autotuned_index.h \
- /usr/local/include/opencv4/opencv2/flann/ground_truth.h \
- /usr/local/include/opencv4/opencv2/flann/index_testing.h \
- /usr/local/include/opencv4/opencv2/flann/timer.h \
- /usr/local/include/opencv4/opencv2/flann/sampling.h \
- /usr/local/include/opencv4/opencv2/highgui.hpp \
- /usr/local/include/opencv4/opencv2/imgcodecs.hpp \
- /usr/local/include/opencv4/opencv2/videoio.hpp \
- /usr/local/include/opencv4/opencv2/imgproc.hpp \
- /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp \
- /usr/local/include/opencv4/opencv2/ml.hpp \
- /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp \
- /usr/local/include/opencv4/opencv2/objdetect.hpp \
- /usr/local/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp \
- /usr/local/include/opencv4/opencv2/objdetect/face.hpp \
- /usr/local/include/opencv4/opencv2/photo.hpp \
- /usr/local/include/opencv4/opencv2/stitching.hpp \
- /usr/local/include/opencv4/opencv2/stitching/warpers.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/warpers.hpp \
- /usr/local/include/opencv4/opencv2/core/cuda.hpp \
- /usr/local/include/opencv4/opencv2/core/cuda_types.hpp \
- /usr/local/include/opencv4/opencv2/core/cuda.inl.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/warpers.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/matchers.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/motion_estimators.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/matchers.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/util.hpp \
- /usr/include/c++/9/list /usr/include/c++/9/bits/stl_list.h \
- /usr/include/c++/9/bits/list.tcc \
- /usr/local/include/opencv4/opencv2/stitching/detail/util_inl.hpp \
- /usr/include/c++/9/queue /usr/include/c++/9/deque \
- /usr/include/c++/9/bits/stl_deque.h /usr/include/c++/9/bits/deque.tcc \
- /usr/include/c++/9/bits/stl_queue.h \
- /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/seam_finders.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/blenders.hpp \
- /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp \
- /usr/local/include/opencv4/opencv2/video.hpp \
- /usr/local/include/opencv4/opencv2/video/tracking.hpp \
- /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
  /opt/ros/foxy/include/rclcpp/rclcpp.hpp /usr/include/c++/9/csignal \
  /usr/include/signal.h /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
@@ -377,8 +281,12 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /usr/include/c++/9/thread /usr/include/c++/9/condition_variable \
  /usr/include/c++/9/atomic /usr/include/c++/9/bits/atomic_futex.h \
  /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp \
+ /usr/include/c++/9/set /usr/include/c++/9/bits/stl_tree.h \
+ /usr/include/c++/9/bits/stl_set.h /usr/include/c++/9/bits/stl_multiset.h \
  /opt/ros/foxy/include/rclcpp/detail/mutex_two_priorities.hpp \
  /opt/ros/foxy/include/rclcpp/executor.hpp /usr/include/c++/9/cassert \
+ /usr/include/c++/9/iostream /usr/include/c++/9/list \
+ /usr/include/c++/9/bits/stl_list.h /usr/include/c++/9/bits/list.tcc \
  /opt/ros/foxy/include/rcl/guard_condition.h \
  /opt/ros/foxy/include/rcl/allocator.h \
  /opt/ros/foxy/include/rcutils/allocator.h \
@@ -441,7 +349,8 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /opt/ros/foxy/include/rclcpp/memory_strategy.hpp \
  /opt/ros/foxy/include/rclcpp/any_executable.hpp \
  /opt/ros/foxy/include/rclcpp/callback_group.hpp \
- /opt/ros/foxy/include/rclcpp/client.hpp \
+ /opt/ros/foxy/include/rclcpp/client.hpp /usr/include/c++/9/map \
+ /usr/include/c++/9/bits/stl_map.h /usr/include/c++/9/bits/stl_multimap.h \
  /opt/ros/foxy/include/rcl/error_handling.h \
  /opt/ros/foxy/include/rclcpp/exceptions.hpp \
  /opt/ros/foxy/include/rclcpp/exceptions/exceptions.hpp \
@@ -669,97 +578,15 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/foxy/include/rclcpp/wait_set_template.hpp \
- /home/ljy/project/poseDetection/include/camera_calibrator.h \
- /home/ljy/project/poseDetection/include/litehrnet_pose_trt.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInfer.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInferLegacyDims.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInferRuntimeCommon.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInferVersion.h \
- /usr/local/cuda/include/cuda_runtime_api.h \
- /usr/local/cuda/include/crt/host_defines.h \
- /usr/local/cuda/include/builtin_types.h \
- /usr/local/cuda/include/device_types.h \
- /usr/local/cuda/include/driver_types.h \
- /usr/local/cuda/include/vector_types.h \
- /usr/local/cuda/include/surface_types.h \
- /usr/local/cuda/include/texture_types.h \
- /usr/local/cuda/include/cuda_device_runtime_api.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInferRuntime.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInferImpl.h \
- /usr/local/cuda/include/cuda_fp16.h \
- /usr/local/cuda/include/cuda_fp16.hpp \
- /usr/local/cuda/include/cuda_runtime.h \
- /usr/local/cuda/include/crt/host_config.h \
- /usr/local/cuda/include/library_types.h \
- /usr/local/cuda/include/channel_descriptor.h \
- /usr/local/cuda/include/cuda_runtime_api.h \
- /usr/local/cuda/include/driver_functions.h \
- /usr/local/cuda/include/vector_functions.h \
- /usr/local/cuda/include/vector_functions.hpp \
- /home/ljy/project/poseDetection/include/yolov5_trt_detector.h \
- /home/ljy/software/TensorRT-8.5.2.2/include/NvInferRuntime.h \
- /home/ljy/project/poseDetection/include/rtmpose_trt.h \
- /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
- /usr/local/include/opencv4/opencv2/aruco/charuco.hpp \
- /usr/local/include/opencv4/opencv2/aruco.hpp \
- /usr/local/include/opencv4/opencv2/aruco/dictionary.hpp \
- /home/ljy/project/poseDetection/include/Triangulator.h \
- /home/ljy/project/poseDetection/include/ui_display_thread.h \
- /home/ljy/project/poseDetection/include/ros2_time_sync.h \
- /usr/include/x86_64-linux-gnu/libavformat/avformat.h \
- /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h \
- /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
- /usr/include/x86_64-linux-gnu/libavutil/avutil.h \
- /usr/include/x86_64-linux-gnu/libavutil/common.h /usr/include/inttypes.h \
- /usr/include/x86_64-linux-gnu/libavutil/attributes.h \
- /usr/include/x86_64-linux-gnu/libavutil/macros.h \
- /usr/include/x86_64-linux-gnu/libavutil/version.h \
- /usr/include/x86_64-linux-gnu/libavutil/avconfig.h \
- /usr/include/x86_64-linux-gnu/libavutil/mem.h \
- /usr/include/x86_64-linux-gnu/libavutil/error.h \
- /usr/include/x86_64-linux-gnu/libavutil/rational.h \
- /usr/include/x86_64-linux-gnu/libavutil/mathematics.h \
- /usr/include/x86_64-linux-gnu/libavutil/intfloat.h \
- /usr/include/x86_64-linux-gnu/libavutil/log.h \
- /usr/include/x86_64-linux-gnu/libavutil/pixfmt.h \
- /usr/include/x86_64-linux-gnu/libavutil/attributes.h \
- /usr/include/x86_64-linux-gnu/libavutil/avutil.h \
- /usr/include/x86_64-linux-gnu/libavutil/buffer.h \
- /usr/include/x86_64-linux-gnu/libavutil/cpu.h \
- /usr/include/x86_64-linux-gnu/libavutil/channel_layout.h \
- /usr/include/x86_64-linux-gnu/libavutil/dict.h \
- /usr/include/x86_64-linux-gnu/libavutil/frame.h \
- /usr/include/x86_64-linux-gnu/libavutil/buffer.h \
- /usr/include/x86_64-linux-gnu/libavutil/dict.h \
- /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \
- /usr/include/x86_64-linux-gnu/libavutil/hwcontext.h \
- /usr/include/x86_64-linux-gnu/libavutil/frame.h \
- /usr/include/x86_64-linux-gnu/libavutil/log.h \
- /usr/include/x86_64-linux-gnu/libavutil/pixfmt.h \
- /usr/include/x86_64-linux-gnu/libavutil/rational.h \
- /usr/include/x86_64-linux-gnu/libavcodec/version.h \
- /usr/include/x86_64-linux-gnu/libavutil/version.h \
- /usr/include/x86_64-linux-gnu/libavformat/avio.h \
- /usr/include/x86_64-linux-gnu/libavutil/common.h \
- /usr/include/x86_64-linux-gnu/libavformat/version.h \
- /usr/include/x86_64-linux-gnu/libswscale/swscale.h \
- /usr/include/x86_64-linux-gnu/libswscale/version.h \
- /home/ljy/project/poseDetection/include/nv12_cuda.cuh \
- /usr/local/include/opencv4/opencv2/cudaarithm.hpp \
- /usr/include/c++/9/fstream \
+ /usr/include/c++/9/deque /usr/include/c++/9/bits/stl_deque.h \
+ /usr/include/c++/9/bits/deque.tcc \
+ /usr/local/include/opencv4/opencv2/calib3d.hpp \
+ /usr/local/include/opencv4/opencv2/features2d.hpp \
+ /usr/local/include/opencv4/opencv2/flann/miniflann.hpp \
+ /usr/local/include/opencv4/opencv2/flann/defines.h \
+ /usr/local/include/opencv4/opencv2/flann/config.h \
+ /usr/local/include/opencv4/opencv2/core/affine.hpp \
+ /usr/include/c++/9/fstream /usr/include/c++/9/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
- /usr/include/c++/9/bits/fstream.tcc \
- /home/ljy/project/poseDetection/include/rtmpose_trt.h \
- /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
- /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
- /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
- /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/x86_64-linux-gnu/sys/syscall.h \
- /usr/include/x86_64-linux-gnu/asm/unistd.h \
- /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
- /usr/include/x86_64-linux-gnu/bits/syscall.h
+ /usr/include/c++/9/bits/fstream.tcc

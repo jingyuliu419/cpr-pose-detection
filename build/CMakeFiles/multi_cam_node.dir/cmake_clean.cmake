@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o"
+  "CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o"
   "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o"

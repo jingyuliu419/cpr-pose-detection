@@ -67,6 +67,7 @@ add_executable(multi_cam_node
   src/rtmpose_trt.cpp
   src/charuco_camera_manager.cpp
   src/multi_cam_calibrator.cpp
+  src/Triangulator.cpp  
 )
 
 # --- Link Libraries ---
