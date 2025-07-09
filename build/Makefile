@@ -178,6 +178,30 @@ multi_cam_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/build
 .PHONY : multi_cam_node/fast
 
+src/Triangulator.o: src/Triangulator.cpp.o
+.PHONY : src/Triangulator.o
+
+# target to build an object file
+src/Triangulator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o
+.PHONY : src/Triangulator.cpp.o
+
+src/Triangulator.i: src/Triangulator.cpp.i
+.PHONY : src/Triangulator.i
+
+# target to preprocess a source file
+src/Triangulator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.i
+.PHONY : src/Triangulator.cpp.i
+
+src/Triangulator.s: src/Triangulator.cpp.s
+.PHONY : src/Triangulator.s
+
+# target to generate assembly for a file
+src/Triangulator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.s
+.PHONY : src/Triangulator.cpp.s
+
 src/camera_calibrator.o: src/camera_calibrator.cpp.o
 .PHONY : src/camera_calibrator.o
 
@@ -455,6 +479,9 @@ help:
 	@echo "... uninstall"
 	@echo "... multi_cam_node"
 	@echo "... nv12_cuda"
+	@echo "... src/Triangulator.o"
+	@echo "... src/Triangulator.i"
+	@echo "... src/Triangulator.s"
 	@echo "... src/camera_calibrator.o"
 	@echo "... src/camera_calibrator.i"
 	@echo "... src/camera_calibrator.s"

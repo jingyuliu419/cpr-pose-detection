@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/ljy/project/poseDetection/src/Triangulator.cpp" "CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o.d"
   "/home/ljy/project/poseDetection/src/camera_calibrator.cpp" "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o.d"
   "/home/ljy/project/poseDetection/src/charuco_camera_manager.cpp" "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o.d"
   "/home/ljy/project/poseDetection/src/config_loader.cpp" "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o.d"

@@ -2,7 +2,6 @@ CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: \
  /home/ljy/project/poseDetection/src/ui_display_thread.cpp \
  /usr/include/stdc-predef.h \
  /home/ljy/project/poseDetection/include/ui_display_thread.h \
- /home/ljy/project/poseDetection/include/video_stream.h \
  /usr/local/include/opencv4/opencv2/opencv.hpp \
  /usr/local/include/opencv4/opencv2/opencv_modules.hpp \
  /usr/local/include/opencv4/opencv2/core.hpp \
@@ -353,6 +352,8 @@ CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: \
  /usr/local/include/opencv4/opencv2/video.hpp \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
+ /usr/include/c++/9/condition_variable \
+ /home/ljy/project/poseDetection/include/video_stream.h \
  /opt/ros/foxy/include/rclcpp/rclcpp.hpp /usr/include/c++/9/csignal \
  /usr/include/signal.h /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
@@ -375,8 +376,8 @@ CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
  /opt/ros/foxy/include/rclcpp/executors.hpp /usr/include/c++/9/future \
- /usr/include/c++/9/thread /usr/include/c++/9/condition_variable \
- /usr/include/c++/9/atomic /usr/include/c++/9/bits/atomic_futex.h \
+ /usr/include/c++/9/thread /usr/include/c++/9/atomic \
+ /usr/include/c++/9/bits/atomic_futex.h \
  /opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp \
  /opt/ros/foxy/include/rclcpp/detail/mutex_two_priorities.hpp \
  /opt/ros/foxy/include/rclcpp/executor.hpp /usr/include/c++/9/cassert \
@@ -704,6 +705,8 @@ CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: \
  /usr/local/include/opencv4/opencv2/aruco/charuco.hpp \
  /usr/local/include/opencv4/opencv2/aruco.hpp \
  /usr/local/include/opencv4/opencv2/aruco/dictionary.hpp \
+ /home/ljy/project/poseDetection/include/Triangulator.h \
+ /home/ljy/project/poseDetection/include/ros2_time_sync.h \
  /usr/include/x86_64-linux-gnu/libavformat/avformat.h \
  /usr/include/x86_64-linux-gnu/libavcodec/avcodec.h \
  /usr/include/x86_64-linux-gnu/libavutil/samplefmt.h \

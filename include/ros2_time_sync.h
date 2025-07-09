@@ -3,7 +3,7 @@
 #include <thread>
 #include <atomic>
 
-namespace sync {
+namespace timesync {
 
 class TimeSyncNode {
 public:
@@ -24,4 +24,4 @@ private:
     std::atomic<bool> running_;
 };
 
-} // namespace sync
+} // namespace timesync
