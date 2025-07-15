@@ -68,6 +68,8 @@ add_executable(multi_cam_node
   src/charuco_camera_manager.cpp
   src/multi_cam_calibrator.cpp
   src/Triangulator.cpp  
+  src/emaf.cpp
+  src/KalmanFilter1D.cpp
 )
 
 # --- Link Libraries ---

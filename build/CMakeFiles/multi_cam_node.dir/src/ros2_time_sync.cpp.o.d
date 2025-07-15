@@ -532,4 +532,10 @@ CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o: \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/static_storage.hpp \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/foxy/include/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
- /opt/ros/foxy/include/rclcpp/wait_set_template.hpp
+ /opt/ros/foxy/include/rclcpp/wait_set_template.hpp \
+ /opt/ros/foxy/include/std_msgs/msg/int64.hpp \
+ /opt/ros/foxy/include/std_msgs/msg/detail/int64__struct.hpp \
+ /opt/ros/foxy/include/std_msgs/msg/detail/int64__builder.hpp \
+ /opt/ros/foxy/include/std_msgs/msg/detail/int64__traits.hpp \
+ /opt/ros/foxy/include/std_msgs/msg/detail/int64__type_support.hpp \
+ /opt/ros/foxy/include/std_msgs/msg/rosidl_generator_cpp__visibility_control.hpp

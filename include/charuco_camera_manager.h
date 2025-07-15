@@ -79,6 +79,18 @@ public:
     void setDistCoeffs (const cv::Mat& D, int idx = -1);
     void setExtrinsics(const cv::Mat& R_or_rvec, const cv::Mat& tvec, int idx = -1);
 
+    void loadRigExtrinsicsFromYaml(const std::string& path);
+    void setRigExtrinsicsRaw(const cv::Mat& R, const cv::Mat& t, int idx);
+    std::vector<cv::Point2f> projectWorldAxes2D(const std::vector<cv::Point3f>& axes3d, int cam_id);
+
+    void drawOriginAxesUnified(cv::Mat& img, int cam_id);
+    void saveRigExtrinsicsToYaml(const std::string& path, const std::vector<int>& cam_ids);
+    // CameraManager.h
+    static void saveAllRigExtrinsicsToYaml(
+        const std::string& path,
+        const std::vector<std::shared_ptr<CameraManager>>& mgrs,
+        const std::vector<int>& cam_ids);
+
 
 
 private:
@@ -108,6 +120,8 @@ private:
     int                  default_cam_ = -1;
 
     /* Rig 外参（R_rig_cam , t_rig_cam）*/
+    std::vector<cv::Mat> rig_R_raw_;  // world -> cam
+    std::vector<cv::Mat> rig_t_raw_;
     cv::Mat rig_R_, rig_t_;
     // 张正友单机标定外参（R_cam2world, t_cam2world）
     cv::Mat rotation_, translation_;

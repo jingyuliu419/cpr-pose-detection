@@ -240,6 +240,34 @@ CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/Triangulator.cpp -o CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.s
 
+CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
+CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o: /home/ljy/project/poseDetection/src/emaf.cpp
+CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o -c /home/ljy/project/poseDetection/src/emaf.cpp
+
+CMakeFiles/multi_cam_node.dir/src/emaf.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/emaf.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/emaf.cpp > CMakeFiles/multi_cam_node.dir/src/emaf.cpp.i
+
+CMakeFiles/multi_cam_node.dir/src/emaf.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/emaf.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/emaf.cpp -o CMakeFiles/multi_cam_node.dir/src/emaf.cpp.s
+
+CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o: CMakeFiles/multi_cam_node.dir/flags.make
+CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o: /home/ljy/project/poseDetection/src/KalmanFilter1D.cpp
+CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o: CMakeFiles/multi_cam_node.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o -MF CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o.d -o CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o -c /home/ljy/project/poseDetection/src/KalmanFilter1D.cpp
+
+CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ljy/project/poseDetection/src/KalmanFilter1D.cpp > CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.i
+
+CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ljy/project/poseDetection/src/KalmanFilter1D.cpp -o CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.s
+
 # Object files for target multi_cam_node
 multi_cam_node_OBJECTS = \
 "CMakeFiles/multi_cam_node.dir/src/main.cpp.o" \
@@ -253,7 +281,9 @@ multi_cam_node_OBJECTS = \
 "CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o" \
 "CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o" \
-"CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o"
+"CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o" \
+"CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o" \
+"CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o"
 
 # External object files for target multi_cam_node
 multi_cam_node_EXTERNAL_OBJECTS =
@@ -270,6 +300,8 @@ multi_cam_node: CMakeFiles/multi_cam_node.dir/src/rtmpose_trt.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o
+multi_cam_node: CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o
+multi_cam_node: CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o
 multi_cam_node: CMakeFiles/multi_cam_node.dir/build.make
 multi_cam_node: libnv12_cuda.a
 multi_cam_node: /opt/ros/foxy/lib/librclcpp.so
@@ -399,7 +431,7 @@ multi_cam_node: /usr/lib/x86_64-linux-gnu/libavcodec.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libavutil.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libswscale.so
 multi_cam_node: CMakeFiles/multi_cam_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable multi_cam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable multi_cam_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multi_cam_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -9,7 +9,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #ifdef undistort
-#  error "undistort 被定义成宏了"
+#  error "undistort 被定义成定义了"
 #endif
 
 namespace calib {
@@ -23,17 +23,22 @@ CameraCalibrator::CameraCalibrator(const std::string& config_path) {
     fs["camera_matrix"] >> camera_matrix_;
     fs["distortion_coefficients"] >> dist_coeffs_;
 
-    if (fs["rotation_matrix"].empty() || fs["translation_vector"].empty()) {
-        std::cerr << "[WARN] rotation_matrix or translation_vector missing in YAML. Skipping extrinsics.\n";
-        rotation_matrix_ = cv::Mat();  // empty matrix
-        translation_vector_ = cv::Mat();
-    } else {
-        fs["rotation_matrix"] >> rotation_matrix_;
-        fs["translation_vector"] >> translation_vector_;
-        translation_vector_ /= 1000.0;  
+    std::cout << "[DEBUG] camera_matrix_ =\n" << camera_matrix_ << std::endl;
+    std::cout << "[DEBUG] distortion_coefficients =\n" << dist_coeffs_ << std::endl;
+
+    // ----- Extrinsics 读取逻辑（兼容 rotation_matrix 或 extrinsics.rotation_vector） -----
+    // 直接读取 rotation_matrix 和 translation_vector
+    fs["rotation_matrix"] >> rotation_matrix_;
+    fs["translation_vector"] >> translation_vector_;
+
+    if (rotation_matrix_.empty() || translation_vector_.empty()) {
+        std::cerr << "[WARN] rotation_matrix or translation_vector missing in YAML file.\n";
     }
 
-    // 检查类型
+
+    translation_vector_ /= 1000.0;
+
+    // 类型规范化
     if (!camera_matrix_.data || camera_matrix_.type() != CV_64F) {
         camera_matrix_.convertTo(camera_matrix_, CV_64F);
     }
@@ -50,7 +55,6 @@ CameraCalibrator::CameraCalibrator(const std::string& config_path) {
     fs.release();
 }
 
-
 cv::Mat CameraCalibrator::undistort(const cv::Mat& image) {
     cv::Mat undistorted;
     ::cv::undistort(image, undistorted, camera_matrix_, dist_coeffs_);
@@ -59,8 +63,8 @@ cv::Mat CameraCalibrator::undistort(const cv::Mat& image) {
 
 cv::Point3f CameraCalibrator::imageToWorld(const cv::Point2f& image_pt, float depth) {
     cv::Mat pt_hom = (cv::Mat_<double>(3,1) << image_pt.x, image_pt.y, 1.0);
-    cv::Mat cam_coord = camera_matrix_.inv() * pt_hom * depth;  // 3x1
-    cv::Mat world_coord = rotation_matrix_ * cam_coord + translation_vector_;  // 3x1
+    cv::Mat cam_coord = camera_matrix_.inv() * pt_hom * depth;
+    cv::Mat world_coord = rotation_matrix_ * cam_coord + translation_vector_;
     return cv::Point3f(world_coord.at<double>(0), world_coord.at<double>(1), world_coord.at<double>(2));
 }
 

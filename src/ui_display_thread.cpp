@@ -20,7 +20,7 @@ void UiThreadFunc(std::vector<std::shared_ptr<video::VideoStream>> streams,
     while (true) {
         // 等待推帧，50 ms 超时，保证 UI 流畅
         std::unique_lock<std::mutex> lk(ui_mtx);
-        ui_cv.wait_for(lk, std::chrono::milliseconds(50));
+        ui_cv.wait_for(lk, std::chrono::milliseconds(20));
         lk.unlock();
 
         bool drew = false;
@@ -43,7 +43,7 @@ void UiThreadFunc(std::vector<std::shared_ptr<video::VideoStream>> streams,
             drew = true;
         }
 
-        if (!drew) std::this_thread::sleep_for(std::chrono::milliseconds(5));
+        if (!drew) std::this_thread::sleep_for(std::chrono::milliseconds(1));
         if (int k=cv::waitKey(1); k==27 || k=='q') break; // ESC / q 退出
     }
 }

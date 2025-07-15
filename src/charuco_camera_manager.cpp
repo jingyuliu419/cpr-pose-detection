@@ -379,4 +379,131 @@ cv::Point3f CameraManager::pixel2world(const cv::Point2f& px, float z) const
     }
 }
 
+void CameraManager::setRigExtrinsicsRaw(const cv::Mat& R, const cv::Mat& t, int idx) {
+    ensure_size(rig_R_raw_, idx + 1);
+    ensure_size(rig_t_raw_, idx + 1);
+    rig_R_raw_[idx] = R.clone();
+    rig_t_raw_[idx] = t.clone();
+}
+
+
+
+void CameraManager::saveRigExtrinsicsToYaml(const std::string& path, const std::vector<int>& cam_ids) {
+    cv::FileStorage fs(path, cv::FileStorage::WRITE);
+    if (!fs.isOpened()) {
+        std::cerr << "[RigExtrinsics] Failed to open for write: " << path << std::endl;
+        return;
+    }
+
+    for (int cam_id : cam_ids) {
+        if (cam_id >= static_cast<int>(rig_R_raw_.size()) || rig_R_raw_[cam_id].empty())
+            continue;
+
+        fs << "R" + std::to_string(cam_id) << rig_R_raw_[cam_id];
+        fs << "t" + std::to_string(cam_id) << rig_t_raw_[cam_id];
+    }
+
+    std::cout << "[RigExtrinsics] Saved rig extrinsics for " << cam_ids.size() << " cameras." << std::endl;
+}
+
+// ========== Rig Extrinsics Loader ==========
+void CameraManager::loadRigExtrinsicsFromYaml(const std::string& path) {
+    cv::FileStorage fs(path, cv::FileStorage::READ);
+    if (!fs.isOpened()) {
+        std::cerr << "[RigExtrinsics] Cannot open: " << path << std::endl;
+        return;
+    }
+
+    // 遍历所有 keys
+    for (cv::FileNodeIterator it = fs.root().begin(); it != fs.root().end(); ++it) {
+        std::string key = (*it).name();
+        if (key.empty() || key[0] != 'R') continue;
+
+        int cam_id = std::stoi(key.substr(1));
+        cv::Mat R, t;
+        fs[key] >> R;
+        fs["t" + std::to_string(cam_id)] >> t;
+
+        if (R.empty() || t.empty()) {
+            std::cerr << "[RigExtrinsics] Missing R or t for cam " << cam_id << std::endl;
+            continue;
+        }
+
+        ensure_size(rig_R_raw_, cam_id + 1);
+        ensure_size(rig_t_raw_, cam_id + 1);
+        rig_R_raw_[cam_id] = R.clone();
+        rig_t_raw_[cam_id] = t.clone();
+
+        cv::Mat R_inv = R.t();
+        cv::Mat t_inv = -R_inv * t;
+        setExtrinsics(R_inv, t_inv, cam_id);
+    }
+
+    std::cout << "[RigExtrinsics] Loaded rig extrinsics for all valid camera ids in YAML." << std::endl;
+}
+
+// ========== Save All Rig Extrinsics to YAML ==========
+void CameraManager::saveAllRigExtrinsicsToYaml(
+    const std::string& path,
+    const std::vector<std::shared_ptr<CameraManager>>& mgrs,
+    const std::vector<int>& cam_ids) {
+
+    cv::FileStorage fs(path, cv::FileStorage::WRITE);
+    if (!fs.isOpened()) {
+        std::cerr << "[RigExtrinsics] Cannot open for writing: " << path << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < mgrs.size(); ++i) {
+        const auto& mgr = mgrs[i];
+        int id = cam_ids[i];
+
+        if (id < 0 || id >= static_cast<int>(mgr->rig_R_raw_.size()) ||
+            mgr->rig_R_raw_[id].empty() || mgr->rig_t_raw_[id].empty()) {
+            std::cerr << "[RigExtrinsics] Skipping cam_id=" << id << " due to empty extrinsics." << std::endl;
+            continue;
+        }
+
+        fs << ("R" + std::to_string(id)) << mgr->rig_R_raw_[id];
+        fs << ("t" + std::to_string(id)) << mgr->rig_t_raw_[id];
+    }
+    fs.release();
+    std::cout << "[RigExtrinsics] Saved rig extrinsics to: " << path << std::endl;
+}
+
+// ========== Project World Axes to Image ==========
+std::vector<cv::Point2f> CameraManager::projectWorldAxes2D(const std::vector<cv::Point3f>& axes3d, int cam_id) {
+    std::vector<cv::Point2f> img_pts;
+    if (!hasValidExtrinsics(cam_id)) return img_pts;
+    if (cam_id < 0 || cam_id >= static_cast<int>(rig_R_raw_.size()) ||
+        rig_R_raw_[cam_id].empty() || rig_t_raw_[cam_id].empty()) {
+        std::cerr << "[Error] Invalid or missing rig extrinsics for cam_id: " << cam_id << std::endl;
+        return img_pts;
+    }
+
+    try {
+        cv::projectPoints(axes3d, rig_R_raw_[cam_id], rig_t_raw_[cam_id],
+                          camera_matrix_list_[cam_id], dist_coeffs_list_[cam_id], img_pts);
+    } catch (const std::exception& e) {
+        std::cerr << "[Error] projectWorldAxes2D: " << e.what() << std::endl;
+    }
+    return img_pts;
+}
+
+// ========== Draw Axes in Inference ==========
+void CameraManager::drawOriginAxesUnified(cv::Mat& img, int cam_id) {
+    if (!hasValidExtrinsics(cam_id) || cam_id >= rig_R_raw_.size()) return;
+    const std::vector<cv::Point3f> world_axes = {
+        {0, 0, 0}, {0.1f, 0, 0}, {0, 0.1f, 0}, {0, 0, 0.1f}
+    };
+    const auto img_pts = projectWorldAxes2D(world_axes, cam_id);
+    if (img_pts.size() < 4) return;
+
+    cv::drawMarker(img, img_pts[0], {0,255,255}, cv::MARKER_CROSS, 12, 2);
+    cv::arrowedLine(img, img_pts[0], img_pts[1], cv::Scalar(0,0,255), 3);
+    cv::arrowedLine(img, img_pts[0], img_pts[2], cv::Scalar(0,255,0), 3);
+    cv::arrowedLine(img, img_pts[0], img_pts[3], cv::Scalar(255,0,0), 3);
+}
+
+
 } // namespace charuco

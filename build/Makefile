@@ -178,6 +178,30 @@ multi_cam_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/build
 .PHONY : multi_cam_node/fast
 
+src/KalmanFilter1D.o: src/KalmanFilter1D.cpp.o
+.PHONY : src/KalmanFilter1D.o
+
+# target to build an object file
+src/KalmanFilter1D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o
+.PHONY : src/KalmanFilter1D.cpp.o
+
+src/KalmanFilter1D.i: src/KalmanFilter1D.cpp.i
+.PHONY : src/KalmanFilter1D.i
+
+# target to preprocess a source file
+src/KalmanFilter1D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.i
+.PHONY : src/KalmanFilter1D.cpp.i
+
+src/KalmanFilter1D.s: src/KalmanFilter1D.cpp.s
+.PHONY : src/KalmanFilter1D.s
+
+# target to generate assembly for a file
+src/KalmanFilter1D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.s
+.PHONY : src/KalmanFilter1D.cpp.s
+
 src/Triangulator.o: src/Triangulator.cpp.o
 .PHONY : src/Triangulator.o
 
@@ -273,6 +297,30 @@ src/config_loader.s: src/config_loader.cpp.s
 src/config_loader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.s
 .PHONY : src/config_loader.cpp.s
+
+src/emaf.o: src/emaf.cpp.o
+.PHONY : src/emaf.o
+
+# target to build an object file
+src/emaf.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o
+.PHONY : src/emaf.cpp.o
+
+src/emaf.i: src/emaf.cpp.i
+.PHONY : src/emaf.i
+
+# target to preprocess a source file
+src/emaf.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/emaf.cpp.i
+.PHONY : src/emaf.cpp.i
+
+src/emaf.s: src/emaf.cpp.s
+.PHONY : src/emaf.s
+
+# target to generate assembly for a file
+src/emaf.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/emaf.cpp.s
+.PHONY : src/emaf.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -479,6 +527,9 @@ help:
 	@echo "... uninstall"
 	@echo "... multi_cam_node"
 	@echo "... nv12_cuda"
+	@echo "... src/KalmanFilter1D.o"
+	@echo "... src/KalmanFilter1D.i"
+	@echo "... src/KalmanFilter1D.s"
 	@echo "... src/Triangulator.o"
 	@echo "... src/Triangulator.i"
 	@echo "... src/Triangulator.s"
@@ -491,6 +542,9 @@ help:
 	@echo "... src/config_loader.o"
 	@echo "... src/config_loader.i"
 	@echo "... src/config_loader.s"
+	@echo "... src/emaf.o"
+	@echo "... src/emaf.i"
+	@echo "... src/emaf.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

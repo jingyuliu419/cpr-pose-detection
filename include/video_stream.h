@@ -19,6 +19,7 @@
 #include "Triangulator.h"
 #include "ui_display_thread.h"
 #include "ros2_time_sync.h"
+#include "EMAFilter2D.h"
 // ---------- 纯 C 头文件（FFmpeg）----------
 extern "C" {
 #include <libavformat/avformat.h>
@@ -33,13 +34,13 @@ namespace video {
 class VideoStream {
 public:
     VideoStream(int cam_id,
-                const std::string& url,
-                const std::string& win,
-                const std::string& calib_yaml,
-                std::shared_ptr<detectPerson::YOLOv5TRTDetector> det,
-                std::shared_ptr<posetiny::RTMPoseTRT> pose,
-                std::shared_ptr<charuco::CameraManager> cam_mgr,
-                std::shared_ptr<Triangulator> triangulator);
+        const std::string& url,
+        const std::string& win,
+        const std::string& calib_yaml,
+        std::shared_ptr<detectPerson::YOLOv5TRTDetector> det,
+        std::shared_ptr<posetiny::RTMPoseTRT> pose,
+        std::shared_ptr<charuco::CameraManager> cam_mgr,
+        std::shared_ptr<Triangulator> triangulator);
 
     /* 若想保留旧接口，也可提供 setter */
     void setCameraManager(std::shared_ptr<charuco::CameraManager> mgr) { camera_mgr_ = std::move(mgr); }
@@ -64,23 +65,38 @@ public:
     void setNode(std::shared_ptr<rclcpp::Node> node) {
         ros_node_ = std::move(node);
     }
+        // Mutex for synchronization
+
 
 
 private:
     void captureLoop();
     void decodeWithCudaLoophard();
     void inferenceLoop();
-
+        struct TimedKeypoint {
+        rclcpp::Time stamp;
+        cv::Point2f keypoint;
+        cv::Mat P; // The camera projection matrix
+    };
+    std::mutex mtx_;                     // Mutex for synchronization
+    rclcpp::Time synchronized_timestamp_;
+    std::deque<TimedKeypoint> window_; // Deque to store keypoints with timestamps
     /* ---       --- */
     std::shared_ptr<charuco::CameraManager> camera_mgr_;
 
     /* --- const / shared --- */
-    const std::string url_, window_name_;
+    bool use_usb_camera_ = true;
+    int device_id_ = -1;
+    const std::string url_;
+    const std::string window_name_;
+    bool use_gpu_ = true;  // 是否使用 GPU 进行解码
+
     std::unique_ptr<calib::CameraCalibrator> calibrator_;
     std::shared_ptr<detectPerson::YOLOv5TRTDetector> detector_;
     std::shared_ptr<posetiny::RTMPoseTRT>             pose_model_;
     std::shared_ptr<rclcpp::Node> ros_node_;
     const std::vector<std::pair<int,int>> skeleton_;
+    std::array<EMAFilter2D, 17> ema_pool;  // 定义静态变量
 
     /* --- per-stream context --- */
     std::shared_ptr<detectPerson::YOLOv5TRTDetector::Context> detector_ctx_;

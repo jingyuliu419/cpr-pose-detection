@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o"
+  "CMakeFiles/multi_cam_node.dir/src/KalmanFilter1D.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o"
   "CMakeFiles/multi_cam_node.dir/src/Triangulator.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/camera_calibrator.cpp.o"
@@ -7,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o"
   "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o.d"
+  "CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o"
+  "CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/main.cpp.o"
   "CMakeFiles/multi_cam_node.dir/src/main.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o"
