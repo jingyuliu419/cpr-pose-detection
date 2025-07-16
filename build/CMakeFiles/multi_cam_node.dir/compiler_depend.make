@@ -2055,6 +2055,7 @@ CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o: /home/ljy/project/poseDetection/sr
 
 CMakeFiles/multi_cam_node.dir/src/main.cpp.o: /home/ljy/project/poseDetection/src/main.cpp \
   /home/ljy/project/poseDetection/include/EMAFilter2D.h \
+  /home/ljy/project/poseDetection/include/KalmanFilter1D.h \
   /home/ljy/project/poseDetection/include/Triangulator.h \
   /home/ljy/project/poseDetection/include/camera_calibrator.h \
   /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
@@ -4465,6 +4466,7 @@ CMakeFiles/multi_cam_node.dir/src/trt_logger.cpp.o: /home/ljy/project/poseDetect
 
 CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: /home/ljy/project/poseDetection/src/ui_display_thread.cpp \
   /home/ljy/project/poseDetection/include/EMAFilter2D.h \
+  /home/ljy/project/poseDetection/include/KalmanFilter1D.h \
   /home/ljy/project/poseDetection/include/Triangulator.h \
   /home/ljy/project/poseDetection/include/camera_calibrator.h \
   /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
@@ -5281,6 +5283,7 @@ CMakeFiles/multi_cam_node.dir/src/ui_display_thread.cpp.o: /home/ljy/project/pos
 
 CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: /home/ljy/project/poseDetection/src/video_stream.cpp \
   /home/ljy/project/poseDetection/include/EMAFilter2D.h \
+  /home/ljy/project/poseDetection/include/KalmanFilter1D.h \
   /home/ljy/project/poseDetection/include/Triangulator.h \
   /home/ljy/project/poseDetection/include/camera_calibrator.h \
   /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
