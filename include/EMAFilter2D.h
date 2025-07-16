@@ -3,7 +3,7 @@
 
 class EMAFilter2D {
 public:
-    explicit EMAFilter2D(float alpha = 0.2f) : a(alpha), first(true) {}
+    explicit EMAFilter2D(float alpha = 0.8f) : a(alpha), first(true) {}
     
     cv::Point2f update(const cv::Point2f& z) {
         if (first) { 

@@ -70,27 +70,14 @@ void VideoStream::stop() {
 
 // 订阅同步时间戳的消息
 void VideoStream::captureLoop() {
-    bool use_gpu_ = true;
     use_usb_camera_ = url_.empty();
-
-    // 创建 ROS2 节点并订阅时间同步消息
-    auto node = std::make_shared<rclcpp::Node>("capture_node");
-    rclcpp::Subscription<std_msgs::msg::Int64>::SharedPtr time_sync_sub = node->create_subscription<std_msgs::msg::Int64>(
-        "/time_sync_topic", 10, [this](const std_msgs::msg::Int64::SharedPtr msg) {
-            // 处理从 TimeSyncNode 发布过来的时间戳
-            synchronized_timestamp_ = rclcpp::Time(msg->data);  // 将时间戳存储到 synchronized_timestamp_
-        });
-
-    rclcpp::executors::SingleThreadedExecutor executor;
-    executor.add_node(node);
-    std::thread ros_thread([&executor]() { executor.spin(); });
 
     if (use_usb_camera_) {
         // ===== USB 相机采集逻辑 =====
         cv::VideoCapture cap(cam_id_, cv::CAP_V4L2);
-        cap.set(cv::CAP_PROP_FRAME_WIDTH, 640);   // 降低分辨率
-        cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);  // 降低分辨率
-        cap.set(cv::CAP_PROP_FPS, 30);  // 限制帧率为30 FPS
+        cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920);
+        cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080);
+        cap.set(cv::CAP_PROP_FPS, 30);
 
         // 禁用自动曝光、对焦等
         cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0);
@@ -114,21 +101,18 @@ void VideoStream::captureLoop() {
                     continue;
                 }
 
+                // 获取当前系统时间作为采集时间戳（STEADY_CLOCK 推荐用于同步）
+                rclcpp::Time stamp = rclcpp::Clock(RCL_STEADY_TIME).now();
+
                 {
                     std::lock_guard<std::mutex> lock(last_mtx_);
-                    last_frame_ = bgr.clone();  // 仅克隆一次
+                    last_frame_ = bgr.clone();  // 更新最后一帧
                 }
 
-                // 使用同步的时间戳
-                rclcpp::Time stamp = synchronized_timestamp_;  // 使用同步的时间戳
-                if (stamp == rclcpp::Time(0)) {
-                    // std::cerr << "[Warn] Time stamp not synchronized yet, skipping frame\n";
-                    continue;  // 如果时间戳还没有同步，跳过此帧
-                }
-
+                // 入队图像和时间戳
                 std::unique_lock<std::mutex> lock(cap_mutex_);
-                if (capture_queue_.size() >= 2) capture_queue_.pop();  // 保持队列大小为2
-                capture_queue_.emplace(bgr.clone(), stamp);
+                if (capture_queue_.size() >= 1) capture_queue_.pop();
+                capture_queue_.emplace(bgr.clone(), stamp);  // 👈 带上准确时间
                 cap_cv_.notify_one();
             }
         } catch (const std::exception& e) {
@@ -139,6 +123,7 @@ void VideoStream::captureLoop() {
         return;
     }
 }
+
 
 
 #include <opencv2/opencv.hpp>
@@ -161,7 +146,7 @@ static const cv::Scalar Z_COLOR(255, 0, 0);
 const std::string pose_log_path_ = "/home/ljy/project/poseDetection/build/triangulated_pose_log.csv";
 
 void VideoStream::inferenceLoop() {
-    constexpr int MAX_TIME_DIFF_MS = 5;  // Time threshold in milliseconds
+    constexpr int MAX_TIME_DIFF_MS = 30;  // Time threshold in milliseconds
 
     while (running_) {
         try {
@@ -172,11 +157,10 @@ void VideoStream::inferenceLoop() {
             FrameStamp fs = std::move(capture_queue_.front());
             capture_queue_.pop();
             lk.unlock();
-
+            
             cv::Mat frame = std::move(fs.first);
             rclcpp::Time stamp = fs.second;
             if (frame.empty()) continue;
-
             std::vector<detectPerson::DetectResult> dets;
             detector_->detect(frame, dets, *detector_ctx_);
 
@@ -236,7 +220,7 @@ void VideoStream::inferenceLoop() {
                     
                     // Push 2D keypoint to triangulator
                     triangulator_->push2DKeypoint(cam_id_, stamp, wpt, K, R, t);
-
+                    
                     // Perform triangulation if ready
                     if (auto p3d = triangulator_->triangulateIfReady()) {
                         cv::Point text_pos = wpt + cv::Point2f(10, -10);

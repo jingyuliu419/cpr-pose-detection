@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
 
     auto node = std::make_shared<rclcpp::Node>("multi_cam_node");
 std::unordered_map<std::string, int> map{
-    {"cam0", 0},
+    {"cam0", 1},
     {"cam1", 4},
     {"cam2", 6}
 };
@@ -61,7 +61,7 @@ std::vector<CamInfo> cams = {
 
 
     auto detector = std::make_shared<detectPerson::YOLOv5TRTDetector>();
-    detector->initConfig("/home/ljy/project/poseDetection/models/engine/yolov5s.engine", 0.4f, 0.4f);
+    detector->initConfig("/home/ljy/project/poseDetection/models/engine/yolov5s.engine", 0.6f, 0.6f);
     auto pose_estimator = std::make_shared<posetiny::RTMPoseTRT>(
         "/home/ljy/project/poseDetection/models/rtmpose_model/rtmpose.engine");
 

@@ -58,7 +58,7 @@ void TimeSyncNode::loop() {
         // std::cout << "Time sync published: " << nanoseconds << " ns" << std::endl;
 
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(15));
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
 
     }
 }

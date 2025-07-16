@@ -9,6 +9,7 @@
 #include <optional>
 #include <random>
 #include <vector>
+#include "KalmanFilter1D.h"
 
 class Triangulator {
 public:
@@ -45,10 +46,14 @@ private:
                                 int iters = 5);
 
     const std::size_t required_cam_;   ///< 同步所需最小相机数（≥2 推荐）
-    std::deque<TimedKeypoint> window_;
+    // std::deque<TimedKeypoint> window_;
+    std::unordered_map<int, std::deque<TimedKeypoint>> window_by_cam_;
+
+    KalmanFilter1D kf_x_, kf_y_, kf_z_;  // 每个轴一个滤波器
 
     static constexpr std::size_t MAX_WINDOW_SIZE = 200;
-    static constexpr int64_t     MAX_SYNC_NS     = 30000000; // 3 ms
+    static constexpr int64_t MAX_WINDOW_DURATION_NS = 300000000;  // 300ms
+    static constexpr int64_t     MAX_SYNC_NS     = 150000000; // 60 ms
 
     std::mutex mtx_;
     std::mt19937 rng_;
