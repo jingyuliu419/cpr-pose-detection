@@ -2,6 +2,7 @@
 #include "Triangulator.h"
 #include "KalmanFilter1D.h"
 #include <opencv2/calib3d.hpp>
+#include "BundleAdjuster.hpp"
 #include <numeric>
 #include <fstream>
 #include <algorithm>
@@ -131,7 +132,7 @@ void Triangulator::push2DKeypoint(int cam_id,
     if (!cam_queue.empty()) {
         const auto& last = cam_queue.back();
         if (std::abs((stamp - last.stamp).nanoseconds() * 1e-6) < 10.0 &&
-            cv::norm(pt - last.keypoint) < 2.0)
+            cv::norm(pt - last.keypoint) < 2)
             return;
     }
 
@@ -170,7 +171,6 @@ std::optional<cv::Point3f> Triangulator::triangulateIfReady()
             int64_t dt = std::llabs((kp.stamp - t0).nanoseconds());
             if (dt > MAX_SYNC_NS) continue;
 
-            // 只保留每个相机最接近 t0 的关键点
             if (!group.count(kp.cam_id) ||
                 dt < std::llabs((group[kp.cam_id].stamp - t0).nanoseconds())) {
                 group[kp.cam_id] = kp;
@@ -198,7 +198,7 @@ std::optional<cv::Point3f> Triangulator::triangulateIfReady()
         if (n < 2) continue;
 
         const int maxIter = 50;
-        const double thresh = 3.0;
+        const double thresh = 4.0;
         int bestInl = 0;
         cv::Point3f bestX;
         std::uniform_int_distribution<int> uni(0, n - 1);
@@ -241,14 +241,30 @@ std::optional<cv::Point3f> Triangulator::triangulateIfReady()
                     "Triangulated with %ld cameras, inliers = %ld",
                     Ps.size(), Ps_in.size());
 
-        // Step 7: refine + 滤波
-        cv::Point3f rawX = refineLM(Ps_in, xs_in, linearTriangulateN(Ps_in, xs_in), 5);
-        cv::Point3f X;
-        X.x = kf_x_.update(rawX.x);
-        X.y = kf_y_.update(rawX.y);
-        X.z = kf_z_.update(rawX.z);
+        // Step 7: refine + 滤波器初始化
+        cv::Point3f X_init = linearTriangulateN(Ps_in, xs_in);
+        cv::Point3f refinedX = refineLM(Ps_in, xs_in, X_init, 5);
+        vision::BundleAdjuster ba;
+        cv::Point3f baX = ba.optimize(Ps_in, xs_in, refinedX);
 
-        // Step 8: 记录输出
+        // 合法性判断
+        if (!std::isfinite(baX.z)) continue;
+
+        // ✅ 初始化 KalmanFilter1D，仅一次
+        if (!kf_initialized_) {
+            kf_z_ = KalmanFilter1D(1e-3f, 5e-3f);  // 设置过程/观测噪声
+            kf_z_.update(baX.z);                   // 用第一帧设初始状态
+            kf_initialized_ = true;
+        }
+
+        float z_filtered = kf_z_.update(baX.z);
+        cv::Point3f X = { baX.x, baX.y, z_filtered };
+
+        // 剔除非法数值
+        if (!std::isfinite(X.x) || !std::isfinite(X.y) || !std::isfinite(X.z))
+            continue;
+
+        // Step 8: 写入 CSV
         auto now = std::chrono::system_clock::now();
         int64_t ms_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(
             now.time_since_epoch()).count();

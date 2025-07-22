@@ -51,12 +51,13 @@ private:
 
     KalmanFilter1D kf_x_, kf_y_, kf_z_;  // 每个轴一个滤波器
 
-    static constexpr std::size_t MAX_WINDOW_SIZE = 200;
-    static constexpr int64_t MAX_WINDOW_DURATION_NS = 300000000;  // 300ms
-    static constexpr int64_t     MAX_SYNC_NS     = 150000000; // 60 ms
+    static constexpr std::size_t MAX_WINDOW_SIZE = 100;
+    static constexpr int64_t MAX_WINDOW_DURATION_NS = 20000000;  // 300ms
+    static constexpr int64_t     MAX_SYNC_NS     = 20000000; // 60 ms
 
     std::mutex mtx_;
     std::mt19937 rng_;
+    bool kf_initialized_ = false;
 };
 
 #endif // TRIANGULATOR_H

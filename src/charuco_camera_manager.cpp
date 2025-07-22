@@ -145,14 +145,13 @@ void CameraManager::calibrateFromLive(int cam_idx,
         return;
     }
 
-    /* ---------- 6×6  Charuco board，DICT_5X5_100 ---------- */
+    /* ---------- 9×12  Charuco board，DICT_5X5_100 ---------- */
     auto dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_5X5_100);
     auto board = cv::aruco::CharucoBoard::create(
-        12, 9,          // squaresX, squaresY (格子数)
-        0.015, 0.01125, // squareLength, markerLength（单位：米）
-        dictionary      // 建议与图片上保持一致，如 DICT_5X5_100
+        12, 9,           // squaresX, squaresY
+        0.06, 0.045,     // squareLength, markerLength（单位：米，对应 60mm / 45mm）
+        dictionary
     );
-
 
     std::vector<cv::Mat> frames;
     std::vector<std::vector<std::vector<cv::Point2f>>> all_corners;

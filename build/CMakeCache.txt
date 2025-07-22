@@ -383,6 +383,12 @@ CUDA_nvToolsExt_LIBRARY:FILEPATH=/usr/local/cuda/lib64/libnvToolsExt.so
 //Path to a library.
 CUDA_rt_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 
+//The directory containing a CMake configuration file for Ceres.
+Ceres_DIR:PATH=/usr/lib/cmake/Ceres
+
+//Eigen include directory
+EIGEN_INCLUDE_DIR:STRING=/usr/include/eigen3
+
 //Path to a file.
 FREETYPE_INCLUDE_DIR_freetype2:PATH=/usr/include/freetype2
 
@@ -415,6 +421,12 @@ Fontconfig_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
 Fontconfig_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfontconfig.so
+
+//Path to a file.
+GLOG_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+GLOG_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libglog.so
 
 //Path to a library.
 OPENSSL_CRYPTO_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
@@ -1311,6 +1323,8 @@ CUDA_parse_cubin:INTERNAL=/usr/local/share/cmake-3.31/Modules/FindCUDA/parse_cub
 CUDA_rt_LIBRARY-ADVANCED:INTERNAL=1
 //Location of run_nvcc.cmake
 CUDA_run_nvcc:INTERNAL=/usr/local/share/cmake-3.31/Modules/FindCUDA/run_nvcc.cmake
+//ADVANCED property for variable: EIGEN_INCLUDE_DIR
+EIGEN_INCLUDE_DIR-ADVANCED:INTERNAL=1
 FFMPEG_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
 FFMPEG_CFLAGS_I:INTERNAL=
 FFMPEG_CFLAGS_OTHER:INTERNAL=
@@ -1390,6 +1404,10 @@ FREETYPE_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 Fontconfig_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Fontconfig_LIBRARY
 Fontconfig_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLOG_INCLUDE_DIR
+GLOG_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLOG_LIBRARY
+GLOG_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
 OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_INCLUDE_DIR

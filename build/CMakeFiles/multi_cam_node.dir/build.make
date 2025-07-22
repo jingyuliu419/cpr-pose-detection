@@ -349,6 +349,7 @@ multi_cam_node: /usr/local/lib/libopencv_xphoto.so.4.6.0
 multi_cam_node: /usr/local/lib/libopencv_highgui.so.4.6.0
 multi_cam_node: /usr/local/cuda/lib64/libcudart_static.a
 multi_cam_node: /usr/lib/x86_64-linux-gnu/librt.so
+multi_cam_node: /usr/lib/libceres.so.1.14.0
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libSM.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libICE.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libX11.so
@@ -426,6 +427,8 @@ multi_cam_node: /usr/local/lib/libopencv_imgproc.so.4.6.0
 multi_cam_node: /usr/local/lib/libopencv_cudaarithm.so.4.6.0
 multi_cam_node: /usr/local/lib/libopencv_core.so.4.6.0
 multi_cam_node: /usr/local/lib/libopencv_cudev.so.4.6.0
+multi_cam_node: /usr/lib/x86_64-linux-gnu/libglog.so
+multi_cam_node: /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libavformat.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libavcodec.so
 multi_cam_node: /usr/lib/x86_64-linux-gnu/libavutil.so

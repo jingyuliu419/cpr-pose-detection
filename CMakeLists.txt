@@ -26,12 +26,18 @@ find_package(CUDA REQUIRED)
 # --- TensorRT ---
 set(TENSORRT_ROOT "/usr/include/tensorrt")
 include_directories(${TENSORRT_ROOT})
+include_directories("/usr/include/eigen3")  # ✅ 添加 Eigen3 路径
+
 link_directories(/usr/lib/x86_64-linux-gnu)
 set(TENSORRT_LIBS
     nvinfer
     nvonnxparser
     cudart
 )
+
+# --- Ceres Solver ---
+find_package(Ceres REQUIRED)                # ✅ 添加 Ceres
+include_directories(${CERES_INCLUDE_DIRS})  # 可选，Ceres 通常会自动处理
 
 # --- FFmpeg + ROS2 ---
 find_package(rclcpp REQUIRED)
@@ -79,6 +85,7 @@ target_link_libraries(multi_cam_node
   ${OpenCV_LIB_COMPONENTS}
   ${CUDA_LIBRARIES}
   ${TENSORRT_LIBS}
+  ${CERES_LIBRARIES}              # ✅ 链接 Ceres 库
   PkgConfig::FFMPEG
   ${X11_LIBRARIES}
 )

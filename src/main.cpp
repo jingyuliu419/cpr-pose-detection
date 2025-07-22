@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
     auto node = std::make_shared<rclcpp::Node>("multi_cam_node");
 std::unordered_map<std::string, int> map{
     {"cam0", 1},
-    {"cam1", 4},
+    {"cam1", 5},
     {"cam2", 6}
 };
 

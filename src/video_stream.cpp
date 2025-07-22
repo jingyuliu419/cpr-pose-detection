@@ -138,7 +138,7 @@ using FrameStamp = std::pair<cv::Mat, rclcpp::Time>;
 constexpr std::array<std::pair<int, int>, 12> kEdges {{
     {5,7}, {6,8}, {7,9}, {8,10}
 }};
-static const float KPT_TH = 0.10f; // Keypoint threshold
+static const float KPT_TH = 0.25f; // Keypoint threshold
 static const int AXIS_THICK = 3; // Axis thickness for drawing
 static const cv::Scalar X_COLOR( 0, 0, 255);
 static const cv::Scalar Y_COLOR( 0, 255, 0);
@@ -197,7 +197,7 @@ void VideoStream::inferenceLoop() {
                 }
 
                 // Get wrist keypoint for triangulation
-                constexpr int WRIST = 10;
+                constexpr int WRIST = 9;
                 const auto& wpt = gpts[WRIST];
 
                 if (use_world_coord_ && wpt.x >= 0 && wpt.y >= 0 && triangulator_) {
@@ -227,7 +227,7 @@ void VideoStream::inferenceLoop() {
                         cv::putText(frame,
                             cv::format("[%.2f %.2f %.2f]", p3d->x, p3d->y, p3d->z),
                             text_pos,
-                            cv::FONT_HERSHEY_SIMPLEX, 1.5, {0,0,255}, 8);
+                            cv::FONT_HERSHEY_SIMPLEX, 2, {0,0,255}, 10);
                     }
                 }
             }
