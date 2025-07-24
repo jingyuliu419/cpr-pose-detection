@@ -66,7 +66,7 @@ public:
         ros_node_ = std::move(node);
     }
         // Mutex for synchronization
-
+    void writeProjected3DToFile(const std::string& filename, const rclcpp::Time& stamp, const cv::Point3f& p3d);
 
 
 private:

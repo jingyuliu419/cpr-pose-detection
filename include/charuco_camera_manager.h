@@ -90,6 +90,12 @@ public:
         const std::string& path,
         const std::vector<std::shared_ptr<CameraManager>>& mgrs,
         const std::vector<int>& cam_ids);
+    const cv::Mat& distCoeffs(int idx = -1) const;
+    double getReprojectionError(int idx) const {
+        if (idx < 0 || idx >= static_cast<int>(reprojection_errors_.size()))
+            return -1.0;
+        return reprojection_errors_[idx];
+    }
 
 
 
@@ -117,7 +123,6 @@ private:
     /* 单机标定结果 */
     std::vector<cv::Mat> camera_matrix_list_, dist_coeffs_list_;
     std::vector<cv::Mat> rvec_list_, tvec_list_;
-    int                  default_cam_ = -1;
 
     /* Rig 外参（R_rig_cam , t_rig_cam）*/
     std::vector<cv::Mat> rig_R_raw_;  // world -> cam
@@ -126,6 +131,8 @@ private:
     // 张正友单机标定外参（R_cam2world, t_cam2world）
     cv::Mat rotation_, translation_;
     bool has_extrinsics_ = false;
+    int default_cam_ = 0;          // ←★ 保持 0，不再在 setExtrinsics 里修改
+    std::vector<double> reprojection_errors_;
 
 };
 

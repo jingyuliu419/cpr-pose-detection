@@ -471,23 +471,31 @@ void CameraManager::saveAllRigExtrinsicsToYaml(
 }
 
 // ========== Project World Axes to Image ==========
-std::vector<cv::Point2f> CameraManager::projectWorldAxes2D(const std::vector<cv::Point3f>& axes3d, int cam_id) {
+std::vector<cv::Point2f> CameraManager::projectWorldAxes2D(
+        const std::vector<cv::Point3f>& axes3d, int cam_id)
+{
     std::vector<cv::Point2f> img_pts;
-    if (!hasValidExtrinsics(cam_id)) return img_pts;
-    if (cam_id < 0 || cam_id >= static_cast<int>(rig_R_raw_.size()) ||
-        rig_R_raw_[cam_id].empty() || rig_t_raw_[cam_id].empty()) {
-        std::cerr << "[Error] Invalid or missing rig extrinsics for cam_id: " << cam_id << std::endl;
+
+    /* ① Rig 外参要能取到 */
+    if(cam_id >= rig_R_raw_.size() || rig_R_raw_[cam_id].empty())
         return img_pts;
-    }
+
+    /* ② K / D 统一用 default_cam_（只有一份内参时就是 0） */
+    int idxK = (default_cam_ >= 0) ? default_cam_ : 0;
 
     try {
-        cv::projectPoints(axes3d, rig_R_raw_[cam_id], rig_t_raw_[cam_id],
-                          camera_matrix_list_[cam_id], dist_coeffs_list_[cam_id], img_pts);
+        cv::projectPoints(axes3d,
+                          rig_R_raw_[cam_id],         // ← Rig R/t 仍用设备号
+                          rig_t_raw_[cam_id],
+                          camera_matrix_list_[idxK],  // ← 改这里
+                          dist_coeffs_list_[idxK],    // ← 还有这里
+                          img_pts);
     } catch (const std::exception& e) {
-        std::cerr << "[Error] projectWorldAxes2D: " << e.what() << std::endl;
+        std::cerr << "[Error] projectWorldAxes2D: " << e.what() << '\n';
     }
     return img_pts;
 }
+
 
 // ========== Draw Axes in Inference ==========
 void CameraManager::drawOriginAxesUnified(cv::Mat& img, int cam_id) {
@@ -502,6 +510,14 @@ void CameraManager::drawOriginAxesUnified(cv::Mat& img, int cam_id) {
     cv::arrowedLine(img, img_pts[0], img_pts[1], cv::Scalar(0,0,255), 3);
     cv::arrowedLine(img, img_pts[0], img_pts[2], cv::Scalar(0,255,0), 3);
     cv::arrowedLine(img, img_pts[0], img_pts[3], cv::Scalar(255,0,0), 3);
+}
+const cv::Mat& CameraManager::distCoeffs(int idx) const
+{
+    int i = (idx < 0) ? default_cam_ : idx;
+    static cv::Mat empty;                // 兜底，避免返回引用空对象
+    if (i < 0 || i >= dist_coeffs_list_.size())
+        return empty;
+    return dist_coeffs_list_[i];
 }
 
 

@@ -3,7 +3,7 @@
 #include <opencv2/aruco/charuco.hpp>
 #include <vector>
 #include <string>
-
+#include <fstream>
 namespace charuco {
 
 /** 每台相机在 Rig 世界中的外参 R_rig_cam , t_rig_cam */
@@ -30,6 +30,12 @@ public:
     /** 计算外参；rig_yaml_path 为空则只返回，不落盘 */
     std::vector<RigExtrinsics>
                 solveAndSave(const std::string& rig_yaml_path = "");
+    
+    double computeReprojectionError(
+        const std::vector<std::vector<cv::Point2f>>& detectedPoints,
+        const std::vector<std::vector<cv::Point3f>>& objectPoints,
+        const cv::Mat& K, const cv::Mat& D,
+        const cv::Mat& R, const cv::Mat& t);
 
 private:
     struct Shot2D {

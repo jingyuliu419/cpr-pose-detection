@@ -104,19 +104,7 @@ cv::Point3f Triangulator::refineLM(const std::vector<cv::Mat>& Ps,const std::vec
 
 Triangulator::Triangulator(std::size_t required_cam):required_cam_(required_cam),rng_(std::random_device{}()){}
 
-// void Triangulator::push2DKeypoint(int cam_id,const rclcpp::Time& stamp,const cv::Point2f& pt,const cv::Mat& K,const cv::Mat& R,const cv::Mat& t)
-// {
-//     std::lock_guard<std::mutex> lk(mtx_);
-//     // 剔除时间差小于10ms 且像素距离小于2的近似重复帧
-//     // if (!window_.empty()) {
-//     //     const auto& last = window_.back();
-//     //     double dt = std::abs((stamp - last.stamp).nanoseconds()) / 1e6;
-//     //     double dist = cv::norm(pt - last.keypoint);
-//     //     if (dt < 10 && dist < 2.0) return;
-//     // }
-//     window_.push_back({cam_id, stamp, pt, makeProjection(K,R,t)});
-//     if(window_.size()>MAX_WINDOW_SIZE) window_.pop_front();
-// }
+
 void Triangulator::push2DKeypoint(int cam_id,
                                   const rclcpp::Time& stamp,
                                   const cv::Point2f& pt,

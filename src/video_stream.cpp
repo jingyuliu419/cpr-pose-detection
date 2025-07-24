@@ -125,6 +125,14 @@ void VideoStream::captureLoop() {
 }
 
 
+void VideoStream::writeProjected3DToFile(const std::string& filename, const rclcpp::Time& stamp, const cv::Point3f& p3d) {
+    std::ofstream file(filename, std::ios::app);
+    if (file.is_open()) {
+        file << std::fixed << std::setprecision(3)
+             << stamp.seconds() << ","
+             << p3d.x << "," << p3d.y << "," << p3d.z << "\n";
+    }
+}
 
 #include <opencv2/opencv.hpp>
 #include <rclcpp/rclcpp.hpp>
@@ -200,38 +208,68 @@ void VideoStream::inferenceLoop() {
                 constexpr int WRIST = 9;
                 const auto& wpt = gpts[WRIST];
 
-                if (use_world_coord_ && wpt.x >= 0 && wpt.y >= 0 && triangulator_) {
+                if (use_world_coord_ && wpt.x >= 0 && wpt.y >= 0) {
                     const auto& K = camera_mgr_->K();
                     const auto& R = camera_mgr_->rotationMatrix();
                     const auto& t = camera_mgr_->translationVector();
-                    
-                    // Ensure matrices are valid
+
                     if (K.empty() || R.empty() || t.empty()) {
-                        std::cerr << "[Error] Empty matrix in triangulation: "
-                                  << "cam_id = " << cam_id_ << "\n";
+                        std::cerr << "[Error] Empty matrix in projection: cam_id = " << cam_id_ << "\n";
                         continue;
                     }
 
-                    // Check if the time difference exceeds the threshold
-                    std::lock_guard<std::mutex> lock(mtx_);
-                    if (!window_.empty() && std::abs(stamp.nanoseconds() - window_.back().stamp.nanoseconds()) > 30 * 1000000) {
-                        window_.clear();  // Clear window if time difference exceeds threshold
-                    }
-                    
-                    // Push 2D keypoint to triangulator
-                    triangulator_->push2DKeypoint(cam_id_, stamp, wpt, K, R, t);
-                    
-                    // Perform triangulation if ready
-                    if (auto p3d = triangulator_->triangulateIfReady()) {
-                        cv::Point text_pos = wpt + cv::Point2f(10, -10);
-                        cv::putText(frame,
-                            cv::format("[%.2f %.2f %.2f]", p3d->x, p3d->y, p3d->z),
-                            text_pos,
-                            cv::FONT_HERSHEY_SIMPLEX, 2, {0,0,255}, 10);
-                    }
-                }
-            }
+                    // 从2D图像坐标恢复相机坐标系下3D射线，并转换到世界坐标
+                    cv::Mat pt2d = (cv::Mat_<double>(3, 1) << wpt.x, wpt.y, 1.0);
+                    cv::Mat pt_cam = K.inv() * pt2d;  // 相机坐标系下方向向量
+                    pt_cam = pt_cam / cv::norm(pt_cam);  // 归一化
 
+                    // 将方向向量变换到世界坐标系
+                    cv::Mat dir_world = R.t() * pt_cam;     // 世界系方向
+                    cv::Mat cam_center = -R.t() * t;        // 世界坐标下相机位置
+
+                    // 使用单位射线 + 相机中心作为估计点（例如向前延伸1米）
+                    cv::Mat pt_world = cam_center + dir_world;
+
+                    cv::Point3f p3d(pt_world.at<double>(0), pt_world.at<double>(1), pt_world.at<double>(2));
+                    // 定义静态变量记录上一帧的点（每个相机独立）
+                    static std::map<int, cv::Point3f> last_p3d_map;
+
+                    float move_dist = 0.0f;
+                    // ✅ 欧式距离：从 p3d 到世界坐标系原点 (0, 0, 0)
+                    move_dist = std::sqrt(p3d.x * p3d.x + p3d.y * p3d.y + p3d.z * p3d.z);
+
+                    last_p3d_map[cam_id_] = p3d;  // 更新上一帧记录
+
+                    // // 在图上显示空间位移
+                    // cv::putText(frame,
+                    //     cv::format("d=%.3f", move_dist),
+                    //     text_pos + cv::Point2f(0, 50),
+                    //     cv::FONT_HERSHEY_SIMPLEX, 2.5, {0, 255, 255}, 5);
+
+                    // 保存到 CSV：格式 = timestamp, x, y, z, move_dist
+                    std::string save_path = "/home/ljy/project/poseDetection/build/cam" + std::to_string(cam_id_) + "_projected_log.csv";
+                    std::ofstream fout(save_path, std::ios::app);
+                    if (fout.is_open()) {
+                        using namespace std::chrono;
+                        auto now = high_resolution_clock::now();
+                        int64_t timestamp_ms = duration_cast<milliseconds>(now.time_since_epoch()).count();
+
+                        float conf_score = (WRIST < confs.size()) ? confs[WRIST] : -1.0f;
+
+                        fout << std::fixed << std::setprecision(6)
+                            << timestamp_ms << "," << move_dist << "," << conf_score << "\n";
+                    }
+
+                    // 显示3D信息在图上
+                    cv::Point text_pos = wpt + cv::Point2f(10, -10);
+                    cv::putText(frame,
+                        cv::format("(%.2f %.2f %.2f %.2f)", p3d.x, p3d.y, p3d.z,move_dist),
+                        text_pos, cv::FONT_HERSHEY_SIMPLEX, 3, {255, 255, 0}, 6);
+
+
+                }
+
+            }
             // Draw axes and update the display
             camera_mgr_->drawOriginAxesUnified(frame, cam_id_);
             std::lock_guard<std::mutex> disp_lock(disp_mutex_);

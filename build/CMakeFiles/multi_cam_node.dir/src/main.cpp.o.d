@@ -758,4 +758,8 @@ CMakeFiles/multi_cam_node.dir/src/main.cpp.o: \
  /home/ljy/project/poseDetection/include/rtmpose_trt.h \
  /home/ljy/project/poseDetection/include/charuco_camera_manager.h \
  /home/ljy/project/poseDetection/include/multi_cam_calibrator.h \
+ /usr/include/c++/9/fstream \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
+ /usr/include/c++/9/bits/fstream.tcc \
  /home/ljy/project/poseDetection/include/Triangulator.h

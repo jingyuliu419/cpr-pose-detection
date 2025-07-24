@@ -1,126 +1,76 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import gaussian_kde
-from scipy.ndimage import gaussian_filter1d
-from scipy.signal import find_peaks
 
-# --------- 1. 读取数据 ---------
-df = pd.read_csv("/home/ljy/project/poseDetection/build/triangulated_xyz_log.csv", header=None, names=["time", "x", "y", "z"])
-df = df[np.isfinite(df["z"])]  # 过滤无效数据
+# === 1. 读取三相机数据 ===
+df1 = pd.read_csv("cam0_projected_log.csv", header=None, names=["time", "fps", "x1", "y1", "z1", "d1"])
+df2 = pd.read_csv("cam4_projected_log.csv", header=None, names=["time", "fps", "x2", "y2", "z2", "d2"])
+df3 = pd.read_csv("cam6_projected_log.csv", header=None, names=["time", "fps", "x3", "y3", "z3", "d3"])
 
-z_vals = df["z"].values
-time_vals = df["time"].values
+# === 2. 对齐时间戳（保留两位小数） ===
+df1["round_time"] = df1["time"].round(2)
+df2["round_time"] = df2["time"].round(2)
+df3["round_time"] = df3["time"].round(2)
 
-# --------- 2. 自动检测稳定段 ---------
-window_size = 20
-min_std = float("inf")
-baseline_start = 0
+# === 3. 合并三相机同步帧 ===
+merged = df1.merge(df2, on="round_time").merge(df3, on="round_time")
 
-for i in range(len(z_vals) - window_size):
-    std = np.std(z_vals[i:i + window_size])
-    if std < min_std:
-        min_std = std
-        baseline_start = i
+# === 4. 计算三相机原始空间距离 ===
+merged["dist_cam0"] = np.sqrt(merged["x1"]**2 + merged["y1"]**2 + merged["z1"]**2)
+merged["dist_cam2"] = np.sqrt(merged["x2"]**2 + merged["y2"]**2 + merged["z2"]**2)
+merged["dist_cam6"] = np.sqrt(merged["x3"]**2 + merged["y3"]**2 + merged["z3"]**2)
 
-baseline_z = np.mean(z_vals[baseline_start:baseline_start + window_size])
-print(f"📌 稳定段起点: 第 {baseline_start} 帧")
-print(f"📌 估计稳定基线 Z 值: {baseline_z:.5f} m")
+# === 5. 残差加权融合函数 ===
+# === 5. 残差加权融合函数（Camera 2 权重大两倍）===
+def residual_weighted_fusion(p1, p2, p3):
+    d12 = np.linalg.norm(p1 - p2)
+    d13 = np.linalg.norm(p1 - p3)
+    d23 = np.linalg.norm(p2 - p3)
 
-# --------- 3. 相对压深（手掌误差修正 -0.05） ---------
-baseline_z = -0.73760  # 手掌误差修正
-df["depth"] = baseline_z - df["z"]
-df["depth"] = df["depth"].clip(lower=0)
+    if d12 <= d13 and d12 <= d23:
+        # Camera 0 (p1) + Camera 2 (p2)
+        w1 = 1
+        w2 = 2 # cam2 加权更高
+        return (w1 * p1 + w2 * p2) / (w1 + w2)
 
-# --------- 4. 描述性统计 ---------
-print("\n📊 压深（以基线为原点）描述性统计：")
-print(df["depth"].describe())
+    elif d13 <= d12 and d13 <= d23:
+        # Camera 0 (p1) + Camera 6 (p3)
+        w1 = 1
+        w3 = 1
+        return (w1 * p1 + w3 * p3) / (w1 + w3)
 
-# --------- 5. 落在 3cm ~ 8cm 的占比 ---------
-mask_3_8 = df["depth"].between(0.03, 0.08)
-rate = mask_3_8.sum() / len(df)
-print(f"\n📌 落在 3cm ~ 8cm 范围内的压深帧数：{mask_3_8.sum()}，占比：{rate*100:.2f}%")
+    else:
+        # Camera 2 (p2) + Camera 6 (p3)
+        w2 = 2  # cam2 加权更高
+        w3 = 1
+        return (w2 * p2 + w3 * p3) / (w2 + w3)
 
-# --------- 6. KDE 估计 & 分布图 ---------
-depth_vals = df["depth"].values
-kde = gaussian_kde(depth_vals)
-depth_grid = np.linspace(0, depth_vals.max(), 1000)
-mode_depth = depth_grid[np.argmax(kde(depth_grid))]
+# === 5. 简单平均融合函数 ===
+def average_fusion(p1, p2, p3):
+    return (p1 + p2 + p3) / 3
 
-plt.figure(figsize=(8, 5))
-plt.hist(depth_vals, bins=80, color='lightcoral', edgecolor='black', alpha=0.6, density=True, label="Histogram")
-plt.plot(depth_grid, kde(depth_grid), color='darkred', lw=2, label="KDE")
-plt.axvline(mode_depth, color='green', linestyle='--', label=f'Mode: {mode_depth*100:.1f} cm')
-plt.axvspan(0.03, 0.08, color='yellow', alpha=0.3, label="3cm ~ 8cm")
-plt.xlabel("Compression Depth (m)")
-plt.ylabel("Density")
-plt.title("Depth Distribution (with baseline=0)")
+# === 6. 简单平均融合 + 计算距离 ===
+fused_points = []
+for row in merged.itertuples():
+    p1 = np.array([row.x1, row.y1, row.z1])
+    p2 = np.array([row.x2, row.y2, row.z2])
+    p3 = np.array([row.x3, row.y3, row.z3])
+    fused = average_fusion(p1, p2, p3)
+    fused_points.append(fused)
+
+fused_points = np.array(fused_points)
+merged["dist_fused"] = np.linalg.norm(fused_points, axis=1)
+
+# === 7. 绘图 ===
+plt.figure(figsize=(12, 6))
+plt.plot(merged["round_time"], merged["dist_cam0"], label="Camera 0", alpha=0.5)
+plt.plot(merged["round_time"], merged["dist_cam2"], label="Camera 2", alpha=0.5)
+plt.plot(merged["round_time"], merged["dist_cam6"], label="Camera 6", alpha=0.5)
+plt.plot(merged["round_time"], merged["dist_fused"], label="Fused (Residual Weighted)", color='black', linewidth=2)
+plt.xlabel("Time (s)")
+plt.ylabel("Distance from Origin (m)")
+plt.title("Camera Trajectories and Residual-Weighted Fusion")
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
-plt.savefig("depth_distribution_rebased.png", dpi=300)
-plt.close()
-print("✅ 已保存压深分布图（设基线为 0）为 depth_distribution_rebased.png")
-
-# --------- 7. 平滑压深随时间变化曲线 ---------
-depth_smooth = gaussian_filter1d(depth_vals, sigma=5)
-
-plt.figure(figsize=(12, 5))
-plt.plot(df["time"], depth_vals, color='gray', lw=0.5, alpha=0.5, label='Raw Depth')
-plt.plot(df["time"], depth_smooth, color='blue', lw=1.5, label='Smoothed Depth')
-plt.xlabel("Time")
-plt.ylabel("Depth (m)")
-plt.title("Smoothed Compression Depth Over Time")
-plt.grid(True)
-plt.legend()
-plt.tight_layout()
-plt.savefig("depth_smoothed_curve.png", dpi=300)
-plt.close()
-print("✅ 已保存平滑压深曲线图为 depth_smoothed_curve.png")
-
-# --------- 8. 峰值检测（压深波峰） ---------
-# 动态设定 height 阈值为 90% 分位数的 30%，防止过高阈值导致 0 个峰
-adaptive_threshold = np.percentile(depth_smooth, 90) * 0.3
-adaptive_threshold = max(adaptive_threshold, 0.001)  # 保底阈值
-
-peaks, _ = find_peaks(depth_smooth, height=adaptive_threshold, distance=30)
-peak_depths = depth_smooth[peaks]
-
-# 可视化峰值检测结果
-plt.figure(figsize=(12, 5))
-plt.plot(df["time"], depth_smooth, label="Smoothed Depth", color="blue")
-plt.plot(df["time"].iloc[peaks], peak_depths, "rx", label="Detected Peaks")
-plt.xlabel("Time")
-plt.ylabel("Depth (m)")
-plt.title("Detected Compression Peaks")
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.savefig("compression_peaks.png", dpi=300)
-plt.close()
-print(f"✅ 检测到 {len(peaks)} 个峰值，已保存峰值图为 compression_peaks.png")
-
-# --------- 9. 峰值 KDE 分布分析 ---------
-if len(peak_depths) >= 2:
-    kde_peak = gaussian_kde(peak_depths)
-    peak_grid = np.linspace(0, peak_depths.max(), 1000)
-    mode_peak = peak_grid[np.argmax(kde_peak(peak_grid))]
-
-    plt.figure(figsize=(8, 5))
-    plt.hist(peak_depths, bins=60, color='lightblue', edgecolor='black', alpha=0.6, density=True, label="Peak Histogram")
-    plt.plot(peak_grid, kde_peak(peak_grid), color='blue', lw=2, label="KDE of Peaks")
-    plt.axvline(mode_peak, color='green', linestyle='--', label=f'Peak Mode: {mode_peak*100:.1f} cm')
-    plt.axvspan(0.03, 0.08, color='yellow', alpha=0.3, label="3cm ~ 8cm")
-    plt.xlabel("Peak Compression Depth (m)")
-    plt.ylabel("Density")
-    plt.title("Distribution of Peak Compression Depths")
-    plt.grid(True)
-    plt.legend()
-    plt.tight_layout()
-    plt.savefig("peak_depth_distribution.png", dpi=300)
-    plt.close()
-
-    print(f"📌 峰值压深的众数为：{mode_peak*100:.2f} cm")
-    print("✅ 已保存峰值压深分布图为 peak_depth_distribution.png")
-else:
-    print("⚠️ 未检测到足够的峰值，跳过 KDE 分布分析和图像保存。")
+plt.show()

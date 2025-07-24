@@ -80,7 +80,7 @@ static cv::Mat vecAverage(const vector<cv::Mat>& vecs)
     mean /= (double)vecs.size();
     return mean;
 }
-
+#include <fstream>
 vector<RigExtrinsics>MultiCamCalibrator::solveAndSave(const std::string& rig_yaml)
 {   
     for (size_t i = 0; i < buf_.size(); ++i) {
@@ -169,18 +169,75 @@ vector<RigExtrinsics>MultiCamCalibrator::solveAndSave(const std::string& rig_yam
         exts[cam].t = t_mean.clone();
     }
 
-    /* 写 YAML */
-    if (!rig_yaml.empty())
-    {
+    // === 2. 写 YAML 外参 ===
+    if (!rig_yaml.empty()) {
         cv::FileStorage fs(rig_yaml, cv::FileStorage::WRITE);
-        for (size_t i=0;i<N;++i){
-            fs << ("R"+std::to_string(i)) << exts[i].R;
-            fs << ("t"+std::to_string(i)) << exts[i].t;
+        for (size_t i = 0; i < N; ++i) {
+            fs << ("R" + std::to_string(i)) << exts[i].R;
+            fs << ("t" + std::to_string(i)) << exts[i].t;
         }
         fs.release();
-        std::cout<<"[MultiCamCalib] Rig 外参写入 "<<rig_yaml<<'\n';
+        std::cout << "[MultiCamCalib] Rig 外参写入 " << rig_yaml << '\n';
     }
+
+    // === 3. 写重投影误差 CSV ===
+    std::string csv_path = rig_yaml.substr(0, rig_yaml.find_last_of('.')) + "_reprojection_error.csv";
+    std::ofstream fout(csv_path);
+    fout << "Camera Index,Reprojection Error (px)\n";
+
+    for (size_t cam = 0; cam < N; ++cam) {
+        std::vector<std::vector<cv::Point2f>> detected_pts;
+        std::vector<std::vector<cv::Point3f>> object_pts;
+
+        size_t shots = buf_[cam].shots.size();
+        for (size_t k = 0; k < shots; ++k) {
+            std::vector<cv::Point2f> img_pts = buf_[cam].shots[k].imgPts;
+            std::vector<cv::Point3f> obj_pts;
+            for (int id : buf_[cam].shots[k].ids) {
+                if (id >= 0 && id < (int)board_->chessboardCorners.size())
+                    obj_pts.push_back(board_->chessboardCorners[id]);
+            }
+
+            if (img_pts.size() == obj_pts.size() && img_pts.size() >= 4) {
+                detected_pts.push_back(img_pts);
+                object_pts.push_back(obj_pts);
+            }
+        }
+
+        double err = computeReprojectionError(
+            detected_pts,
+            object_pts,
+            cams_[cam]->K(),
+            cams_[cam]->getDist(),
+            exts[cam].R,
+            exts[cam].t
+        );
+
+        std::cout << "[ReprojectionError] Cam " << cam << ": " << err << " px" << std::endl;
+        fout << cam << "," << err << "\n";
+    }
+
+    fout.close(); // ✅ 最后关闭文件
     return exts;
+}
+double MultiCamCalibrator::computeReprojectionError(
+    const std::vector<std::vector<cv::Point2f>>& detectedPoints,
+    const std::vector<std::vector<cv::Point3f>>& objectPoints,
+    const cv::Mat& K, const cv::Mat& D,
+    const cv::Mat& R, const cv::Mat& t)
+{
+    double totalError = 0.0;
+    int totalPoints = 0;
+
+    for (size_t i = 0; i < detectedPoints.size(); ++i) {
+        std::vector<cv::Point2f> projected;
+        cv::projectPoints(objectPoints[i], R, t, K, D, projected);
+        double err = cv::norm(detectedPoints[i], projected, cv::NORM_L2);
+        totalError += err * err;
+        totalPoints += static_cast<int>(projected.size());
+    }
+
+    return std::sqrt(totalError / totalPoints); // RMSE
 }
 
 
