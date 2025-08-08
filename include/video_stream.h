@@ -68,6 +68,14 @@ public:
         // Mutex for synchronization
     void writeProjected3DToFile(const std::string& filename, const rclcpp::Time& stamp, const cv::Point3f& p3d);
 
+    cv::Point3f filter(int cam_id, const cv::Point3f& cur) {
+        std::lock_guard<std::mutex> lock(mtx_);  // 复用已有 mtx_
+        auto& last = last_p3d_map[cam_id];
+        if (last == cv::Point3f(0,0,0))
+            last = cur;
+        last = alpha * cur + (1 - alpha) * last;
+        return last;
+    }
 
 private:
     void captureLoop();
@@ -121,7 +129,9 @@ private:
     using FrameStamp = std::pair<cv::Mat, rclcpp::Time>;
     std::queue<FrameStamp> capture_queue_;
 
-
+    //
+    std::map<int, cv::Point3f> last_p3d_map;
+    float alpha = 0.65f;  // 可调
 
     /* --- FFmpeg --- */
     AVFormatContext* fmt_ctx_{nullptr};

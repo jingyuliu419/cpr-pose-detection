@@ -10,7 +10,7 @@ full_range_mm = 600.0      # 满量程对应位移（mm）
 target_column = 5          # 电压数据在第6列（索引5）
 
 # ==== 1. 读取数据 ====
-file_path = "/home/ljy/project/poseDetection/tools/SerialLog_20250724_133407.log"
+file_path = "/home/ljy/project/poseDetection/tools/SerialLog_20250724_160853.log"
 with open(file_path, "r") as f:
     lines = f.readlines()
 
@@ -23,11 +23,11 @@ voltages = [float(line[target_column]) for line in data_lines]
 reference_voltage = np.mean([float(line[target_column]) for line in data_lines[:20]])
 
 # ==== 3. 电压 → 深度（单位：米） ====
-depths = [(reference_voltage - v) / vcc * full_range_mm / 1000 for v in voltages]  # mm → m
+depths = [(reference_voltage - v) / vcc * full_range_mm / 1000 for v in voltages]
 depths_array = np.array(depths)
 
 # ==== 4. 峰值检测 ====
-peaks, _ = signal.find_peaks(depths_array, distance=10, height=0.01)  # 高度以米为单位
+peaks, _ = signal.find_peaks(depths_array, distance=10, height=0.01)
 peak_depths = depths_array[peaks]
 
 # ==== 5. 转换时间为 UNIX 时间戳 ====
@@ -44,39 +44,33 @@ for i in peaks:
     peak_times_unix.append(ts_sec)
     peak_times_ms.append(ts_ms)
 
-# ==== 6. 构建并筛选峰值数据（单位：米） ====
-df_peaks = pd.DataFrame({
+# ==== 6. 保存所有峰值数据 ====
+df_peaks_all = pd.DataFrame({
     "Timestamp_ms": peak_times_ms,
     "Depth_m": peak_depths
 })
 
-# ✅ 只保留深度超过 0.03 m（3cm）的峰值
-df_peaks = df_peaks[df_peaks["Depth_m"] > 0.03]
+df_peaks_all.to_csv("peak_voltage_depth_all.csv", index=False)
+print("✅ 所有峰值数据已保存为 peak_voltage_depth_all.csv")
 
-# 保存为 CSV
-df_peaks.to_csv("peak_voltage_depth.csv", index=False)
-
-# ==== 7. 深度区间统计（单位仍按 cm 划分） ====
-bins = [0, 10, 20, 30, 40, 50, 60]  # cm
+# ==== 7. 可选统计：深度区间（单位仍按 cm） ====
+bins = [0, 10, 20, 30, 40, 50, 60]
 labels = ["0-1 cm", "1-2 cm", "2-3 cm", "3-4 cm", "4-5 cm", "5-6 cm"]
-df_peaks["Depth_Range"] = pd.cut(df_peaks["Depth_m"] * 1000, bins=bins, labels=labels, right=False)
-depth_stats = df_peaks["Depth_Range"].value_counts().sort_index()
+df_peaks_all["Depth_Range"] = pd.cut(df_peaks_all["Depth_m"] * 1000, bins=bins, labels=labels, right=False)
+depth_stats = df_peaks_all["Depth_Range"].value_counts().sort_index()
 
-# ==== 8. 输出统计结果 ====
-print("✔ 深度 >3cm 的峰值个数：", len(df_peaks))
 print("✔ 深度区间统计：")
 print(depth_stats)
 
-# ==== 9. 绘图（单位：米） ====
+# ==== 8. 绘图 ====
 plt.figure(figsize=(12, 6))
 plt.plot(depths_array, label="Depth (m)")
 plt.plot(peaks, depths_array[peaks], "rx", label="All Peaks")
-plt.plot(df_peaks.index, df_peaks["Depth_m"], "go", label="Peaks > 3cm")
 plt.legend()
-plt.title("Detected Depth Peaks (Filtered by >3cm)")
+plt.title("Detected Depth Peaks (All)")
 plt.xlabel("Sample Index")
 plt.ylabel("Depth (m)")
 plt.grid()
 plt.tight_layout()
-plt.savefig("depth_peaks_plot.png", dpi=300)
+plt.savefig("depth_peaks_plot_all.png", dpi=300)
 plt.show()

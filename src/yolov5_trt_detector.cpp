@@ -98,7 +98,34 @@ void YOLOv5TRTDetector::detect(cv::Mat& frame,
     const size_t inBytes = input_h * input_w * 3 * sizeof(float);
     cudaMemcpyAsync(ctx.input_buf, blob.ptr<float>(),
                     inBytes, cudaMemcpyHostToDevice, ctx.stream);
-    ctx.ctx->enqueueV2(bindings, ctx.stream, nullptr);
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+    cudaEventRecord(start, ctx.stream);
+
+    ctx.ctx->enqueueV2(bindings, ctx.stream, nullptr);  // GPU 推理核心
+
+    cudaEventRecord(stop, ctx.stream);
+    cudaEventSynchronize(stop);
+    float ms = 0;
+    cudaEventElapsedTime(&ms, start, stop);
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
+
+    // 日志写入
+    std::ifstream check_file("yolov5_infer_log.csv");
+    bool file_exists = check_file.good();
+    check_file.close();
+
+    std::ofstream log_file("yolov5_infer_log.csv", std::ios::app);
+    if (log_file.is_open()) {
+        if (!file_exists) {
+            log_file << "inference_time_ms\n";
+        }
+        log_file << ms << "\n";
+    } else {
+        std::cerr << "[YOLOv5TRTDetector] Failed to open yolov5_infer_log.csv\n";
+    }
 
     const size_t outBytes = output_h * output_w * sizeof(float);
     cudaMemcpyAsync(ctx.prob.data(), ctx.output_buf,

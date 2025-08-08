@@ -77,7 +77,7 @@ void VideoStream::captureLoop() {
         cv::VideoCapture cap(cam_id_, cv::CAP_V4L2);
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080);
-        cap.set(cv::CAP_PROP_FPS, 30);
+        cap.set(cv::CAP_PROP_FPS, 60);
 
         // 禁用自动曝光、对焦等
         cap.set(cv::CAP_PROP_AUTO_EXPOSURE, 0);
@@ -134,19 +134,20 @@ void VideoStream::writeProjected3DToFile(const std::string& filename, const rclc
     }
 }
 
+
 #include <opencv2/opencv.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <sys/syscall.h>
 #include <unistd.h>
 #include <iomanip>
 #include <sstream>
-
+#include <algorithm>
 using FrameStamp = std::pair<cv::Mat, rclcpp::Time>;
 
 constexpr std::array<std::pair<int, int>, 12> kEdges {{
     {5,7}, {6,8}, {7,9}, {8,10}
 }};
-static const float KPT_TH = 0.25f; // Keypoint threshold
+static const float KPT_TH = 0.35f; // Keypoint threshold
 static const int AXIS_THICK = 3; // Axis thickness for drawing
 static const cv::Scalar X_COLOR( 0, 0, 255);
 static const cv::Scalar Y_COLOR( 0, 255, 0);
@@ -170,6 +171,7 @@ void VideoStream::inferenceLoop() {
             rclcpp::Time stamp = fs.second;
             if (frame.empty()) continue;
             std::vector<detectPerson::DetectResult> dets;
+            auto start = std::chrono::high_resolution_clock::now();
             detector_->detect(frame, dets, *detector_ctx_);
 
             for (const auto& d : dets) {
@@ -227,46 +229,59 @@ void VideoStream::inferenceLoop() {
                     cv::Mat dir_world = R.t() * pt_cam;     // 世界系方向
                     cv::Mat cam_center = -R.t() * t;        // 世界坐标下相机位置
 
+
                     // 使用单位射线 + 相机中心作为估计点（例如向前延伸1米）
                     cv::Mat pt_world = cam_center + dir_world;
 
+                    // 构造世界坐标下点
                     cv::Point3f p3d(pt_world.at<double>(0), pt_world.at<double>(1), pt_world.at<double>(2));
-                    // 定义静态变量记录上一帧的点（每个相机独立）
+
+                    // ⏺️ 更新上一帧记录（每个相机独立）
                     static std::map<int, cv::Point3f> last_p3d_map;
+                    last_p3d_map[cam_id_] = p3d;
 
-                    float move_dist = 0.0f;
-                    // ✅ 欧式距离：从 p3d 到世界坐标系原点 (0, 0, 0)
-                    move_dist = std::sqrt(p3d.x * p3d.x + p3d.y * p3d.y + p3d.z * p3d.z);
+                    // 欧式距离
+                    float move_dist = std::sqrt(p3d.x * p3d.x + p3d.y * p3d.y + p3d.z * p3d.z);
 
-                    last_p3d_map[cam_id_] = p3d;  // 更新上一帧记录
+                    // 单位方向向量 & 夹角余弦
+                    cv::Mat ray_dir_world = dir_world / cv::norm(dir_world);
+                    cv::Mat world_z = (cv::Mat_<double>(3, 1) << 0, 0, 1);
+                    double cos_theta = ray_dir_world.dot(world_z);
+                    cos_theta = std::clamp(cos_theta, -1.0, 1.0);  // 防止 acos 出现 NaN
 
-                    // // 在图上显示空间位移
-                    // cv::putText(frame,
-                    //     cv::format("d=%.3f", move_dist),
-                    //     text_pos + cv::Point2f(0, 50),
-                    //     cv::FONT_HERSHEY_SIMPLEX, 2.5, {0, 255, 255}, 5);
+                    // 投影压深估计
+                    double est_depth = (0.423600-p3d.x)  + 11.5230  * cos_theta+( -1.9806); // 或者其他非线性因子
+                    
+                    auto end = std::chrono::high_resolution_clock::now();
+                    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+                    std::ifstream tchk("/home/ljy/project/poseDetection/build/full_pipeline_log.csv");
+                    bool t_exists = tchk.good();
+                    tchk.close();
+                    std::ofstream tlog("/home/ljy/project/poseDetection/build/full_pipeline_log.csv", std::ios::app);
+                    if (tlog.is_open()) {
+                        if (!t_exists) tlog << "total_pipeline_ms\n";
+                        tlog << duration << "\n";
+                    }
+                    // 可视化
+                    cv::Point text_pos = wpt + cv::Point2f(10, -10);
+                    cv::putText(frame,
+                        cv::format("EstDepth: %.2f cm | Angle: %.1f°", est_depth * 100.0, std::acos(cos_theta) * 180.0 / CV_PI),
+                        text_pos, cv::FONT_HERSHEY_SIMPLEX, 1.2, {0, 255, 255}, 3);
 
-                    // 保存到 CSV：格式 = timestamp, x, y, z, move_dist
+                    // 保存
                     std::string save_path = "/home/ljy/project/poseDetection/build/cam" + std::to_string(cam_id_) + "_projected_log.csv";
                     std::ofstream fout(save_path, std::ios::app);
                     if (fout.is_open()) {
                         using namespace std::chrono;
                         auto now = high_resolution_clock::now();
                         int64_t timestamp_ms = duration_cast<milliseconds>(now.time_since_epoch()).count();
-
                         float conf_score = (WRIST < confs.size()) ? confs[WRIST] : -1.0f;
 
                         fout << std::fixed << std::setprecision(6)
-                            << timestamp_ms << "," << move_dist << "," << conf_score << "\n";
+                             << timestamp_ms << "," << p3d.x << "," << p3d.y << "," << p3d.z << ","
+                             << move_dist << "," << est_depth << "," << cos_theta << "," << conf_score << "\n";
+
                     }
-
-                    // 显示3D信息在图上
-                    cv::Point text_pos = wpt + cv::Point2f(10, -10);
-                    cv::putText(frame,
-                        cv::format("(%.2f %.2f %.2f %.2f)", p3d.x, p3d.y, p3d.z,move_dist),
-                        text_pos, cv::FONT_HERSHEY_SIMPLEX, 3, {255, 255, 0}, 6);
-
-
                 }
 
             }
@@ -282,7 +297,6 @@ void VideoStream::inferenceLoop() {
         }
     }
 }
-
 
 void VideoStream::run_video_inference(const std::string& engine_path) {
     auto pose_model = std::make_shared<posetiny::RTMPoseTRT>(engine_path);

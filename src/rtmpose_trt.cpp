@@ -5,6 +5,8 @@
 #include <fstream>
 #include <stdexcept>
 #include <opencv2/opencv.hpp>
+#include <iostream>    // For std::cerr
+#include <cuda_runtime_api.h>  // CUDA API: cudaEvent*, cudaMemcpy*, etc
 
 namespace posetiny {
 
@@ -113,8 +115,35 @@ void RTMPoseTRT::infer(const cv::Mat& img,
         bindings[input_index_]    = ctx.input;
         bindings[output_x_index_] = ctx.output_x;
         bindings[output_y_index_] = ctx.output_y;
+        cudaEvent_t start, stop;
+        cudaEventCreate(&start);
+        cudaEventCreate(&stop);
+        cudaEventRecord(start, ctx.stream);
 
         ctx.context->enqueueV2(bindings, ctx.stream, nullptr);
+
+        cudaEventRecord(stop, ctx.stream);
+        cudaEventSynchronize(stop);
+        float ms = 0;
+        cudaEventElapsedTime(&ms, start, stop);
+        cudaEventDestroy(start);
+        cudaEventDestroy(stop);
+
+        std::ifstream check_file("inference_log.csv");
+        bool file_exists = check_file.good();
+        check_file.close();
+
+        std::ofstream log_file("inference_log.csv", std::ios::app);
+        if (log_file.is_open()) {
+            if (!file_exists) {
+                log_file << "inference_time_ms\n";
+            }
+            log_file << ms << "\n";
+        }else {
+            std::cerr << "[RTMPoseTRT] Failed to open inference_log.csv for writing.\n";
+        }
+
+
 
         cudaMemcpyAsync(ctx.simcc_x.data(), ctx.output_x,
                         ctx.simcc_x.size() * sizeof(float),

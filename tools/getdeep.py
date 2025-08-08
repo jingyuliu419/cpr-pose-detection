@@ -1,76 +1,60 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
-# === 1. 读取三相机数据 ===
-df1 = pd.read_csv("cam0_projected_log.csv", header=None, names=["time", "fps", "x1", "y1", "z1", "d1"])
-df2 = pd.read_csv("cam4_projected_log.csv", header=None, names=["time", "fps", "x2", "y2", "z2", "d2"])
-df3 = pd.read_csv("cam6_projected_log.csv", header=None, names=["time", "fps", "x3", "y3", "z3", "d3"])
+# === 1. 加载三个相机的数据 ===
+file_cam0 = "/home/ljy/project/poseDetection/build/cam0_projected_log.csv"
+file_cam4 = "/home/ljy/project/poseDetection/build/cam5_projected_log.csv"
+file_cam6 = "/home/ljy/project/poseDetection/build/cam8_projected_log.csv"
 
-# === 2. 对齐时间戳（保留两位小数） ===
-df1["round_time"] = df1["time"].round(2)
-df2["round_time"] = df2["time"].round(2)
-df3["round_time"] = df3["time"].round(2)
+df_cam0 = pd.read_csv(file_cam0, header=None, names=["timestamp", "move_dist", "conf_score"])
+df_cam4 = pd.read_csv(file_cam4, header=None, names=["timestamp", "move_dist", "conf_score"])
+df_cam6 = pd.read_csv(file_cam6, header=None, names=["timestamp", "move_dist", "conf_score"])
 
-# === 3. 合并三相机同步帧 ===
-merged = df1.merge(df2, on="round_time").merge(df3, on="round_time")
+# === 2. 加入相机编号信息（可选）===
+df_cam0["camera"] = "cam0"
+df_cam4["camera"] = "cam4"
+df_cam6["camera"] = "cam6"
 
-# === 4. 计算三相机原始空间距离 ===
-merged["dist_cam0"] = np.sqrt(merged["x1"]**2 + merged["y1"]**2 + merged["z1"]**2)
-merged["dist_cam2"] = np.sqrt(merged["x2"]**2 + merged["y2"]**2 + merged["z2"]**2)
-merged["dist_cam6"] = np.sqrt(merged["x3"]**2 + merged["y3"]**2 + merged["z3"]**2)
+# === 3. 合并为一个大表 ===
+df_all = pd.concat([df_cam0, df_cam4, df_cam6], ignore_index=True)
 
-# === 5. 残差加权融合函数 ===
-# === 5. 残差加权融合函数（Camera 2 权重大两倍）===
-def residual_weighted_fusion(p1, p2, p3):
-    d12 = np.linalg.norm(p1 - p2)
-    d13 = np.linalg.norm(p1 - p3)
-    d23 = np.linalg.norm(p2 - p3)
+# === 4. 简单平均融合：对同一 timestamp 的 move_dist 求平均 ===
+df_avg = (
+    df_all.groupby("timestamp")
+    .agg(avg_move_dist=("move_dist", "mean"))
+    .reset_index()
+)
 
-    if d12 <= d13 and d12 <= d23:
-        # Camera 0 (p1) + Camera 2 (p2)
-        w1 = 1
-        w2 = 2 # cam2 加权更高
-        return (w1 * p1 + w2 * p2) / (w1 + w2)
-
-    elif d13 <= d12 and d13 <= d23:
-        # Camera 0 (p1) + Camera 6 (p3)
-        w1 = 1
-        w3 = 1
-        return (w1 * p1 + w3 * p3) / (w1 + w3)
-
-    else:
-        # Camera 2 (p2) + Camera 6 (p3)
-        w2 = 2  # cam2 加权更高
-        w3 = 1
-        return (w2 * p2 + w3 * p3) / (w2 + w3)
-
-# === 5. 简单平均融合函数 ===
-def average_fusion(p1, p2, p3):
-    return (p1 + p2 + p3) / 3
-
-# === 6. 简单平均融合 + 计算距离 ===
-fused_points = []
-for row in merged.itertuples():
-    p1 = np.array([row.x1, row.y1, row.z1])
-    p2 = np.array([row.x2, row.y2, row.z2])
-    p3 = np.array([row.x3, row.y3, row.z3])
-    fused = average_fusion(p1, p2, p3)
-    fused_points.append(fused)
-
-fused_points = np.array(fused_points)
-merged["dist_fused"] = np.linalg.norm(fused_points, axis=1)
-
-# === 7. 绘图 ===
+# === 5. 绘制原始曲线 + 平均融合曲线 ===
 plt.figure(figsize=(12, 6))
-plt.plot(merged["round_time"], merged["dist_cam0"], label="Camera 0", alpha=0.5)
-plt.plot(merged["round_time"], merged["dist_cam2"], label="Camera 2", alpha=0.5)
-plt.plot(merged["round_time"], merged["dist_cam6"], label="Camera 6", alpha=0.5)
-plt.plot(merged["round_time"], merged["dist_fused"], label="Fused (Residual Weighted)", color='black', linewidth=2)
-plt.xlabel("Time (s)")
-plt.ylabel("Distance from Origin (m)")
-plt.title("Camera Trajectories and Residual-Weighted Fusion")
+
+# 原始三个相机曲线（加虚线与透明度）
+plt.plot(df_cam0["timestamp"], df_cam0["move_dist"], label="Cam 0", linestyle='--', alpha=0.5)
+plt.plot(df_cam4["timestamp"], df_cam4["move_dist"], label="Cam 1", linestyle='--', alpha=0.5)
+plt.plot(df_cam6["timestamp"], df_cam6["move_dist"], label="Cam 2", linestyle='--', alpha=0.5)
+
+# 融合曲线（实线）
+plt.plot(df_avg["timestamp"], df_avg["avg_move_dist"], label="Average Distance", color="blue", linewidth=2)
+
+# === 6. 图形美化 ===
+plt.xlabel("Timestamp (ms)")
+plt.ylabel("Euclidean Distance")
+plt.title("Original and Averaged Distance over Time")
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
+
+# === 7. 保存图像与 CSV ===
+curve_path = "multi_camera_fusion_simple_average.png"
+csv_path = "simple_average_move_distance.csv"
+
+plt.savefig(curve_path, dpi=300)
+print(f"✅ 曲线图已保存: {os.path.abspath(curve_path)}")
+
+df_avg.to_csv(csv_path, index=False)
+print(f"✅ 简单平均融合结果已保存: {os.path.abspath(csv_path)}")
+
+# 显示图
 plt.show()

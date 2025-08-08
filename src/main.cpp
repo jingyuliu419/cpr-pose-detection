@@ -46,7 +46,7 @@ int main(int argc,char** argv)
 
     /* ---------- 相机 → 设备号 ---------- */
     std::unordered_map<std::string,int> dev {
-        {"cam0",0},{"cam1",4},{"cam2",6}
+        {"cam0",4},{"cam1",6},{"cam2",2}
     };
     std::vector<CamInfo> cams = {
         {dev["cam0"],"/home/ljy/project/poseDetection/config/camera_gp01.yml","Cam‑0"},
@@ -85,8 +85,7 @@ int main(int argc,char** argv)
 
     /* ---------- Rig 外参处理 ---------- */
     const std::string rig_yaml="/home/ljy/project/poseDetection/config/rig_extrinsics.yaml";
-    bool need_rig = std::any_of(mgrs.begin(),mgrs.end(),
-                                [](auto&m){return !m->hasRigExtrinsics();});
+    bool need_rig = false;
 
     if(need_rig){
         auto board = cv::aruco::CharucoBoard::create(
