@@ -322,6 +322,30 @@ src/emaf.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/emaf.cpp.s
 .PHONY : src/emaf.cpp.s
 
+src/inferenceLoop_with_online_baseline.o: src/inferenceLoop_with_online_baseline.cpp.o
+.PHONY : src/inferenceLoop_with_online_baseline.o
+
+# target to build an object file
+src/inferenceLoop_with_online_baseline.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.o
+.PHONY : src/inferenceLoop_with_online_baseline.cpp.o
+
+src/inferenceLoop_with_online_baseline.i: src/inferenceLoop_with_online_baseline.cpp.i
+.PHONY : src/inferenceLoop_with_online_baseline.i
+
+# target to preprocess a source file
+src/inferenceLoop_with_online_baseline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.i
+.PHONY : src/inferenceLoop_with_online_baseline.cpp.i
+
+src/inferenceLoop_with_online_baseline.s: src/inferenceLoop_with_online_baseline.cpp.s
+.PHONY : src/inferenceLoop_with_online_baseline.s
+
+# target to generate assembly for a file
+src/inferenceLoop_with_online_baseline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.s
+.PHONY : src/inferenceLoop_with_online_baseline.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -545,6 +569,9 @@ help:
 	@echo "... src/emaf.o"
 	@echo "... src/emaf.i"
 	@echo "... src/emaf.s"
+	@echo "... src/inferenceLoop_with_online_baseline.o"
+	@echo "... src/inferenceLoop_with_online_baseline.i"
+	@echo "... src/inferenceLoop_with_online_baseline.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

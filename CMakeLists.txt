@@ -76,6 +76,7 @@ add_executable(multi_cam_node
   src/Triangulator.cpp  
   src/emaf.cpp
   src/KalmanFilter1D.cpp
+  src/inferenceLoop_with_online_baseline.cpp
 )
 
 # --- Link Libraries ---

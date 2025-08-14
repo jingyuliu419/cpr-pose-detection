@@ -152,7 +152,7 @@ CMakeFiles/multi_camera_ros_sync_uninstall.dir/clean:
 CMakeFiles/nv12_cuda.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nv12_cuda.dir/build.make CMakeFiles/nv12_cuda.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=16,17 "Built target nv12_cuda"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=17,18 "Built target nv12_cuda"
 .PHONY : CMakeFiles/nv12_cuda.dir/all
 
 # Build rule for subdir invocation for target.
@@ -183,12 +183,12 @@ CMakeFiles/nv12_cuda.dir/clean:
 CMakeFiles/multi_cam_node.dir/all: CMakeFiles/nv12_cuda.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi_cam_node.dir/build.make CMakeFiles/multi_cam_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target multi_cam_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ljy/project/poseDetection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target multi_cam_node"
 .PHONY : CMakeFiles/multi_cam_node.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/multi_cam_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 18
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/multi_cam_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ljy/project/poseDetection/build/CMakeFiles 0
 .PHONY : CMakeFiles/multi_cam_node.dir/rule

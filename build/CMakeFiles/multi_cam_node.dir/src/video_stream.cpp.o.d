@@ -773,4 +773,5 @@ CMakeFiles/multi_cam_node.dir/src/video_stream.cpp.o: \
  /usr/include/x86_64-linux-gnu/sys/syscall.h \
  /usr/include/x86_64-linux-gnu/asm/unistd.h \
  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
- /usr/include/x86_64-linux-gnu/bits/syscall.h
+ /usr/include/x86_64-linux-gnu/bits/syscall.h \
+ /home/ljy/project/poseDetection/include/inferenceLoop_with_online_baseline.h

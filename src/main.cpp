@@ -46,7 +46,7 @@ int main(int argc,char** argv)
 
     /* ---------- 相机 → 设备号 ---------- */
     std::unordered_map<std::string,int> dev {
-        {"cam0",4},{"cam1",6},{"cam2",2}
+        {"cam0",6},{"cam1",1},{"cam2",4}
     };
     std::vector<CamInfo> cams = {
         {dev["cam0"],"/home/ljy/project/poseDetection/config/camera_gp01.yml","Cam‑0"},

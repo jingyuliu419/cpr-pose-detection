@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ljy/project/poseDetection/src/charuco_camera_manager.cpp" "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/charuco_camera_manager.cpp.o.d"
   "/home/ljy/project/poseDetection/src/config_loader.cpp" "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o.d"
   "/home/ljy/project/poseDetection/src/emaf.cpp" "CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o.d"
+  "/home/ljy/project/poseDetection/src/inferenceLoop_with_online_baseline.cpp" "CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.o.d"
   "/home/ljy/project/poseDetection/src/main.cpp" "CMakeFiles/multi_cam_node.dir/src/main.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/main.cpp.o.d"
   "/home/ljy/project/poseDetection/src/multi_cam_calibrator.cpp" "CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o.d"
   "/home/ljy/project/poseDetection/src/ros2_time_sync.cpp" "CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o" "gcc" "CMakeFiles/multi_cam_node.dir/src/ros2_time_sync.cpp.o.d"

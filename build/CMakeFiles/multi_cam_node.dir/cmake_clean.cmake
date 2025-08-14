@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/multi_cam_node.dir/src/config_loader.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o"
   "CMakeFiles/multi_cam_node.dir/src/emaf.cpp.o.d"
+  "CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.o"
+  "CMakeFiles/multi_cam_node.dir/src/inferenceLoop_with_online_baseline.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/main.cpp.o"
   "CMakeFiles/multi_cam_node.dir/src/main.cpp.o.d"
   "CMakeFiles/multi_cam_node.dir/src/multi_cam_calibrator.cpp.o"

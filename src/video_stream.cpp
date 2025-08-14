@@ -142,7 +142,9 @@ void VideoStream::writeProjected3DToFile(const std::string& filename, const rclc
 #include <iomanip>
 #include <sstream>
 #include <algorithm>
+#include "inferenceLoop_with_online_baseline.h"
 using FrameStamp = std::pair<cv::Mat, rclcpp::Time>;
+std::map<int, BaselineEstimator> baseline_map_;
 
 constexpr std::array<std::pair<int, int>, 12> kEdges {{
     {5,7}, {6,8}, {7,9}, {8,10}
@@ -158,6 +160,7 @@ void VideoStream::inferenceLoop() {
     constexpr int MAX_TIME_DIFF_MS = 30;  // Time threshold in milliseconds
 
     while (running_) {
+        auto& base = baseline_map_[cam_id_];
         try {
             // Get the next frame
             std::unique_lock<std::mutex> lk(cap_mutex_);
@@ -240,8 +243,9 @@ void VideoStream::inferenceLoop() {
                     static std::map<int, cv::Point3f> last_p3d_map;
                     last_p3d_map[cam_id_] = p3d;
 
-                    // 欧式距离
+                    // 在 p3d 计算后立刻补上
                     float move_dist = std::sqrt(p3d.x * p3d.x + p3d.y * p3d.y + p3d.z * p3d.z);
+
 
                     // 单位方向向量 & 夹角余弦
                     cv::Mat ray_dir_world = dir_world / cv::norm(dir_world);
@@ -249,8 +253,29 @@ void VideoStream::inferenceLoop() {
                     double cos_theta = ray_dir_world.dot(world_z);
                     cos_theta = std::clamp(cos_theta, -1.0, 1.0);  // 防止 acos 出现 NaN
 
-                    // 投影压深估计
-                    double est_depth = (0.423600-p3d.x)  + 11.5230  * cos_theta+( -1.9806); // 或者其他非线性因子
+                    // [BASELINE+] 基线：以 p3d.x 作为一维位置源
+                    const uint64_t ts_ms =
+                        std::chrono::duration_cast<std::chrono::milliseconds>(
+                            std::chrono::high_resolution_clock::now().time_since_epoch()
+                        ).count();
+
+
+                    bool has_rel=false; double rel_cm=0.0, rel_cm_s=0.0;
+                    std::tie(has_rel, rel_cm, rel_cm_s) = base.ingest(ts_ms, p3d.x);
+
+                    // 一旦锁定，可（可选）保存到磁盘
+                    // if (base.baseline_found) saveBaselineToDisk(cam_id_, base);
+
+                    // [BASELINE+] 基于基线的原始位移（米），注意方向：基线-当前 or 当前-基线二选一，与你之前定义保持一致
+                    const double d_raw_m = base.baseline_found ? (base.baseline_m - p3d.x) : 0.0;
+
+                    // [BASELINE+] 角度补偿（把你的 A、B 换成标定值；下行是把 cm 换成 m）
+                    constexpr double A = 0;//11.5230 / 100.0;   // 0.11523 m
+                    constexpr double B = 0;//-1.9806 / 100.0;   // -0.019806 m
+                    const double est_depth_m = d_raw_m + A * cos_theta + B;
+
+                    // —— 你原有的 est_depth 用 est_depth_m 替代（你的变量是 est_depth，单位m）
+                    double est_depth = est_depth_m;
                     
                     auto end = std::chrono::high_resolution_clock::now();
                     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
